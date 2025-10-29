@@ -1,0 +1,356 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --cor-black: #000;
+    --cor-blue: #0052cc;
+    --cor-white: #fff;
+    --cor-white-trans: rgba(255, 255, 255, 0.1);
+    --cor-white-light: rgba(255, 255, 255, 0.3);
+    --cor-shadow: rgba(0, 0, 0, 0.25);
+    --cor-accent: #00c4ff;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    color: var(--cor-white);
+}
+
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index:0;
+    filter: brightness(0.6);
+}
+
+
+
+.caixa-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 420px;
+    width: 90%;
+    padding: 40px 50px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 14px;
+    border: 2px solid var(--cor-white-light);
+    box-shadow: 0 0 20px var(--cor-shadow);
+    backdrop-filter: blur(15px);
+    text-align: center;
+}
+
+.caixa-login h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--cor-white);
+    margin-top: 10px;
+}
+
+.caixa-login h1 span {
+    color: var(--cor-accent);
+}
+
+.caixa-login h2 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 2rem;
+    margin: 30px 0 20px;
+    color: var(--cor-white);
+}
+
+
+.titulo {
+    position: relative;
+    z-index: 1;
+    margin: 50px auto 40px auto;
+    padding: 40px 40px;      
+    max-width: 400px;        
+    width: 90%;              
+    text-align: center;      
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.5);  
+}
+
+.logo-box {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cor-blue), var(--cor-accent));
+    margin: 0 auto 16px auto;
+    box-shadow: 0 4px 14px var(--cor-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-box img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.titulo h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--cor-white);
+}
+
+.titulo h1 span {
+    color: var(--cor-accent);
+}
+
+.container {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 420px;
+    padding: 40px 50px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 14px;
+    border: 2px solid var(--cor-white-light);
+    box-shadow: 0 0 20px var(--cor-shadow);
+    backdrop-filter: blur(15px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--cor-white);
+}
+
+.input-box {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: var(--cor-white-light);
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    border: 1.5px solid var(--cor-white-light);
+    border-radius: 8px;
+    background: var(--cor-white-trans);
+    color: var(--cor-white);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-box input::placeholder {
+    color: var(--cor-white-light);
+}
+
+.input-box input:focus {
+    outline: none;
+    border-color: var(--cor-accent);
+}
+
+.input-box input[type="password"]:focus {
+    color: var(--cor-accent);
+}
+
+.input-box input:focus + .icon {
+    color: var(--cor-accent);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--cor-accent);
+    color: var(--cor-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--cor-accent);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-login:hover {
+    background: #0099e6;
+    box-shadow: 0 6px 20px #0099e6;
+}
+
+.btn-login:active {
+    background: #0077b3;
+    box-shadow: none;
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        padding: 30px 40px;
+        max-width: 280px;
+    }
+
+    .container {
+        padding: 30px 25px;
+        max-width: 320px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .titulo {
+        padding: 20px 30px;
+        max-width: 280px;
+    }
+
+    .titulo h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo-box {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 12px;
+    }
+
+    .container {
+        padding: 25px 20px;
+        max-width: 320px;
+        width: 90%;
+    }
+
+    .container h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .input-box input {
+        font-size: 14px;
+        padding: 12px 12px 12px 40px;
+    }
+
+    .input-box .icon {
+        font-size: 18px;
+        left: 12px;
+    }
+
+    .btn-login {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .titulo {
+        padding: 15px 20px;
+        max-width: 260px;
+    }
+
+    .titulo h1 {
+        font-size: 1.6rem;
+    }
+
+    .logo-box {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 20px 15px;
+        max-width: 280px;
+        width: 95%;
+    }
+
+    .container h1 {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+
+    .input-box input {
+        font-size: 13px;
+        padding: 10px 10px 10px 36px;
+    }
+
+    .input-box .icon {
+        font-size: 16px;
+        left: 10px;
+    }
+
+    .btn-login {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .titulo {
+        padding: 10px 15px;
+        max-width: 240px;
+    }
+
+    .titulo h1 {
+        font-size: 1.4rem;
+    }
+
+    .logo-box {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 8px;
+    }
+
+    .container {
+        padding: 15px 10px;
+        max-width: 260px;
+        width: 100%;
+    }
+
+    .container h1 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .input-box input {
+        font-size: 12px;
+        padding: 8px 8px 8px 32px;
+    }
+
+    .input-box .icon {
+        font-size: 14px;
+        left: 8px;
+    }
+
+    .btn-login {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

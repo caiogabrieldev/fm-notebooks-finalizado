@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADM FM-NOTEBOOKS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
+  <meta name="description" content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
+  <meta name="author" content="Caio Gabriel, Iago Borges">
+  
+  <link rel="stylesheet" href="css/adm.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menu de administração">
+    <div class="sidebar-header">
+      <div class="logo-mobile">FM<span>Notebooks</span></div>
+      <button class="close-sidebar" id="close-sidebar" aria-label="Fechar menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button style="align-text: left;" id="btn-produtos" onclick="mostrar('produtos')" aria-label="Gerenciar produtos">
+        <i class="fas fa-box" aria-hidden="true"></i> <span>Produtos</span>
+      </button>
+
+      <button id="btn-banners" onclick="mostrar('banners')" aria-label="Gerenciar banners promocionais">
+        <i class="fas fa-image" aria-hidden="true"></i> <span>Banners Promocionais</span>
+      </button>
+
+      <button id="btn-prod-promocoes" onclick="mostrar('prod-promocoes')" aria-label="Gerenciar produtos em promoção">
+        <i class="fas fa-tags" aria-hidden="true"></i> <span>Produtos em Promoção</span>
+      </button>
+
+      <button id="btn-secao-flexivel" class="active" onclick="mostrar('secao-flexivel')" aria-label="Gerenciar seção flexível">
+        <i class="fas fa-layer-group" aria-hidden="true"></i> <span>Seção Flexível</span>
+      </button>
+
+      <button aria-label="Adicionar administrador" onclick="mostrar('add-adm')">
+        <i class="fas fa-cogs" aria-hidden="true"></i> <span>Adicionar ADM</span>
+      </button>
+
+      <button onclick="produtoAddMostrar()" id="btn-prod-add" aria-label="Adicionar novo produto">
+        <i class="fa fa-add" aria-hidden="true"></i> <span>Adicionar Produto</span>
+      </button>
+
+      <button onclick="bannerAddMostrar()" id="btn-banner-add" style="display: none;" aria-label="Adicionar novo banner">
+        <i class="fa fa-add" aria-hidden="true"></i> <span>Adicionar Banner</span>
+      </button>
+    </nav>
+  </aside>
+
+  <!-- HEADER -->
+  <header class="admin-header" role="banner">
+    <div class="header-content">
+      <button class="toggle-sidebar" id="toggle-sidebar" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="logo">FM<span>Notebooks</span></div>
+      <div class="search-box" role="search" aria-label="Buscar produtos">
+        <input id="inputS" type="text" placeholder="Buscar..." aria-label="Campo de busca">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main role="main" id="main-content">
+
+    <!-- ============================SEÇÃO FLEXÍVEL========================================= -->
+    <section class="secao-flexivel" id="secao-flexivel">
+
+      <!-- Campo Nome da Seção -->
+      <div class="secao-config">
+        <div class="config-header">
+          <h2><i class="fas fa-layer-group"></i> Configuração da Seção</h2>
+        </div>
+
+        <div class="nome-secao-container">
+          <label for="nome-secao">Nome da Seção</label>
+          <input type="text" id="nome-secao" placeholder="Nome será preenchido pelo backend..." readonly>
+          <button class="btn-editar" onclick="editarNomeSecao()">
+            <i class="fas fa-edit"></i> Editar
+          </button>
+        </div>
+      </div>
+
+      <!-- Pesquisa de Produtos -->
+      <div class="produtos-search-container">
+        <div class="search-header">
+          <h3><i class="fas fa-search"></i> Pesquisar Produtos</h3>
+        </div>
+
+        <div class="search-produtos-flexivel">
+          <input type="text" id="buscar-produtos-flexivel" placeholder="Digite para pesquisar produtos..." oninput="filtrarProdutosFlexivel()">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+      </div>
+
+      <!-- Lista de Produtos -->
+      <div class="produtos-flexivel-container">
+        <div class="produtos-flexivel-header">
+          <h3><i class="fas fa-boxes"></i> Produtos Disponíveis</h3>
+          <span class="produtos-count" id="produtos-count">0 produtos encontrados</span>
+        </div>
+
+        <div class="produtos-flexivel-grid" id="produtos-flexivel-grid">
+          <!-- Produtos serão carregados dinamicamente via JavaScript -->
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+    <!-- ============================Produtos========================================= -->
+    <!-- ============================Produtos========================================= -->
+    <section class="produtos-em-destaque" id="produtos">
+
+      <div id="englobprodutos" class="englobprodutos">
+
+      </div>
+
+
+
+    </section>
+
+
+    <!-- =======================Banners Promocionais ============================-->
+    <!-- =======================Banners Promocionais ============================-->
+
+
+    <section id="banners" class="lista" style="display: none;">
+
+
+      <div class="div-promocao" id="promos">
+
+      </div>
+    </section>
+
+
+
+
+    <!-- =======================PRODUTOS EM PROMOÇÕES ============================-->
+    <!-- Updated promotion cards to include product images and enhanced styling -->
+    <section id="prod-promocoes" class="promocoes-listagem" style="display: none;">
+      <div class="promocoes-grid" id="divVinculo">
+
+      </div>
+    </section>
+
+    <!-- =======================MODAL GERENCIAR PRODUTOS DA PROMOÇÃO ============================-->
+    <!-- Enhanced modal with product images and better layout -->
+    <div id="modal-promocao-produtos" class="modal-promocao-produtos">
+      <div class="modal-content-promocao">
+        <div class="modal-header">
+          <h3 id="modal-promocao-title">Gerenciar Produtos da Promoção</h3>
+          <span class="fechar-modal" onclick="fecharModalPromocao()">&times;</span>
+        </div>
+
+        <div class="search-produtos-promocao">
+          <input type="text" id="buscar-produtos-promocao" placeholder="Pesquisar produtos..." oninput="filtrarProdutos()">
+        </div>
+
+        <div class="produtos-list-promocao" id="produtos-list-promocao">
+          <!-- Produtos serão carregados dinamicamente via JavaScript -->
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-salvar-alteracoes" id="btnSalvarVinculo">
+            Salvar Alterações
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ADICIONAR ADM -->
+
+    <section class="adicionar-adm-section" id="add-adm">
+      <div class="adm-config">
+        <div class="config-header">
+          <h2><i class="fas fa-user-plus"></i> Adicionar Novo Administrador</h2>
+          <p>Preencha os dados abaixo para criar uma nova conta de administrador</p>
+        </div>
+
+        <div class="adm-form-container">
+          <form id="form-adicionar-adm" class="adm-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome-adm">Nome Completo *</label>
+                <input type="text" id="nome-adm" name="nome" required placeholder="Digite o nome completo">
+              </div>
+              <div class="form-group">
+                <label for="email-adm">Email *</label>
+                <input type="email" id="email-adm" name="email" required placeholder="Digite o email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="senha-adm">Senha *</label>
+                <div class="password-input">
+                  <input type="password" id="senha-adm" name="senha" required placeholder="Digite a senha">
+                  <button type="button" class="toggle-password" onclick="togglePassword('senha-adm')">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="form-group" style="display: flex; justify-content: flex-start;width: 100%;">
+                <label for="telefone-adm">Telefone</label>
+                <input type="tel" id="telefone-adm" name="telefone" placeholder="(00) 00000-0000">
+              </div>
+            </div>
+
+            <div class="form-row">
+
+
+            </div>
+
+            <div class="form-group full-width">
+
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-salvar-adm" onclick="addAdm()">
+                <i class="fas fa-user-plus"></i> Criar Administrador
+              </button>
+              <button type="reset" class="btn-limpar">
+                <i class="fas fa-eraser"></i> Limpar Campos
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="adm-lista-container">
+        <div class="lista-header">
+          <h3><i class="fas fa-users"></i> Administradores Cadastrados</h3>
+          <span class="adm-count" id="adm-count">3 administradores</span>
+        </div>
+
+        <div class="adm-search">
+          <input type="text" id="buscar-adm" placeholder="Buscar administrador..." oninput="filtrarAdministradores()">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="adm-grid" id="adm-grid">
+
+          
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================ADICIONAR NOVO PRODUTO======================================== -->
+    <!-- ============================ADICIONAR NOVO PRODUTO======================================== -->
+    <!-- ============================ADICIONAR NOVO PRODUTO======================================== -->
+
+
+    <section class="mod-prod" id="modo-produto">
+
+
+      <div class="div-mod-prod">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <h2>ADICIONAR NOVO PRODUTO</h2>
+
+
+        <div class="mod-prod-form">
+
+
+          <form action="/" id="form-produto-add">
+
+
+            <div class="descricoes-produto">
+              <label>Nome do Produto</label>
+              <input type="text" placeholder="Nome do Produto" id="nome_produto" required>
+
+
+              <label>Marca</label>
+              <select id="marca_produto" required>
+                <option value="">Selecione uma marca</option>
+                <option value="acer">Acer</option>
+                <option value="apple">Apple</option>
+                <option value="avell">Avell</option>
+                <option value="bright">Bright</option>
+                <option value="dell">Dell</option>
+                <option value="jbl">JBL</option>
+                <option value="kross">Kross Elegance</option>
+                <option value="lenovo">Lenovo</option>
+                <option value="logitech">Logitech</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Redragon">Redragon</option>
+                <option value="Kingston">Kingston</option>
+                <option value="Alltek">Alltek</option>
+                <option value="Havit">Havit</option>
+              </select>
+
+
+              <label>Preço</label>
+              <input type="number" id="preco_produto" step="0.01" required placeholder="R$">
+
+
+              <label for="desc_produto">Descrição</label>
+              <textarea id="desc_produto" name="desc_produto" rows="3" required placeholder="Descrição do Produto"></textarea>
+
+
+
+
+              <label>Categoria</label>
+              <select id="categoria_produto" required>
+                <option value="">Selecione uma categoria</option>
+                <option value="carregadores">Carregadores</option>
+                <option value="combos">Combos</option>
+                <option value="diversos">Diversos</option>
+                <option value="fones-headset">Fones e Headset</option>
+                <option value="mochilas">Mochilas</option>
+                <option value="mouse">Mouse</option>
+                <option value="mousepads">Mouse Pad</option>
+                <option value="pendrives">Pendrive</option>
+                <option value="roteador-repetidores">Roteador e Repetidores</option>
+                <option value="monitores">Monitores</option>
+                <option value="notebooks">Notebooks</option>
+              </select>
+
+
+
+
+
+              <div class="container-desc">
+
+
+                <div class="container-descricao"></div>
+
+
+
+              </div>
+
+
+            </div>
+
+
+            <div class="imgs-produto">
+
+
+              <label>Imagem 1 (Obrigatória)</label>
+              <input type="file" id="img1" required>
+              <div id="preview-img1"></div>
+
+
+              <label>Imagem 2</label>
+              <input type="file" id="img2">
+              <div id="preview-img2"></div>
+
+
+              <label>Imagem 3</label>
+              <input type="file" id="img3">
+              <div id="preview-img3"></div>
+
+
+              <label>Imagem 4</label>
+              <input type="file" id="img4">
+              <div id="preview-img4"></div>
+
+
+            </div>
+          </form>
+
+
+        </div>
+        <div class="botoes-janela">
+          <button id="btn-salvar-prod" class="btn-salvar-prod" type="submit" onclick="adicionarProduto()">Adicionar
+            Produto</button>
+          <button class="btn-salvar-prod" type="submit" onclick="fecharModal()">Cancelar</button>
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+    <!-- ============================ATUALIZAR NOVA PROMOÇÃO======================================== -->
+    <!-- ============================ATUALIZAR NOVA PROMOÇÃO======================================== -->
+
+
+    <section class="mod-promo" id="modo-promo">
+
+
+      <div class="div-mod-promo">
+        <span class="fechar" id="fechar-promo" onclick="fecharModalPromo()">&times;</span>
+
+
+        <h2>ATUALIZAR PROMOÇÃO</h2>
+
+
+        <div class="promocao-div">
+          <h3>Imagem Atual</h3>
+
+
+          <div class="promocao-img">
+            <input type="file" id="imgPromoAtt" required>
+            <div id="preview-imgPromoAtt">
+
+
+              <img src="*" id="imgPreviewPromo">
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+        <div class="botoes-janela">
+          <button class="btn-salvar-prod" id="btnSalvarAttPromo" onclick="atualizarPromo()" type="submit">Atualizar
+            Promoção</button>
+          <button class="btn-salvar-prod" id="btnExcluirPromo" type="submit">Excluir Promoção</button>
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+    <!-- ============================ADICIONAR NOVA PROMOÇÃO======================================== -->
+    <!-- ============================ADICIONAR NOVA PROMOÇÃO======================================== -->
+
+
+    <section class="add-promo" id="adicionar-promo" style="display: none;">
+
+
+      <div class="div-add-promo">
+        <span class="fechar" id="fechar-promo" onclick="fecharAddPromo()">&times;</span>
+
+
+        <h2>ADICIONAR NOVA PROMOÇÃO</h2>
+
+        <div class="styleNomePromoAdd">
+          <div class="styleDoisPromoAdd">
+            <label>Nome da Promoção</label>
+            <input class="inputNomePromoAdd" type="text" placeholder="Nome da Promoção" id="nome_promocao" required>
+          </div>
+
+        </div>
+
+        <div class="promocao-add">
+          <h3>Inserir Nova Imagem()</h3>
+
+
+
+          <div class="promocao-img">
+
+
+            <input type="file" id="img-promo-add">
+            <div class="img-promo" id="img-promo-prev"></div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+
+        <div class="botoes-janela">
+          <button class="btn-salvar-prod" type="submit" onclick="addPromo()">Adicionar Promoção</button>
+          <button class="btn-salvar-prod" type="submit" onclick="fecharAddPromo()">Cancelar</button>
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+    <!-- ==========================ATUALIZAR PRODUTO ESPECÍFICO=============================== -->
+    <!-- ==========================ATUALIZAR PRODUTO ESPECÍFICO=============================== -->
+
+
+    <section class="janela-produto" id="produto-janela">
+      <div class="janela-div">
+        <span class="fechar" onclick="fecharModalJanela()">&times;</span>
+        <h2>INFORMAÇÕES DO PRODUTO</h2>
+
+        <div class="infos-janela">
+
+
+          <div class="janela-descricao">
+
+
+            <div class="imagens-janela">
+              <img id="img1Ex" src="*" alt="">
+              <img id="img2Ex" src="*" alt="">
+              <img id="img3Ex" src="*" alt="">
+              <img id="img4Ex" src="*" alt="">
+            </div>
+
+
+            <div class="info-janela">
+              <p><strong>Nome:</strong><input class="nome-do-produto" id="nomeProdEx"></p>
+              <p><strong>Descrição:</strong><input class="descricao-do-produto" id="descProdEx"></p>
+              <p><strong>Categoria:</strong><input class="categoria-do-produto" id="catProdEx"></p>
+              <p><strong>Preço:</strong><input class="preco-do-produto" id="precoProdEx"></p>
+              <p><strong>Marca:</strong><input class="marca-do-produto" id="marcaProdEx"></p>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+        <div class="botoes-janela">
+          <button class="btn-salvar-prod" id="btnAtualizar" type="submit" onclick="atualizarProd()">Atualizar Produto</button>
+          <button class="btn-salvar-prod" id="btnExcluir" type="submit" onclick="excluirProd()">Excluir Produto</button>
+        </div>
+
+
+      </div>
+    </section>
+
+
+
+
+    <!-- ==========================ADICIONAR PROMOÇÃO ESPECÍFICA=============================== -->
+    <!-- ==========================ADICIONAR PROMOÇÃO ESPECÍFICA=============================== -->
+
+
+    <section class="janela-promocao" id="promocao-janela" style="display: none;">
+      <div class="janela-div">
+        <span class="fechar" onclick="fecharModalJanelaPromo()">&times;</span>
+        <h2>INFORMAÇÕES DA PROMOÇÃO</h2>
+
+
+        <div class="infos-janela">
+
+
+          <div class="janela-descricao">
+
+
+            <div class="imagens-janela">
+              <h3>Imagem Atual</h3>
+              <img id="img1" src="img/mochilas/kross-elegance.png" alt="">
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="botoes-janela">
+        <button class="btn-salvar-prod" type="submit" onclick="atualizarPromo()">Atualizar Promoção</button>
+        <button class="btn-salvar-prod" type="submit" onclick="excluirPromo()">Excluir Promoção</button>
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+  <script>
+     function togglePassword(inputId) {
+      const input = document.getElementById(inputId);
+      const button = input.nextElementSibling;
+      const icon = button.querySelector('i');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    // Controle da sidebar responsiva
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleSidebar = document.getElementById('toggle-sidebar');
+      const closeSidebar = document.getElementById('close-sidebar');
+      const sidebar = document.getElementById('sidebar');
+
+      // Abrir sidebar
+      toggleSidebar.addEventListener('click', function() {
+        sidebar.classList.add('active');
+      });
+
+      // Fechar sidebar
+      closeSidebar.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+      });
+
+      // Fechar sidebar ao clicar em um item do menu em telas pequenas
+      const sidebarButtons = sidebar.querySelectorAll('button');
+      sidebarButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          if (window.innerWidth <= 992) {
+            sidebar.classList.remove('active');
+          }
+        });
+      });
+
+      // Ajustar sidebar ao redimensionar a tela
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+          sidebar.classList.remove('active');
+        }
+      });
+    });
+
+    let globalPromocoes;
+    document.getElementById('btnSalvarVinculo').addEventListener('click', salvarAlteracoesPromocaoModal)
+    document.getElementById('btnExcluirPromo').addEventListener('click', excluirPromo);
+    document.getElementById('btnExcluir').addEventListener('click', excluirProd);
+    document.getElementById('btnAtualizar').addEventListener('click', atualizarProd);
+    // GERADOR DO CÓDIGO DE ACESSO DO PRODUTO
+
+
+    function gerarCodigoAcessoProd() {
+      return Math.random().toString(36).substring(2, 2 + 10);
+    }
+
+
+    // ----------------------FUNÇÃO DE ADICIONAR A DESCRIÇÃO DO PRODUTO---------------------------------
+    function criarLinha() {
+      let tr = document.createElement('tr');
+      tr.innerHTML = `
+    <td><input type="text" placeholder="Atributo Ex: Capacidade"></td>
+    <td><input type="text" placeholder="Valor Ex: 20 litros"></td>
+    <td style="text-align:center;">
+      <button class="btn btn-excluir" onclick="excluirLinha(this)"><i class="fa fa-trash"></i></button>
+    </td>
+  `;
+      return tr;
+    }
+
+
+    function adicionarTabela() {
+      let div = document.createElement('div');
+      div.className = "tabela";
+
+
+      div.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+      <label><strong>Especificações técnicas:</strong></label>
+      
+    </div>
+   
+    <table>
+      <tbody id="tabelaEspecificacoes"></tbody>
+    </table>
+    <button class="btn" onclick="adicionarLinha(this)">Adicionar Linha</button>
+  `;
+
+
+      let tbody = div.querySelector('tbody');
+      tbody.appendChild(criarLinha());
+
+
+      document.querySelector('.container-descricao').appendChild(div);
+    }
+
+    function mostrarPreview(inputId, previewId) {
+      const input = document.getElementById(inputId);
+      const preview = document.getElementById(previewId);
+
+
+      input.addEventListener("change", function(event) {
+        const arquivo = event.target.files[0];
+        preview.innerHTML = ""; // Limpa a imagem anterior
+
+
+        if (arquivo) {
+          const reader = new FileReader();
+
+
+          reader.onload = function(e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.style.maxWidth = "120px";
+            img.style.maxHeight = "120px";
+            img.style.border = "1px solid #ccc";
+            img.style.borderRadius = "6px";
+            img.style.marginTop = "10px";
+            preview.appendChild(img);
+          };
+
+
+          reader.readAsDataURL(arquivo);
+        }
+      });
+    }
+
+
+    // Chamando para cada imagem
+    mostrarPreview("imgPromoAtt", "preview-imgPromoAtt");
+    mostrarPreview("img-promo-add", "img-promo-prev");
+    mostrarPreview("img1", "preview-img1");
+    mostrarPreview("img2", "preview-img2");
+    mostrarPreview("img3", "preview-img3");
+    mostrarPreview("img4", "preview-img4");
+
+    function Promocao(e) {
+
+
+      document.getElementById('modo-promo').style.display = 'block';
+      const btnSalvar = document.getElementById('btnSalvarAttPromo')
+      const btnExcluir = document.getElementById('btnExcluirPromo')
+      const img1 = document.getElementById('imgPreviewPromo')
+      const chave = e.currentTarget.getAttribute('name')
+
+
+      fetch('http://localhost:5090/get-infos-promo/' + chave, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter informações')
+          return response.json()
+        })
+        .then(data => {
+
+          btnSalvar.setAttribute('name', data.chaveAcessPromo)
+          btnExcluir.setAttribute('name', data.chaveAcessPromo)
+          img1.src = data.urlImgPromo
+        })
+        .catch(error => console.error('Erro ao obter informações', error))
+    }
+
+    function fecharModalPromo() {
+      document.getElementById('modo-promo').style.display = 'none';
+    }
+
+    function Produto(e) {
+      const img1 = document.getElementById('img1Ex')
+      const img2 = document.getElementById('img2Ex')
+      const img3 = document.getElementById('img3Ex')
+      const img4 = document.getElementById('img4Ex')
+      const chave = e.currentTarget.getAttribute('name')
+      const nome = document.getElementById('nomeProdEx')
+      const descricao = document.getElementById('descProdEx')
+      const marca = document.getElementById('marcaProdEx')
+      const categoria = document.getElementById('catProdEx')
+      const preco = document.getElementById('precoProdEx')
+      const btnEx = document.getElementById('btnExcluir')
+
+
+      document.getElementById('produto-janela').style.display = 'block';
+
+
+      fetch('http://localhost:5090/get-infos/' + chave, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter informações')
+          return response.json()
+        })
+        .then(data => {
+          btnEx.setAttribute('name', data.chaveAcessProd)
+          nome.value = data.nomeProd
+          marca.value = data.marcaProd
+          categoria.value = data.catProd
+          preco.value = data.precoProd
+          descricao.value = data.descricaoProd
+          img1.src = data.urlImgProd1
+          if (data.urlImgProd2 != null) {
+            img2.src = data.urlImgProd2
+          } else {
+            img2.style.display = 'none'
+          }
+          if (data.urlImgProd3) {
+            img3.src = data.urlImgProd3
+          } else {
+            img3.style.display = 'none'
+          }
+          if (data.urlImgProd4) {
+            img4.src = data.urlImgProd4
+          } else {
+            img4.style.display = 'none'
+          }
+        })
+        .catch(error => console.error('Erro ao obter informações', error))
+    }
+
+    function adicionarLinha(botao) {
+      let tbody = botao.previousElementSibling.querySelector("tbody");
+      tbody.appendChild(criarLinha());
+    }
+
+
+    function excluirLinha(botao) {
+      botao.closest("tr").remove();
+    }
+
+
+    function excluirTabela(botao) {
+      botao.closest(".tabela").remove();
+    }
+
+
+    window.onload = adicionarTabela;
+
+    function renderizarProdutos(produtosFiltrados) {
+     
+      const englobprodutos = document.getElementById('englobprodutos')
+      englobprodutos.innerHTML = ''
+
+
+      produtosFiltrados.forEach(produto => {
+      
+        const imgProd = document.createElement('img')
+        imgProd.src = produto.urlImgProd1
+        imgProd.alt = produto.nomeProd
+
+
+        const nomeProd = document.createElement('h3')
+        nomeProd.innerText = produto.nomeProd
+
+
+        const divPreco = document.createElement('div')
+        divPreco.className = 'preco'
+
+
+        const spanPreco = document.createElement('span')
+        spanPreco.className = 'preco-novo'
+        spanPreco.innerText = 'R$ ' + produto.precoProd
+
+
+        divPreco.appendChild(spanPreco)
+
+
+        const divProd = document.createElement('div')
+        divProd.className = 'produto'
+        divProd.appendChild(imgProd)
+        divProd.appendChild(nomeProd)
+        divProd.appendChild(divPreco)
+        divProd.addEventListener('click', Produto)
+        divProd.setAttribute('name', produto.chaveAcessProd)
+
+        englobprodutos.appendChild(divProd)
+      })
+    }
+    function excluirAdministrador(id){
+      fetch('http://localhost:5090/delete-adm/' + id, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao excluir adm')
+          return response.json()
+        })
+        .then(data => {
+          window.location.href = window.location.href
+          console.log("Sucesso ao excluir adm")
+        })
+        .catch(error => console.error('Erro ao excluir adm', error))
+    }
+
+
+    let listaPraVinc;
+    let produtosFiltradosFlex;
+    let admsVindos;
+    document.addEventListener('DOMContentLoaded', () => {
+      mostrar('produtos');
+      const englobpromos = document.getElementById('promos')
+      const inputBusca = document.getElementById('inputS')
+      const divVinculoEnglob = document.getElementById('divVinculo')
+
+      fetch('http://localhost:5090/adms', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter informações')
+          return response.json()
+        })
+        .then(data => {
+         
+            admsVindos=data.adms
+            data.adms.forEach((adm) => {
+              document.getElementById('adm-count').innerText=data.adms.length+" administradores encontrados"
+              const divAdmCart = document.createElement('div')
+              divAdmCart.className = 'adm-card' 
+
+              const divInfo = document.createElement('div')
+              divInfo.className = 'adm-info'
+
+              const h4 = document.createElement('h4')
+              h4.innerText = adm.nomeAdm
+
+              const p1 = document.createElement('p')
+              p1.className = 'adm-email'
+              p1.innerText = adm.emailAdm
+
+              const p2 = document.createElement('p')
+              p2.className = 'adm-data'
+         
+              const dataCriacao = new Date(adm.createdAt).toLocaleDateString('pt-BR')
+              p2.innerText = `Criado em: ${dataCriacao}`
+
+              divInfo.appendChild(h4)
+              divInfo.appendChild(p1)
+              divInfo.appendChild(p2)
+
+              const divAcoes = document.createElement('div')
+              divAcoes.className = 'adm-acoes'
+
+        
+
+              const btnExcluir = document.createElement('button')
+              btnExcluir.className = 'btn-excluir-adm'
+              btnExcluir.innerHTML = '<i class="fas fa-trash"></i>'
+              btnExcluir.onclick = () => excluirAdministrador(adm.idAdm)
+
+             
+              divAcoes.appendChild(btnExcluir)
+
+              divAdmCart.appendChild(divInfo)
+              divAdmCart.appendChild(divAcoes)
+
+              document.querySelector('.adm-grid').appendChild(divAdmCart)
+            })
+          
+
+
+        })
+    .catch(error => console.error('Erro ao obter informações', error))
+
+    fetch('http://localhost:5090/get-divflex', {
+      method: 'GET'
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Erro ao obter produtos')
+      return response.json()
+    })
+    .then(data => {
+  
+      preecherNomeSecao(data.div.nomeSecaoFlex)
+    })
+    .catch(error => console.error('Fetch error (produtos):', error))
+
+    fetch('http://localhost:5090/produtos', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Erro ao obter produtos')
+      return response.json()
+    })
+    .then(data => {
+      produtosData = data;
+      listaPraVinc = data;
+      produtosFiltradosFlex = data;
+  
+      carregarProdsVinc()
+  
+      renderizarProdutos(produtosData)
+      renderizarProdutosFlexivel(data)
+    })
+    .catch(error => console.error('Fetch error (produtos):', error))
+
+
+
+
+    fetch('http://localhost:5090/promocoes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Erro ao obter promocoes')
+      return response.json()
+    })
+    .then(data => {
+      globalPromocoes = data
+      data.forEach(promo => {
+        const imgPromoBanner = document.createElement('img')
+        imgPromoBanner.src = promo.urlImgPromo
+
+        const imgPromoVinculo = document.createElement('img')
+        imgPromoVinculo.src = promo.urlImgPromo
+        imgPromoVinculo.className = "promocao-image"
+
+        const spanVinculo = document.createElement('span')
+        spanVinculo.className = 'promocao-title'
+        spanVinculo.innerText = promo.nomePromocao
+
+
+        const divPromo = document.createElement('div')
+        divPromo.className = 'div-promocao-1'
+        divPromo.setAttribute('name', promo.chaveAcessPromo)
+        divPromo.addEventListener('click', Promocao)
+        divPromo.appendChild(imgPromoBanner)
+
+        englobpromos.appendChild(divPromo)
+
+        const divPromoVinculo = document.createElement('div')
+        const divContentVinculo = document.createElement('div')
+
+        divContentVinculo.className = 'promocao-content'
+        divPromoVinculo.className = 'promocao-card'
+
+
+        divPromoVinculo.setAttribute('name', promo.idPromo)
+
+        divContentVinculo.appendChild(imgPromoVinculo)
+        divContentVinculo.appendChild(spanVinculo)
+        divPromoVinculo.appendChild(divContentVinculo)
+        divPromoVinculo.addEventListener('click', abrirModalPromocao)
+        divVinculoEnglob.appendChild(divPromoVinculo)
+      })
+    })
+    .catch(error => console.error('Erro ao obter promocoes', error))
+
+
+
+
+    inputBusca.addEventListener('input', (event) => {
+      const termo = event.target.value.toLowerCase()
+
+
+      const produtosFiltrados = produtosData.filter(prod =>
+        prod.nomeProd.toLowerCase().includes(termo)
+      )
+
+
+      renderizarProdutos(produtosFiltrados)
+    })
+    })
+
+
+    function filtrarAdministradores() {
+      const termo = document.getElementById('buscar-adm').value.toLowerCase();
+      const cards = document.querySelectorAll('.adm-card');
+      let visibleCount = 0;
+      
+      cards.forEach(card => {
+        const nome = card.querySelector('h4').textContent.toLowerCase();
+        const email = card.querySelector('.adm-email').textContent.toLowerCase();
+       
+        
+        if (nome.includes(termo) || email.includes(termo)) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Update counter with filtered results
+      const counter = document.getElementById('adm-count');
+      if (termo === '') {
+        counter.textContent = `${cards.length} administradores`;
+      } else {
+        counter.textContent = `${visibleCount} de ${cards.length} administradores`;
+      }
+    }
+
+
+    // Elementos principais
+    const btnRemover = document.getElementById('btn-remover');
+    const btnAdicionar = document.getElementById('btn-adicionar');
+    const listaRemover = document.getElementById('lista-remover');
+    const listaAdicionar = document.getElementById('lista-adicionar');
+
+
+    // Botões de ação em massa
+    const aplicarRemocao = document.getElementById('aplicar-remocao');
+    const limparRemocao = document.getElementById('limpar-remocao');
+    const aplicarAdicao = document.getElementById('aplicar-adicao');
+    const limparAdicao = document.getElementById('limpar-adicao');
+
+
+    // Função para mostrar/esconder listas
+
+
+    let promocaoAtualModal = '';
+    let produtosAlteradosModal = []
+
+    // Dados de exemplo dos produtos
+    const produtosDisponiveisModal = [];
+
+    function carregarProdsVinc() {
+
+
+      listaPraVinc.forEach((prodVinc) => {
+
+        const infosPraAddListVin = {
+          id: prodVinc.idProd,
+          nome: prodVinc.nomeProd,
+          preco: prodVinc.precoProd,
+          imagem: prodVinc.urlImgProd1,
+          descricao: prodVinc.descricaoProd,
+          idPromo: prodVinc.idPromoVinc
+        }
+
+
+        produtosDisponiveisModal.push(infosPraAddListVin)
+      })
+    }
+
+    function abrirModalPromocao(e) {
+      promocaoAtualModal = e.currentTarget.getAttribute('name');
+  
+      document.getElementById('btnSalvarVinculo').setAttribute('name', promocaoAtualModal)
+      const modal = document.getElementById('modal-promocao-produtos');
+      modal.style.display = 'flex';
+      modal.classList.add('show');
+      carregarProdutosModal(promocaoAtualModal);
+    }
+
+    function fecharModalPromocao() {
+      const modal = document.getElementById('modal-promocao-produtos');
+      modal.style.display = 'none';
+      modal.classList.remove('show');
+      produtosAlteradosModal.length = 0
+      document.getElementById('buscar-produtos-promocao').value = '';
+    }
+
+    document.getElementById('modal-promocao-produtos').addEventListener('click', function(e) {
+      if (e.target === this) {
+        fecharModalPromocao();
+      }
+    });
+
+    function carregarProdutosModal(idPromo) {
+      const grid = document.getElementById('produtos-list-promocao');
+      grid.innerHTML = '';
+
+      produtosDisponiveisModal.forEach(produto => {
+        const produtoItem = document.createElement('div');
+        produtoItem.className = 'produto-item';
+        produtoItem.setAttribute('id','produtoITEM')
+        produtoItem.dataset.produtoId = produto.id;
+
+        const button = document.createElement('button');
+      
+        if (produto.idPromo == idPromo) {
+          button.className = 'btn-adicionar adicionado'
+          button.textContent = 'Remover da promoção'
+        } else {
+          button.className = 'btn-adicionar'
+          button.textContent = 'Adicionar à promoção'
+        }
+
+
+        // Aqui está a chave → o botão muda ao clicar
+
+        button.addEventListener('click', () => toggleProdutoPromocao(produto.id, idPromo));
+
+        produtoItem.innerHTML = `
+      <div class="produto-imagem1">
+        <img src="${produto.imagem}" alt="${produto.nome}" class="produto-img1">
+      </div>
+      <div class="produto-info1">
+        <div style='width: 100%;'>
+        <div class="produto-nome" id="prodNOME">${produto.nome}</div>
+        <div class="produto-descricao">${produto.descricao}</div>
+        <div class="produto-preco">${produto.preco}</div>
+        </div>
+      </div>
+    `;
+
+        produtoItem.querySelector('.produto-info1').appendChild(button);
+        grid.appendChild(produtoItem);
+      });
+    }
+
+    function toggleProdutoPromocao(produtoId, promoId) {
+  
+      let status;
+      const produto = produtosDisponiveisModal.find(p => p.id === produtoId);
+      if (!produto) return;
+
+      // alterna status
+      if (produto.idPromo != null) {
+        status = false
+        produto.idPromo = null
+      } else {
+        status = true
+        produto.idPromo = promoId;
+      }
+      const prodModificado = {
+        id: produtoId,
+        status: status
+      }
+
+      // registra alteração
+      let achou = 0;
+      for (const prod of produtosAlteradosModal) {
+        if (prod.id == prodModificado.id) {
+          prod.status = prodModificado.status
+          achou = 1;
+          break;
+        }
+      }
+      if (achou == 0) {
+        produtosAlteradosModal.push(prodModificado);
+      }
+
+
+      // re-renderiza para atualizar o botão
+      carregarProdutosModal(promoId);
+    }
+
+
+    function filtrarProdutos() {
+      const busca = document.getElementById('buscar-produtos-promocao').value.toLowerCase();
+      const items = document.querySelectorAll('.produto-item');
+
+      items.forEach(item => {
+        const nome = item.querySelector('.produto-nome').textContent.toLowerCase();
+        const preco = item.querySelector('.produto-preco').textContent.toLowerCase();
+
+        if (nome.includes(busca) || preco.includes(busca)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function salvarAlteracoesPromocaoModal(e) {
+      const idPromo = e.currentTarget.getAttribute('name')
+
+      if (produtosAlteradosModal.length === 0) {
+        alert('Nenhuma alteração foi feita.');
+        return;
+      }
+      const infos = {
+        idPromo: idPromo,
+        array: produtosAlteradosModal
+      }
+      fetch('http://localhost:5090/vinc-promo/', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(infos)
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao vincular produtos')
+          return response.json()
+        })
+        .then(data => {
+          console.log("Sucesso ao vincular produtos")
+        })
+        .catch(error => console.error('Erro ao editar produto', error))
+
+      fecharModalPromocao();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('modal-promocao-produtos');
+        if (modal.classList.contains('show')) {
+          fecharModalPromocao();
+        }
+      }
+    });
+
+    function produtoAddMostrar() {
+      document.getElementById('modo-produto').style.display = 'block';
+    }
+
+    function bannerAddMostrar() {
+      document.getElementById('adicionar-promo').style.display = 'block';
+    }
+
+    function fecharModal() {
+      document.getElementById('modo-produto').style.display = 'none';
+    }
+
+    function fecharAddPromo() {
+      document.getElementById('adicionar-promo').style.display = 'none';
+    }
+
+    function fecharModalJanela() {
+      document.getElementById('produto-janela').style.display = 'none';
+    }
+
+    function fecharModalJanelaPromo() {
+      document.getElementById('promocao-janela').style.display = 'none';
+    }
+
+    function adicionarProduto() {
+
+      const formData = new FormData()
+
+      let especificacoesTecnicas = []
+
+      const tbody = document.getElementById('tabelaEspecificacoes')
+
+      const trs = tbody.querySelectorAll('tr')
+
+
+      trs.forEach((linha) => {
+        const celulas = linha.querySelectorAll('td')
+  
+        if (celulas[0].childNodes[0].value && celulas[1].childNodes[0].value) {
+          especificacoesTecnicas.push({
+            atributo: celulas[0].childNodes[0].value,
+            valor: celulas[1].childNodes[0].value
+          })
+        }
+
+      })
+
+
+      const nomeProd = document.getElementById('nome_produto').value
+      const marcaProd = document.getElementById('marca_produto').value
+      const descProd = document.getElementById('desc_produto').value
+      const precoProd = document.getElementById('preco_produto').value
+      const catProd = document.getElementById('categoria_produto').value
+      const imgProd1 = document.getElementById('img1').files[0]
+      const imgProd2 = document.getElementById('img2').files[0]
+      const imgProd3 = document.getElementById('img3').files[0]
+      const imgProd4 = document.getElementById('img4').files[0]
+      const chaveAcessProd = gerarCodigoAcessoProd()
+
+
+
+      if (!nomeProd || !marcaProd || !descProd || !precoProd || !catProd || !catProd || !imgProd1 || especificacoesTecnicas.length == 0) {
+        alert("Preencha todos os campos!")
+        return
+      } else {
+        console.log(especificacoesTecnicas);
+      }
+
+      if (imgProd1) formData.append('imagem1', imgProd1)
+      if (imgProd2) formData.append('imagem2', imgProd2)
+      if (imgProd3) formData.append('imagem3', imgProd3)
+      if (imgProd4) formData.append('imagem4', imgProd4)
+
+
+      formData.append('nomeProd', nomeProd)
+      formData.append('marcaProd', marcaProd)
+      formData.append('descricaoProd', descProd)
+      formData.append('precoProd', precoProd)
+      formData.append('catProd', catProd)
+      formData.append('chaveAcessProd', chaveAcessProd)
+      formData.append('especicficacoesTecnicas', JSON.stringify(especificacoesTecnicas))
+
+      fetch('http://localhost:5090/add-prod', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => document.getElementById('btn-salvar-prod').style.display = 'block', fecharModal(), window.location.reload())
+        .catch(err => console.error('Erro:', err));
+
+
+    }
+
+    function atualizarProd() {
+      const formData = new FormData()
+
+
+      const nome = document.getElementById('nomeProdEx').value
+      const descricao = document.getElementById('descProdEx').value
+      const marca = document.getElementById('marcaProdEx').value
+      const categoria = document.getElementById('catProdEx').value
+      const preco = document.getElementById('precoProdEx').value
+      const chave = document.getElementById('btnExcluir').getAttribute('name')
+
+
+      formData.append('nomeProd', nome)
+      formData.append('descricaoProd', descricao)
+      formData.append('marcaProd', marca)
+      formData.append('catProd', categoria)
+      formData.append('preco', preco)
+
+      const infosAtualizadas = {
+        nomeProd: nome,
+        descricaoProd: descricao,
+        marcaProd: marca,
+        catProd: categoria,
+        precoProd: preco
+      }
+
+
+      fetch('http://localhost:5090/atualizar-prod/' + chave, {
+          method: 'PUT',
+          body: JSON.stringify(infosAtualizadas),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao editar produto')
+          return response.json()
+        })
+        .then(data => {
+          fecharModalJanela()
+          window.location.href = window.location.href
+          console.log("Sucesso ao editar produto")
+        })
+        .catch(error => console.error('Erro ao editar produto', error))
+
+    }
+
+    function addPromo() {
+
+      const formData = new FormData()
+
+
+      const imgPromo = document.getElementById('img-promo-add').files[0]
+      const nomePromo = document.getElementById('nome_promocao').value
+
+      if (!imgPromo || !nomePromo) {
+        alert('Preencha todos os campos!')
+        return
+      }
+
+      const chaveAcess = gerarCodigoAcessoProd()
+
+      if (imgPromo) formData.append('imagem', imgPromo)
+      formData.append('chaveAcessPromo', chaveAcess)
+      formData.append('nomePromocao', nomePromo)
+
+
+      fetch('http://localhost:5090/add-promo', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            window.location.reload();
+
+          }
+
+        )
+        .catch(err => console.error('Erro:', err));
+
+
+    }
+
+    function excluirProd(e) {
+      const chave = e.currentTarget.getAttribute('name')
+
+
+      fetch('http://localhost:5090/delete-prod/' + chave, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao excluir produto')
+          return response.json()
+        })
+        .then(data => {
+          fecharModalJanela()
+          window.location.href = window.location.href
+          console.log("Sucesso ao excluir produto")
+        })
+        .catch(error => console.error('Erro ao excluir produto', error))
+    }
+
+    function atualizarPromo() {
+      const formData = new FormData()
+
+
+      const img = document.getElementById('imgPromoAtt').files[0]
+      const chave = document.getElementById('btnExcluirPromo').getAttribute('name')
+
+
+      formData.append('imagem', img)
+
+      fetch('http://localhost:5090/atualizar-promo/' + chave, {
+          method: 'PUT',
+          body: formData
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao editar promoção')
+          return response.json()
+        })
+        .then(data => {
+          fecharModalPromo()
+          window.location.href = window.location.href
+          console.log("Sucesso ao editar promoção")
+        })
+        .catch(error => console.error('Erro ao editar produto', error))
+
+    }
+
+    function atualizarProd() {
+      const formData = new FormData()
+
+
+      const nome = document.getElementById('nomeProdEx').value
+      const descricao = document.getElementById('descProdEx').value
+      const marca = document.getElementById('marcaProdEx').value
+      const categoria = document.getElementById('catProdEx').value
+      const preco = document.getElementById('precoProdEx').value
+      const chave = document.getElementById('btnExcluir').getAttribute('name')
+
+
+      formData.append('nomeProd', nome)
+      formData.append('descricaoProd', descricao)
+      formData.append('marcaProd', marca)
+      formData.append('catProd', categoria)
+      formData.append('preco', preco)
+
+      const infosAtualizadas = {
+        nomeProd: nome,
+        descricaoProd: descricao,
+        marcaProd: marca,
+        catProd: categoria,
+        precoProd: preco
+      }
+
+
+      fetch('http://localhost:5090/atualizar-prod/' + chave, {
+          method: 'PUT',
+          body: JSON.stringify(infosAtualizadas),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao editar produto')
+          return response.json()
+        })
+        .then(data => {
+          fecharModalJanela()
+          window.location.href = window.location.href
+          console.log("Sucesso ao editar produto")
+        })
+        .catch(error => console.error('Erro ao editar produto', error))
+
+    }
+
+    function excluirPromo(e) {
+
+
+      const chave = e.currentTarget.getAttribute('name')
+
+
+      fetch('http://localhost:5090/delete-promo/' + chave, {
+          method: 'DELETE',
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao excluir promoção')
+          return response.json()
+        })
+        .then(data => {
+          fecharModalPromo()
+          window.location.href = window.location.href
+          console.log("Sucesso ao excluir promção")
+        })
+        .catch(error => console.error('Erro ao excluir produto', error))
+    }
+
+
+    // Dados simulados de produtos (normalmente viriam do backend)
+    const produtosMock = [{
+        id: 1,
+        nome: "Notebook Gamer Acer Nitro 5",
+        preco: "R$ 3.299,00",
+        imagem: "/notebook-gamer-acer.jpg",
+        vinculado: false,
+      },
+      {
+        id: 2,
+        nome: "MacBook Air M2 13 polegadas",
+        preco: "R$ 8.999,00",
+        imagem: "/macbook-air-m2.png",
+        vinculado: true,
+      },
+      {
+        id: 3,
+        nome: "Dell Inspiron 15 3000",
+        preco: "R$ 2.199,00",
+        imagem: "/dell-inspiron-laptop.png",
+        vinculado: false,
+      },
+      {
+        id: 4,
+        nome: "Lenovo ThinkPad E14",
+        preco: "R$ 4.599,00",
+        imagem: "/lenovo-thinkpad-business.jpg",
+        vinculado: true,
+      },
+      {
+        id: 5,
+        nome: "HP Pavilion Gaming 15",
+        preco: "R$ 3.799,00",
+        imagem: "/hp-pavilion-gaming.jpg",
+        vinculado: false,
+      },
+      {
+        id: 6,
+        nome: "ASUS VivoBook 15",
+        preco: "R$ 2.899,00",
+        imagem: "/asus-vivobook-laptop.jpg",
+        vinculado: false,
+      },
+    ]
+
+
+
+    function preecherNomeSecao(nome) {
+     
+      document.getElementById('nome-secao').value = nome
+    }
+
+    function configurarEventos() {
+      // Evento de pesquisa
+      const inputPesquisa = document.getElementById("buscar-produtos-flexivel")
+      if (inputPesquisa) {
+        inputPesquisa.addEventListener("input", filtrarProdutosFlexivel)
+      }
+
+      const globalSearch = document.getElementById("inputS")
+      if (globalSearch) {
+        globalSearch.addEventListener("input", handleGlobalSearch)
+      }
+    }
+
+    function mostrar(secao) {
+      document.getElementById('btn-prod-add').style.display = 'none'
+      document.getElementById('btn-banner-add').style.display = 'none'
+
+
+      const sections = ["produtos", "banners", "prod-promocoes", "secao-flexivel", "add-adm"]
+      sections.forEach((sectionId) => {
+        const section = document.getElementById(sectionId)
+        if (section) {
+          section.style.display = "none"
+        }
+      })
+
+
+      document.querySelectorAll(".sidebar button").forEach((btn) => {
+        btn.classList.remove("active")
+      })
+
+
+      const btnAtivo = document.getElementById(`btn-${secao}`)
+      if (btnAtivo) {
+        btnAtivo.classList.add("active")
+      }
+
+
+      const targetSection = document.getElementById(secao)
+      if (targetSection) {
+        targetSection.style.display = "block"
+   
+
+        if (secao === "secao-flexivel") {
+          document.getElementById('add-adm').style.display = 'none'
+          document.getElementById('englobprodutos').style.display = 'none'
+          renderizarProdutosFlexivel()
+        } else if (secao == "produtos") {
+          document.getElementById('englobprodutos').style.display = 'block'
+      
+          document.getElementById('btn-prod-add').style.display = 'block'
+        } else if (secao == "banners") {
+      
+          document.getElementById('btn-banner-add').style.display = 'block'
+        } else if (secao == "add-adm") {
+       
+          document.getElementById('add-adm').style.display = 'block'
+        }
+      }
+
+      updatePageTitle(secao)
+    }
+
+
+
+    function handleGlobalSearch(event) {
+      const termo = event.target.value.toLowerCase().trim()
+ 
+
+
+      const currentSection = document.querySelector('section:not([style*="display: none"])')
+      if (currentSection && currentSection.id === "secao-flexivel") {
+        document.getElementById("buscar-produtos-flexivel").value = termo
+        filtrarProdutosFlexivel()
+      }
+    }
+
+    function updatePageTitle(secao) {
+      const titles = {
+        produtos: "Gerenciamento de Produtos",
+        banners: "Banners Promocionais",
+        "prod-promocoes": "Produtos em Promoção",
+        "secao-flexivel": "Seção Flexível",
+      }
+
+      const title = titles[secao] || "Administração"
+      document.title = `ADM FM-NOTEBOOKS - ${title}`
+    }
+
+    function setupMobileNavigation() {
+
+      if (window.innerWidth <= 768) {
+
+      }
+    }
+
+    function editarNomeSecao() {
+      const input = document.getElementById("nome-secao")
+      const isReadonly = input.hasAttribute("readonly")
+
+      if (isReadonly) {
+        input.removeAttribute("readonly")
+        input.focus()
+        input.style.backgroundColor = "var(--cor-white)"
+        input.style.borderColor = "var(--cor-blue)"
+
+
+        const btn = document.querySelector(".btn-editar")
+        btn.innerHTML = '<i class="fas fa-save"></i> Salvar'
+        btn.onclick = salvarNomeSecao
+      }
+    }
+
+    function salvarNomeSecao() {
+
+      const input = document.getElementById("nome-secao")
+      const novoNome = input.value
+
+      if (novoNome === "") {
+        alert("Por favor, insira um nome para a seção.")
+        return
+      }
+
+      // Aqui você faria a requisição para o backend
+
+
+      fetch('http://localhost:5090/atualizar-divflex/' + novoNome, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao atualizar nome')
+          return response.json()
+        })
+        .then(data => {
+  
+          window.location.reload();
+        })
+        .catch(error => console.error('Erro ao atualizar nome', error))
+      // Simular salvamento
+
+    }
+
+    function filtrarProdutosFlexivel() {
+      const termo = document.getElementById("buscar-produtos-flexivel").value.toLowerCase().trim()
+      let produtosAFiltrar;
+
+
+      if (termo === "") {
+        produtosAFiltrar = produtosFiltradosFlex
+
+      } else {
+        produtosAFiltrar = produtosFiltradosFlex.filter((produto) => produto.nomeProd.toLowerCase().includes(termo))
+      }
+
+      renderizarProdutosFlexivel(produtosAFiltrar)
+    }
+
+    function renderizarProdutosFlexivel(prods) {
+
+      const container = document.getElementById("produtos-flexivel-grid")
+      const contador = document.getElementById("produtos-count")
+
+      // Atualizar contador
+      contador.textContent = `${prods.length} produto${prods.length !== 1 ? "s" : ""} encontrado${prods.length !== 1 ? "s" : ""}`
+
+      if (prods.length === 0) {
+        container.innerHTML = `
+      <div class="produtos-vazio" style="grid-column: 1 / -1;">
+        <i class="fas fa-search"></i>
+        <h4>Nenhum produto encontrado</h4>
+        <p>Tente ajustar os termos de pesquisa ou verifique se há produtos cadastrados no sistema.</p>
+      </div>
+    `
+        return
+      }
+
+      container.innerHTML = prods
+        .map(
+          (produto) => `
+    <div class="produto-card" data-id="${produto.idProd}">
+      <div class="produto-imagem">
+        <img src="${produto.urlImgProd1}" alt="${produto.nomeProd}" class="produto-img">
+      </div>
+      <div class="produto-info">
+        <h4 class="produto-nome" id="prodNOME">${produto.nomeProd}</h4>
+        <div class="produto-preco">${produto.precoProd}</div>
+        <div class="produto-acoes">
+          ${
+            produto.statusVincSecaoFlex
+              ? `<button class="btn-desvincular" onclick="desvincularProduto(${produto.idProd})">
+                 <i class="fas fa-unlink"></i> Desvincular
+               </button>`
+              : `<button class="btn-vincular" onclick="vincularProduto(${produto.idProd})">
+                 <i class="fas fa-link"></i> Vincular
+               </button>`
+          }
+        </div>
+      </div>
+    </div>
+  `,
+        )
+        .join("")
+
+ 
+    }
+
+    function vincularProduto(id) {
+    
+
+
+      // Encontrar produto e atualizar status
+
+      const produto = produtosFiltradosFlex.find((p) => p.idProd === id)
+      if (produto) {
+        produto.statusVincSecaoFlex = true
+
+        // Atualizar também na lista filtrada
+        const produtoFiltrado = produtosFiltradosFlex.find((p) => p.idProd === id)
+        if (produtoFiltrado) {
+          produtoFiltrado.statusVincSecaoFlex = true
+        }
+
+        // Re-renderizar
+        renderizarProdutosFlexivel(produtosFiltradosFlex)
+
+        // Aqui você faria a requisição para o backend
+        // fetch('/api/produtos/vincular', { method: 'POST', body: JSON.stringify({id}) })
+        fetch('http://localhost:5090/vincular-divflex/' + id, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response => {
+            if (!response.ok) throw new Error('Erro ao vincular à div')
+            return response.json()
+          })
+          .then(data => {
+            console.log("Sucesso ao vincular à div")
+
+          })
+          .catch(error => console.error('Erro ao vincular à div', error))
+     
+      }
+    }
+
+    function desvincularProduto(id) {
+ 
+
+      // Encontrar produto e atualizar status
+      const produto = produtosFiltradosFlex.find((p) => p.idProd === id)
+      if (produto) {
+        produto.statusVincSecaoFlex = false
+
+        // Atualizar também na lista filtrada
+        const produtoFiltrado = produtosFiltradosFlex.find((p) => p.idProd === id)
+        if (produtoFiltrado) {
+          produtoFiltrado.statusVincSecaoFlex = false
+        }
+
+        // Re-renderizar
+        renderizarProdutosFlexivel(produtosFiltradosFlex)
+
+        fetch('http://localhost:5090/desvincular-divflex/' + id, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response => {
+            if (!response.ok) throw new Error('Erro ao desvincular à div')
+            return response.json()
+          })
+          .then(data => {
+            console.log("Sucesso ao desvincular à div")
+
+          })
+          .catch(error => console.error('Erro ao desvincular à div', error))
+        // Aqui você faria a requisição para o backend
+        // fetch('/api/produtos/desvincular', { method: 'POST', body: JSON.stringify({id}) })
+
+       
+      }
+    }
+
+    function addAdm() {
+      const nome = document.getElementById('nome-adm').value
+      const email = document.getElementById('email-adm').value
+      const senha = document.getElementById('senha-adm').value
+      const telefone = document.getElementById('telefone-adm').value
+
+      const objADM = {
+        nomeAdm: nome,
+        emailAdm: email,
+        senhaAdm: senha,
+        telefoneAdm: telefone
+      }
+
+      fetch('http://localhost:5090/add-adm', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(objADM)
+        })
+        .then(res => res.json())
+        .then(data => console.log('Usuário criado com sucesso'))
+        .catch(err => console.error('Erro:', err));
+    }
+  </script>
+
+</body>
+
+</html>

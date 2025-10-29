@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>FM Notebooks - SERVIÇOS</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
+  <meta name="description" content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
+  <meta name="author" content="Caio Gabriel, Iago Borges">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicons -->
+  <link href="img/Captura_de_tela_2025-04-10_181325-removebg-preview.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/servicos.css" rel="stylesheet">
+  <link href="css/chatbot.css" rel="stylesheet">
+  <link href="css/carrinho.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- WhatsApp Fixo -->
+  <a href="https://wa.me/553492088233" class="whats-fixed" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco via WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp" width="32" height="32">
+  </a>
+  <button class="chatbot-fixed" aria-label="Abrir chat de suporte" aria-expanded="false" aria-controls="chatbot-window">
+    <i class="fas fa-comments" aria-hidden="true"></i>
+  </button>
+  <div class="chatbot-window" id="chatbot-window" role="dialog" aria-labelledby="chatbot-title" aria-hidden="true">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-title-area">
+          <h3 id="chatbot-title">Assistente FM</h3>
+          <span class="chatbot-status">Online</span>
+        </div>
+      </div>
+      <button class="chatbot-close" aria-label="Fechar chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Olá! 👋 Sou o assistente virtual da FM Notebooks. Como posso ajudá-lo hoje?</p>
+          <span class="message-time">Agora</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+        <button class="chatbot-send" aria-label="Enviar mensagem">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="chatbot-overlay" id="chatbot-overlay"></div>
+  <div class="click-closed"></div>
+
+  <!-- ====================HEADER======================= -->
+  <header role="banner">
+    
+    <nav role="navigation" aria-label="Navegação principal">
+      <button class="mobile-menu" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-list">
+        <div class="line1" aria-hidden="true"></div>
+        <div class="line2" aria-hidden="true"></div>
+        <div class="line3" aria-hidden="true"></div>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="FM Notebooks - Página inicial">
+        <img src="img/logoFM.png" alt="FM Notebooks" class="logo-img" width="40" height="40">
+        <span class="logo-text">Notebooks</span>
+      </a>
+
+      <ul class="nav-list" id="nav-list" role="menubar">
+        <li role="none"><a href="/" role="menuitem" aria-current="page">Home</a></li>
+        <li role="none"><a href="/loja" role="menuitem">Loja</a></li>
+        <li role="none"><a href="/serviços" role="menuitem">Serviços</a></li>
+        <li role="none"><a href="/contatos" role="menuitem">Contatos</a></li>
+        <li role="none" class="nav-cart"><a href="#" class="nav-cart" role="menuitem" aria-label="Carrinho de compras"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner Serviços -->
+  <main id="main-content" role="main">
+    <section class="banner-servicos" role="banner" aria-label="Banner de serviços">
+      <div class="banner-content">
+        <h1>Nossos Serviços</h1>
+        <p>Assistência técnica especializada e confiável para seus equipamentos</p>
+        <div class="autorizado-avell">
+          <img src="img/avell-removebg-preview.png" alt="Autorizado Avell" width="60" height="60">
+          <span>Assistência Técnica Autorizada Avell</span>
+        </div>
+        <div class="autorizado-dell">
+          <img src="img/dell-2.svg" alt="Especialista Dell" width="60" height="60">
+          <span>Especialistas Certificados Dell</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços Principais -->
+    <section class="servicos-principais">
+      <div class="container">
+        <h2>Serviços Especializados</h2>
+        <div class="servicos-grid">
+
+          <div class="servico-card">
+            <div class="servico-icon">
+              <i class="fas fa-broom"></i>
+            </div>
+            <h3>Limpeza e Higienização</h3>
+            <p>Limpeza completa interna e externa do seu notebook</p>
+            <div class="preco-servico">
+              <div class="preco-item">
+                <span class="tipo">Notebook Simples</span>
+                <span class="valor">R$ 100</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Linha Gamer</span>
+                <span class="valor">R$ 250</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Avell</span>
+                <span class="valor">R$ 300</span>
+              </div>
+            </div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar Orçamento</a>
+          </div>
+
+          <div class="servico-card">
+            <div class="servico-icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <h3>Troca de Tela</h3>
+            <p>Substituição de telas danificadas com peças originais</p>
+            <div class="preco-servico">
+              <div class="preco-item">
+                <span class="tipo">Notebook Simples</span>
+                <span class="valor">R$ 100</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Linha Gamer</span>
+                <span class="valor">R$ 130</span>
+              </div>
+            </div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar Orçamento</a>
+          </div>
+
+          <div class="servico-card">
+            <div class="servico-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Recuperação de Carcaças</h3>
+            <p>Reparo e restauração de carcaças danificadas</p>
+            <div class="preco-servico">
+              <div class="preco-item">
+                <span class="tipo">Resina Bottom/Top Cover</span>
+                <span class="valor">R$ 150</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Notebook Simples</span>
+                <span class="valor">R$ 100</span>
+              </div>
+            </div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar Orçamento</a>
+          </div>
+
+          <div class="servico-card">
+            <div class="servico-icon">
+              <i class="fas fa-download"></i>
+            </div>
+            <h3>Instalação de Sistemas Operacionais</h3>
+            <p>Formatação e instalação de Windows e outros sistemas</p>
+            <div class="preco-servico">
+              <div class="preco-item">
+                <span class="tipo">Formatação Simples</span>
+                <span class="valor">R$ 100</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Com Backup</span>
+                <span class="valor">R$ 130</span>
+              </div>
+            </div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar Orçamento</a>
+          </div>
+
+          <!-- Adicionando 2 novos cards de serviços especializados -->
+          <div class="servico-card">
+            <div class="servico-icon">
+              <i class="fas fa-memory"></i>
+            </div>
+            <h3>Upgrade de Memória RAM</h3>
+            <p>Expansão e substituição de memória RAM para melhor performance</p>
+            <div class="preco-servico">
+              <div class="preco-item">
+                <span class="tipo">Instalação 8GB</span>
+                <span class="valor">R$ 80</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Instalação 16GB</span>
+                <span class="valor">R$ 100</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Instalação 32GB</span>
+                <span class="valor">R$ 120</span>
+              </div>
+            </div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar Orçamento</a>
+          </div>
+
+          <div class="servico-card">
+            <div class="servico-icon">
+              <i class="fas fa-hdd"></i>
+            </div>
+            <h3>Upgrade para SSD</h3>
+            <p>Substituição de HD por SSD para maior velocidade e performance</p>
+            <div class="preco-servico">
+              <div class="preco-item">
+                <span class="tipo">Instalação SSD 240GB</span>
+                <span class="valor">R$ 100</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Instalação SSD 480GB</span>
+                <span class="valor">R$ 120</span>
+              </div>
+              <div class="preco-item">
+                <span class="tipo">Clonagem de Dados</span>
+                <span class="valor">R$ 50</span>
+              </div>
+            </div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar Orçamento</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços Adicionais -->
+    <section class="servicos-adicionais">
+      <div class="container">
+        <h2>Serviços Adicionais</h2>
+        <div class="servicos-lista-grid">
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-file-word"></i>
+              <div>
+                <h4>Pacote Office (Instalação)</h4>
+                <p>Instalação completa do Microsoft Office</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 50</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-wind"></i>
+              <div>
+                <h4>Limpeza com Nitrogênio Dell G5</h4>
+                <p>Limpeza especializada para notebooks Dell G5</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 250</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-keyboard"></i>
+              <div>
+                <h4>Instalação e Reparo de Teclado</h4>
+                <p>Troca e reparo de teclados danificados</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 180</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-file-alt"></i>
+              <div>
+                <h4>Instalação de Office Crackeado</h4>
+                <p>Instalação de versão alternativa do Office</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 50</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-laptop"></i>
+              <div>
+                <h4>Resinamento Bottom Top Cover Notebook</h4>
+                <p>Reparo especializado de carcaça superior e inferior</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 150</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-keyboard"></i>
+              <div>
+                <h4>Instalação e Resolda de Teclado Vostro Samsung LEM</h4>
+                <p>Serviço especializado para modelos Vostro Samsung LEM</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 200</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-thermometer-half"></i>
+              <div>
+                <h4>Limpeza com Troca Pasta Térmica Notebook Avell Acer</h4>
+                <p>Limpeza completa com substituição de pasta térmica</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 280</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-spray-can"></i>
+              <div>
+                <h4>Limpeza Higienização Nitro Serie Dell G5</h4>
+                <p>Higienização especializada para linha Nitro e Dell G5</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 250</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+          <div class="servico-item">
+            <div class="servico-info">
+              <i class="fas fa-tools"></i>
+              <div>
+                <h4>Resinamento Bottom Notebook Simples</h4>
+                <p>Reparo básico de carcaça inferior para notebooks simples</p>
+              </div>
+            </div>
+            <div class="servico-preco">R$ 100</div>
+            <a href="https://wa.me/553492088233" class="btn-servico" target="_blank">Solicitar</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Garantia e Qualidade -->
+    <section class="garantia-qualidade">
+      <div class="container">
+        <div class="garantia-content">
+          <div class="garantia-text">
+            <h2>Garantia e Qualidade</h2>
+            <p>Todos os nossos serviços possuem garantia e são realizados por técnicos especializados.</p>
+            <ul>
+              <li><i class="fas fa-check"></i> Técnicos certificados</li>
+              <li><i class="fas fa-check"></i> Peças originais</li>
+              <li><i class="fas fa-check"></i> Garantia de 90 dias</li>
+              <li><i class="fas fa-check"></i> Orçamento gratuito</li>
+            </ul>
+          </div>
+          <div class="garantia-img">
+            <img src="img/tecnicos.jpg" alt="Técnico especializado">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="redes">
+      <div class="redes-texto">
+        <h2>Precisa de Assistência Técnica?</h2>
+        <p>Entre em contato conosco e faça seu orçamento sem compromisso.</p>
+        <a href="https://wa.me/553492088233" class="botao-fm" target="_blank">
+          Solicitar Orçamento
+        </a>
+      </div>
+      <div class="redes-img">
+        <img src="img/fundo-img.png" alt="">
+      </div>
+    </section>
+
+    <!-- ========================FOOTER================================ -->
+    <footer>
+      <div class="footer-content">
+
+        <div class="footer-content-brand">
+
+          <div class="footer-brand">
+            <h4>FM Notebooks</h4>
+            <p>Sua loja de notebooks, acessórios e assistência técnica especializada.</p>
+          </div>
+
+          <div class="footer-content-call">
+            <a href="https://wa.me/553492088233" target="_blank">
+              <i class="fa fa-headset"></i>
+              Fale Conosco
+            </a>
+          </div>
+
+        </div>
+
+        <div class="footer-nav">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contato</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Av. Oscar Gomes Moreira Júnior - Tubalina, Uberlândia</li>
+            <li><i class="fas fa-phone-alt"></i> (34) 99208-8233</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:fmnotebooks@hotmail.com">fmnotebooks@hotmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>Redes Sociais</h4>
+          <div class="footer-social-icons">
+            <a href="https://wa.me/553492088233" target="_blank" aria-label="Facebook">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/fmnotebooks.ofc/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <!-- <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a> -->
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-extra-area">
+
+        <div class="footer-extra-area-titulo">
+          <h3>Formas de Pagamento</h3>
+        </div>
+
+        <div class="footer-extra-area-content">
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/visa-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/mastercard-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/elo-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/itau-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/mercadopago-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/picpay-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/bancointer-color.svg" alt="">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/pix-color.svg" alt="">
+          </div>
+
+        </div>
+        <p class="footer-copyright">© 2025 FM Notebooks. Todos os direitos reservados.</p>
+        <div class="footer-developers">
+          <h4>Desenvolvido por</h4>
+          <ul>
+           <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
+              <a href="https://wa.me/5534991667329" target="_blank">WhatsApp</a></li>
+            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a
+                href="https://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+    </footer>
+    <section class="carrinho" id="carrinho-overlay">
+      <div class="content-carrinho">
+        <button id="fechar-carrinho">×</button>
+
+        <h2>Seu Carrinho</h2>
+
+        <div id="cart-items">
+          <div class="items-add">
+
+            <div class="cart-vazio" style="display: none;">
+              <p>Seu carrinho está vazio.</p>
+            </div>
+
+
+          </div>
+
+          <div class="cart-total">
+            <div class="total-info">
+              <span>Total: R$ 0,00</span>
+            </div>
+            <button class="btn-finalizar" onclick="finalizarCompra()">
+              Finalizar Compra
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let totalEl = document.querySelector(".cart-total .total-info span");
+const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
+    const carrinhoIcons = document.querySelectorAll('.nav-cart a');
+    const carrinho = document.getElementById('carrinho-overlay');
+    let total = 0;
+    const fecharCarrinho = document.getElementById('fechar-carrinho');
+    const navElement = document.querySelector('nav');
+
+  
+    if (carrinhoButtons && carrinho) {
+      carrinhoButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+  
+    if (carrinhoIcons && carrinho) {
+      carrinhoIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+  
+    if (navElement && carrinho) {
+      navElement.addEventListener('click', (e) => {
+       
+        const navRect = navElement.getBoundingClientRect();
+        const clickX = e.clientX - navRect.left;
+
+       
+        if (clickX > navRect.width - 60) {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+
+    if (fecharCarrinho && carrinho) {
+      fecharCarrinho.addEventListener('click', () => {
+        carrinho.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    }
+
+    function renderCarrinho() {
+      let total=0
+      const carrinho = getCarrinho();
+      const container = document.querySelector(".items-add");
+      const vazio = document.querySelector(".cart-vazio");
+      const totalEl = document.querySelector(".cart-total .total-info span");
+    
+      if (!container) return; 
+      container.innerHTML = "";
+    
+      if (carrinho.length === 0) {
+        if (vazio) vazio.style.display = "block";
+        if (totalEl) totalEl.textContent = "Total: R$ 0,00";
+        return;
+      } else {
+        if (vazio) vazio.style.display = "none";
+      }
+    
+      
+    
+      carrinho.forEach(produto => {
+        total += produto.preco * produto.quantidade;
+    
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <div class="item-cont">
+            <div class="item-img">
+              <img src="${produto.img}" alt="${produto.nome}">
+            </div>
+            <div class="item-desc">
+              <p>${produto.nome}</p>
+              <span>R$ ${produto.preco.toFixed(2)}</span>
+            </div>
+          </div>
+          <div class="item-add-or-delete">
+            <div class="quantidade-container">
+              <button class="quantidade-btn diminuir">-</button>
+              <input type="text" class="item-quantidade" value="${produto.quantidade}" min="1">
+              <button class="quantidade-btn aumentar">+</button>
+            </div>
+            <button class="remover-item"><i class="fa fa-trash"></i> Remover</button>
+          </div>
+        `;
+    
+      
+        div.querySelector(".diminuir").addEventListener("click", () => alterarQuantidade(produto.id, -1));
+        div.querySelector(".aumentar").addEventListener("click", () => alterarQuantidade(produto.id, 1));
+        div.querySelector(".remover-item").addEventListener("click", () => removerDoCarrinho(produto.id));
+    
+        container.appendChild(div);
+      });
+   
+      
+      if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+
+  
+    if (carrinho) {
+      carrinho.addEventListener('click', (e) => {
+        if (e.target === carrinho) {
+          carrinho.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+
+ 
+function getCarrinho() {
+  return JSON.parse(localStorage.getItem("carrinho")) || [];
+}
+
+function setCarrinho(carrinho) {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+
+function adicionarAoCarrinho(produto) {
+ 
+  let carrinho = getCarrinho();
+
+  const existente = carrinho.find(p => p.id === produto.id);
+  if (existente) {
+    existente.quantidade += 1;
+  } else {
+    carrinho.push({ ...produto, quantidade: 1 });
+  }
+
+  setCarrinho(carrinho);
+  renderCarrinho();
+}
+
+
+function removerDoCarrinho(id) {
+  let carrinho = getCarrinho().filter(p => p.id !== id);
+  const prod=getCarrinho().filter(p => p.id == id);
+  totalEl-=prod.precoProd
+  setCarrinho(carrinho);
+  renderCarrinho();
+}
+
+
+function alterarQuantidade(id, delta) {
+  let carrinho = getCarrinho();
+  carrinho = carrinho.map(p => {
+    if (p.id === id) {
+      p.quantidade = Math.max(1, p.quantidade + delta);
+    }
+    return p;
+  });
+  setCarrinho(carrinho);
+  renderCarrinho();
+}
+
+
+function finalizarCompra() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+      let total =0
+    
+      let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
+
+    
+      mensagem += "📦 *Itens do carrinho:*\n";
+      carrinho.forEach(item => {
+        total+=parseFloat(item.preco)*item.quantidade
+        mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
+      });
+
+
+    
+      mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
+
+   
+      mensagem += "👤 *Dados do cliente:*\n";
+      mensagem += `- Nome: [Insira seu nome]\n`;
+      mensagem += `- Telefone: [Insira seu telefone]\n`;
+      mensagem += `- Endereço: [Insira seu endereço]\n`;
+      mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
+
+      mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
+
+     
+      navigator.clipboard.writeText(mensagem).then(() => {
+        alert("O carrinho foi copiado. Cole no WhatsApp e preencha seus dados!");
+
+     
+      let numero = "5534992088233"; 
+      let link = `https://wa.me/${numero}`;
+      window.open(link, "_blank");
+    });
+
+
+    
+ 
+    }
+
+document.addEventListener('DOMContentLoaded',()=>{
+  renderCarrinho()
+})
+      </script>
+      
+
+    <!-- JavaScript Files -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/popper/popper.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+    <script src="contactform/contactform.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- accessibility.js para melhorias de acessibilidade -->
+    <script src="js/accessibility.js"></script>
+    <script src="js/chatbot.js"></script>
+
+</body>
+
+</html>

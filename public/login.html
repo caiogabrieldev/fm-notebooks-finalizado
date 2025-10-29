@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
+  <meta name="description" content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
+  <meta name="author" content="Caio Gabriel, Iago Borges">
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" />
+
+  <link rel="stylesheet" href="css/login.css" />
+  <title>FM-Notebooks ADM</title>
+</head>
+
+<body>
+  <img class="bg-image" src="img/Destaque-hacker.jpg" alt="Fundo" />
+
+  <div class="caixa-login">
+    <div class="logo-box">
+      <img src="img/Captura_de_tela_2025-04-10_181325-removebg-preview.png" alt="Logo FM Notebooks" />
+    </div>
+    <h1>FM<span>Notebooks</span></h1>
+
+    <form  autocomplete="off" onsubmit="fazerLogin(event)">
+      <h2>Entrar</h2>
+
+      <div class="input-box">
+        <i class="bx bxs-user icon"></i>
+        <input type="text" name="usuario" placeholder="Email" id="user" required />
+      </div>
+
+      <div class="input-box">
+        <i class="bx bxs-lock-alt icon"></i>
+        <input type="password" name="senha" placeholder="Senha" required id="senha" />
+      </div>
+
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+  </div>
+
+  <script>
+ function fazerLogin(event) {
+  event.preventDefault(); // impede reload do form
+
+  const email = document.getElementById('user').value;
+  const senha = document.getElementById('senha').value;
+
+  const msg = { email, senha };
+
+  fetch('http://localhost:5090/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(msg)
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) {
+        alert("Credenciais inválidas");
+        return;
+      }
+      
+      localStorage.setItem("token", data.token);
+        window.location.href = data.redirect;
+    })
+    .catch(err => {
+      console.error("Erro no login:", err);
+      alert("Erro ao conectar com o servidor.");
+    });
+}
+
+  </script>
+
+</body>
+
+</html>

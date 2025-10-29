@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>FM Notebooks - OFICIAL</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
+  <meta name="description"
+    content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
+  <meta name="author" content="Caio Gabriel, Iago Borges">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicons -->
+  <link href="img/Captura_de_tela_2025-04-10_181325-removebg-preview.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="/css/contatos.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/chatbot.css" rel="stylesheet">
+  <link href="css/carrinho.css" rel="stylesheet">
+
+  <!-- ==================CARRINHO====================== -->
+  <link rel="stylesheet" href="css/carrinho.css">
+  <script src="js/carrinho.js" defer></script>
+
+
+</head>
+
+<body>
+
+  <!-- WhatsApp Fixo -->
+  <a href="https://wa.me/553492088233" class="whats-fixed" target="_blank" rel="noopener noreferrer"
+    aria-label="Fale conosco via WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp" width="32" height="32">
+  </a>
+
+  <button class="chatbot-fixed" aria-label="Abrir chat de suporte" aria-expanded="false" aria-controls="chatbot-window">
+    <i class="fas fa-comments" aria-hidden="true"></i>
+  </button>
+  <div class="chatbot-window" id="chatbot-window" role="dialog" aria-labelledby="chatbot-title" aria-hidden="true">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-title-area">
+          <h3 id="chatbot-title">Assistente FM</h3>
+          <span class="chatbot-status">Online</span>
+        </div>
+      </div>
+      <button class="chatbot-close" aria-label="Fechar chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Olá! 👋 Sou o assistente virtual da FM Notebooks. Como posso ajudá-lo hoje?</p>
+          <span class="message-time">Agora</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+        <button class="chatbot-send" aria-label="Enviar mensagem">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="chatbot-overlay" id="chatbot-overlay"></div>
+
+
+  <div class="click-closed overlay"></div>
+
+  <!-- ====================HEADER======================= -->
+  <!-- ====================HEADER======================= -->
+  <header role="banner">
+    <!-- Skip link para acessibilidade -->
+    <!-- <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a> -->
+
+    <nav role="navigation" aria-label="Navegação principal">
+      <button class="mobile-menu" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-list">
+        <div class="line1" aria-hidden="true"></div>
+        <div class="line2" aria-hidden="true"></div>
+        <div class="line3" aria-hidden="true"></div>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="FM Notebooks - Página inicial">
+        <img src="img/logoFM.png" alt="FM Notebooks" class="logo-img" width="40" height="40">
+        <span class="logo-text">Notebooks</span>
+      </a>
+
+      <ul class="nav-list" id="nav-list" role="menubar">
+        <li role="none"><a href="/" role="menuitem" aria-current="page">Home</a></li>
+        <li role="none"><a href="/loja" role="menuitem">Loja</a></li>
+        <li role="none"><a href="/servicos" role="menuitem">Serviços</a></li>
+        <li role="none"><a href="/contatos" role="menuitem">Contatos</a></li>
+        <li role="none" class="nav-cart"><a href="#" class="nav-cart" role="menuitem"
+            aria-label="Carrinho de compras"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--/ Carousel Star /-->
+  <div class="intro intro-carousel">
+    <div id="carousel" class="owl-carousel owl-theme">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/note-mo.jpg)">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Tecnologia que </span>
+                      <br> Acompanha Você
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="produtos.html"><span class="price-a">Produtos | Exclusivos</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/note-moni.jpg)">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Temos os melhores </span>
+                      <br> notebooks
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="produtos.html"><span class="price-a">Exclusivo | FM</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/note-monitor.jpg)">
+        <div class="overlay overlay-a"></div>
+        <div class="intro-content display-table">
+          <div class="table-cell">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="intro-body">
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Assistência técnica </span>
+                      <br> confiável
+                    </h1>
+                    <p class="intro-subtitle intro-price">
+                      <a href="produtos.html"><span class="price-a">Explorar</span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Carousel end /-->
+
+  <!-- ==========Pagamentos========= -->
+  <!-- ==========Pagamentos========= -->
+  <!-- ==========Pagamentos========= -->
+
+  <section class="pagamento-card" onclick="MostraMais()">
+    <div class="pagamento-card-content">
+
+      <!-- Garantia Estendida -->
+      <div class="pague-item">
+        <div class="pague-item-content">
+          <i class="fa fa-shield-alt"></i>
+          <div>
+            <strong>Garantia Estendida</strong>
+            <p>
+              Segurança extra em seus produtos com planos exclusivos e confiáveis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Escolha como Pagar -->
+      <div class="pague-item">
+        <div class="pague-item-content">
+          <i class="fa fa-credit-card"></i>
+          <div>
+            <strong>Escolha como Pagar</strong>
+            <p>
+              Com o Pix facilitado, você paga com cartão, boleto ou Pix.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assistência Técnica -->
+      <div class="pague-item">
+        <div class="pague-item-content">
+          <i class="fa fa-tools"></i>
+          <div>
+            <strong>Assistência Técnica</strong>
+            <p>
+              Escolhemos os melhores técnicos para quem deseja qualidade.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entrega Rápida -->
+      <div class="pague-item">
+        <div class="pague-item-content">
+          <i class="fa fa-truck"></i>
+          <div>
+            <strong>Entrega Rápida</strong>
+            <p>
+              Receba seus produtos com rapidez, agilidade e total segurança.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Novidades e Promoções -->
+      <div class="pague-item">
+        <div class="pague-item-content">
+          <i class="fa fa-tags"></i>
+          <div>
+            <strong>Novidades e Promoções</strong>
+            <p>
+              Descontos exclusivos e lançamentos especiais para clientes cadastrados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========Carousel de Pagamentos (Mobile)========= -->
+  <!-- ==========Carousel de Pagamentos (Mobile)========= -->
+  <section class="pagamento-carousel">
+    <div class="carousel-container">
+      <div class="carousel-track" id="carousel-track">
+        <!-- Slide 1 - Garantia Estendida -->
+        <div class="carousel-slide">
+          <div class="pague-item">
+            <div class="pague-item-content">
+              <i class="fa fa-shield-alt"></i>
+              <div>
+                <strong>Garantia Estendida</strong>
+                <p>Segurança extra em seus produtos com planos exclusivos e confiáveis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 - Escolha como Pagar -->
+        <div class="carousel-slide">
+          <div class="pague-item">
+            <div class="pague-item-content">
+              <i class="fa fa-credit-card"></i>
+              <div>
+                <strong>Escolha como Pagar</strong>
+                <p>Com o Pix facilitado, você paga com cartão, boleto ou Pix.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 - Assistência Técnica -->
+        <div class="carousel-slide">
+          <div class="pague-item">
+            <div class="pague-item-content">
+              <i class="fa fa-tools"></i>
+              <div>
+                <strong>Assistência Técnica</strong>
+                <p>Escolhemos os melhores técnicos para quem deseja qualidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 - Entrega Rápida -->
+        <div class="carousel-slide">
+          <div class="pague-item">
+            <div class="pague-item-content">
+              <i class="fa fa-truck"></i>
+              <div>
+                <strong>Entrega Rápida</strong>
+                <p>Receba seus produtos com rapidez, agilidade e total segurança.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 - Novidades e Promoções -->
+        <div class="carousel-slide">
+          <div class="pague-item">
+            <div class="pague-item-content">
+              <i class="fa fa-tags"></i>
+              <div>
+                <strong>Novidades e Promoções</strong>
+                <p>Descontos exclusivos e lançamentos especiais para clientes cadastrados.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicadores do carousel -->
+    <div class="carousel-indicators" id="carousel-indicators">
+      <div class="carousel-indicator active" data-slide="0"></div>
+      <div class="carousel-indicator" data-slide="1"></div>
+      <div class="carousel-indicator" data-slide="2"></div>
+      <div class="carousel-indicator" data-slide="3"></div>
+      <div class="carousel-indicator" data-slide="4"></div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Section cards de promoção -->
+  <!-- Section cards de promoção -->
+  <section class="promocao1" id="sumir">
+    <div class="div-promocao1" id="englobTopPromos">
+
+    </div>
+  </section>
+
+
+  <!-- Produtos em destaque -->
+  <!-- Produtos em destaque -->
+  <section class="produtos-em-destaque">
+    <h2 id="divFlexNome">Mais vendidos</h2>
+
+    <div class="produtos" id="prodSecaoFlex">
+
+
+    </div>
+
+    <a href="produtos.html" class="animated-button">
+      <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+      <span class="text">Mais Produtos</span>
+      <span class="circle"></span>
+      <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+    </a>
+
+
+  </section>
+
+
+
+  <!-- Produtos em PROMÇÃO -->
+  <!-- Produtos em PROMÇÃO -->
+  <section class="promocoes-em-destaque">
+    <h2>Promoções</h2>
+
+    <div class="produtos" id="divPromocao">
+
+    </div>
+
+    <a href="produtos.html" class="animated-button">
+      <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+      <span class="text">Mais Promoções</span>
+      <span class="circle"></span>
+      <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+    </a>
+
+
+  </section>
+
+
+  <!-- =============BENEFÍCIOS============== -->
+  <!-- =============BENEFÍCIOS============== -->
+
+  <section class="beneficios">
+    <div class="beneficio">
+      <i class="fa fa-whatsapp"></i>
+      <h3>Suporte via WhatsApp</h3>
+      <p>Atendimento rápido e personalizado para tirar todas as suas dúvidas em tempo real.</p>
+    </div>
+
+    <div class="beneficio">
+      <i class="fa fa-shield-alt"></i>
+      <h3>Garantia Estendida</h3>
+      <p>Segurança extra em seus produtos com planos de garantia exclusivos e confiáveis.</p>
+    </div>
+
+    <div class="beneficio">
+      <i class="fa fa-credit-card"></i>
+      <h3>Parcelamento em 12x</h3>
+      <p>Facilidade no pagamento, com até 12 parcelas sem juros no cartão de crédito.</p>
+    </div>
+
+    <div class="beneficio">
+      <i class="fa fa-certificate"></i>
+      <h3>Qualidade Garantida</h3>
+      <p>Todos os produtos são originais, revisados e com certificado de qualidade.</p>
+    </div>
+
+    <div class="beneficio">
+      <i class="fa fa-tools"></i>
+      <h3>Assistência Técnica Especializada</h3>
+      <p>Serviço técnico autorizado, garantindo reparo e manutenção de alto padrão.</p>
+    </div>
+
+    <div class="beneficio">
+      <i class="fa fa-tags"></i>
+      <h3>Novidades e Promoções</h3>
+      <p>Descontos exclusivos e lançamentos especiais para clientes cadastrados.</p>
+    </div>
+  </section>
+
+
+
+
+  <!-- =============CATEGORIA============== -->
+  <!-- =============CATEGORIA============== -->
+  <section class="categoria-produtos">
+    <h2>Categoria de Produtos</h2>
+    <div class="div-categoria">
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=mochilas">
+            <img src="img/mochilas/lenovo-casual-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>Mochilas</p>
+      </div>
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=fones-headset">
+            <img src="img/headphones/jbl-520bt-white-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>HeadPhones</p>
+      </div>
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=combos">
+            <img src="img/combos/kit-gamer-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>Combos</p>
+      </div>
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=mouses">
+            <img src="img/mouses/nmw200-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>Mouses</p>
+      </div>
+
+      <!-- ================SEPARARA==================== -->
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=monitores">
+            <img src="img/61HLEGTobSL._UF894_1000_QL80_-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>Monitores</p>
+      </div>
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=pendrives">
+            <img
+              src="img/pendrive_sandisk_128gb_sdcz50_128g_b35_16293_2_3ce6e771fef3e193dbf21544c76da8f7-removebg-preview.png"
+              alt="">
+          </a>
+        </div>
+        <p>Pendrives</p>
+      </div>
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=roteador-repetidores">
+            <img src="img/dir-615-01-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>Roteadores</p>
+      </div>
+
+      <div class="cat">
+        <div class="categoria">
+          <a href="loja?categoria=diversos">
+            <img src="img/para-site-1080-removebg-preview.png" alt="">
+          </a>
+        </div>
+        <p>Diversos</p>
+      </div>
+    </div>
+
+
+    <a href="produtos.html" class="animated-button">
+      <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+      <span class="text">Ver Todos</span>
+      <span class="circle"></span>
+      <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+    </a>
+
+
+  </section>
+
+  <!-- =======REDES SOCIAS=========== -->
+  <!-- =======REDES SOCIAS=========== -->
+
+  <section class="redes">
+
+    <div class="redes-texto">
+      <h2>Faça já o seu Orçamento.</h2>
+      <p>A FM Notebooks resolve com agilidade e confiança.</p>
+      <a href="https://wa.me/553492088233" class="botao-fm" target="_blank">
+        Solicitar Orçamento
+      </a>
+
+    </div>
+
+    <div class="redes-img">
+      <img src="img/fundo-img.png" alt="">
+    </div>
+
+  </section>
+
+  <!-- =======SIGA NOS=========== -->
+  <!-- =======SIGA NOS=========== -->
+
+  <section class="siga-nos-nos">
+    <a href="https://www.instagram.com/fmnotebooks.ofc/" target="_blank" class="siga-nos-link">
+      <i class="fab fa-instagram"></i>
+      <h3>SIGA-NOS NO INSTAGRAM</h3>
+    </a>
+    <p class="fmnotebooks">@fmnotebooks.ofc</p>
+  </section>
+
+  <!-- =======VITRINE DE OPORTUNIDADES=========== -->
+  <!-- =======VITRINE DE OPORTUNIDADES=========== -->
+
+  <section class="vitrine">
+    <div class="container-vitrine">
+
+      <a href="https://www.instagram.com/p/DMz4-FXRwE9/" target="_blank">
+        <img src="img/dia-dos-pais.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DIRHGqROeYm/" target="_blank">
+        <img src="img/4-vantagens.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DIRHGqROeYm/" target="_blank">
+        <img src="img/4-vantagens.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DIRHGqROeYm/" target="_blank">
+        <img src="img/4-vantagens.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DHJA6zGOui1/" target="_blank">
+        <img src="img/descontao.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DG2_WAtpTWp/" target="_blank">
+        <img src="img/seunovofone.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DHBnETruN1E/" target="_blank">
+        <img src="img/mouse-semana-do-consumidor.jpg" alt="">
+      </a>
+
+      <a href="https://www.instagram.com/p/DHBnETruN1E/" target="_blank">
+        <img src="img/mouse-semana-do-consumidor.jpg" alt="">
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============= MARCAS QUE TRABALHAMOS========================== -->
+  <section class="marcas">
+    <h2>Marcas que trabalhamos</h2>
+
+    <div class="marcas-container">
+      <div class="marcas-track">
+        <!-- Lote 1 -->
+        <img src="img/apple-11.svg" alt="Apple" loading="lazy">
+        <img src="img/samsung-8.svg" alt="Samsung" loading="lazy">
+        <img src="img/acer-5.svg" alt="Acer" loading="lazy">
+        <img src="img/positivo-wordmark.svg" alt="Positivo" loading="lazy">
+        <img src="img/hp-2.svg" alt="HP" loading="lazy">
+        <img src="img/dell-2.svg" alt="Dell" loading="lazy">
+        <img src="img/avell-removebg-preview.png" alt="Avell" loading="lazy">
+        <img src="img/jbl-sem-funco.png" alt="Avell" loading="lazy">
+        <img src="img/bright-sem-sundo.png" alt="Avell" loading="lazy">
+        <img src="img/kingston-sem-fundo.png" alt="Avell" loading="lazy">
+        <img src="img/alltek-sem-fundo.png" alt="Avell" loading="lazy">
+        <img src="img/havit.png" alt="Avell" loading="lazy">
+        <img src="img/redragon-sem-fundo.png" alt="Avell" loading="lazy">
+
+        <!-- Lote 2 (repetido para loop suave, SEM imagem quebrada) -->
+        <img src="img/apple-11.svg" alt="Apple" loading="lazy">
+        <img src="img/samsung-8.svg" alt="Samsung" loading="lazy">
+        <img src="img/acer-5.svg" alt="Acer" loading="lazy">
+        <img src="img/positivo-wordmark.svg" alt="Positivo" loading="lazy">
+        <img src="img/hp-2.svg" alt="HP" loading="lazy">
+        <img src="img/dell-2.svg" alt="Dell" loading="lazy">
+        <img src="img/avell-removebg-preview.png" alt="Avell" loading="lazy">
+        <img src="img/jbl-sem-funco.png" alt="Avell" loading="lazy">
+        <img src="img/bright-sem-sundo.png" alt="Avell" loading="lazy">
+        <img src="img/kingston-sem-fundo.png" alt="Avell" loading="lazy">
+        <img src="img/alltek-sem-fundo.png" alt="Avell" loading="lazy">
+        <img src="img/havit.png" alt="Avell" loading="lazy">
+        <img src="img/redragon-sem-fundo.png" alt="Avell" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================FOOTER================================ -->
+  <!-- ========================FOOTER================================ -->
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-content-brand">
+          <div class="footer-brand">
+            <h4>FM Notebooks</h4>
+            <p>Sua loja de notebooks, acessórios e assistência técnica especializada.</p>
+          </div>
+
+          <div class="footer-content-call">
+            <a href="https://wa.me/553492088233" target="_blank">
+              <i class="fa fa-headset"></i>
+              Fale Conosco
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contato</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Av. Oscar Gomes Moreira Júnior - Tubalina, Uberlândia</li>
+            <li><i class="fas fa-phone-alt"></i> (34) 99208-8233</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:fmnotebooks@hotmail.com">fmnotebooks@hotmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>Redes Sociais</h4>
+          <div class="footer-social-icons">
+            <a href="https://wa.me/553492088233" target="_blank" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/fmnotebooks.ofc/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-extra-area">
+        <div class="footer-extra-area-titulo">
+          <h3>Formas de Pagamento</h3>
+        </div>
+
+        <div class="footer-extra-area-content">
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/visa-color.svg" alt="Visa">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/mastercard-color.svg" alt="Mastercard">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/elo-color.svg" alt="Elo">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/itau-color.svg" alt="Itaú">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/mercadopago-color.svg" alt="Mercado Pago">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/picpay-color.svg" alt="PicPay">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/bancointer-color.svg" alt="Banco Inter">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/pix-color.svg" alt="PIX">
+          </div>
+        </div>
+        <p class="footer-copyright">© 2025 FM Notebooks. Todos os direitos reservados. </p>
+        <div class="footer-developers">
+          <h4>Desenvolvido por</h4>
+          <ul>
+            <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
+              <a href="https://wa.me/5534991667329" target="_blank">WhatsApp</a></li>
+            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a
+                href="https://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============Pagamento Modal=================== -->
+  <!-- ============Pagamento Modal=================== -->
+
+  <section id="modal-pagamento" class="modal">
+    <div class="conteudo-modal">
+      <span class="fechar" onclick="MostraMenos()">&times;</span>
+      <h2>Meios de Pagamento</h2>
+      <div class="mercado">
+        <div class="icon-mercado">
+          <img src="img/mercado-pago.svg" alt="">
+        </div>
+        <div class="text-mercado">
+          Pagar com o <b>Mercado Pago</b> é escolher qualquer um destes meios. É rápido, seguro e não tem custo
+          adicional.
+        </div>
+      </div>
+      <hr class="linha-mercado">
+
+      <div class="credito-cred">
+        <div class="credito">
+          <div class="card-credito">
+            <img src="img/credit-card.svg" alt="">
+          </div>
+          <div class="credito-cartoes">
+            <h4>Cartões de crédito em <span>até 10x sem juros</span></h4>
+            <p>Em produtos selecionados.</p>
+            <p>Aprovação imediata.</p>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="cards-cart">
+            <img src="img/hipercad.svg" alt="">
+          </div>
+          <div class="cards-cart">
+            <img src="img/express.svg" alt="">
+          </div>
+          <div class="cards-cart">
+            <img src="img/elo.svg" alt="">
+          </div>
+          <div class="cards-cart">
+            <img src="img/visa.svg" alt="">
+          </div>
+          <div class="cards-cart">
+            <img src="img/master-card.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <hr class="linha-mercado">
+
+      <div class="pix">
+        <div class="pix-img">
+          <img src="img/pix.svg" alt="">
+        </div>
+        <div class="pix-text">
+          <h4>Pix</h4>
+          <p>Você pode pagar a qualquer momento com seu código, sem custo adicional e o crédito é na hora.</p>
+          <p>Aprovação imediata.</p>
+          <img src="img/pix2.svg" alt="">
+        </div>
+      </div>
+
+      <hr class="linha-mercado">
+
+
+
+    </div>
+  </section>
+
+
+
+
+  <!-- ========================CARRINHO================================ -->
+  <!-- ========================CARRINHO================================ -->
+
+  <section class="carrinho" id="carrinho-overlay">
+    <div class="content-carrinho">
+      <button id="fechar-carrinho">×</button>
+
+      <h2>Seu Carrinho</h2>
+
+      <div id="cart-items">
+        <div class="items-add">
+
+          <div class="cart-vazio" style="display: none;">
+            <p>Seu carrinho está vazio.</p>
+          </div>
+
+
+
+        </div>
+
+        <div class="cart-total">
+          <div class="total-info">
+            <span>Total: R$ 0,00</span>
+          </div>
+          <button class="btn-finalizar" onclick="finalizarCompra()">
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script>
+
+    // ============ LocalStorage helpers ============
+    function getCarrinho() {
+      return JSON.parse(localStorage.getItem("carrinho")) || [];
+    }
+
+    function setCarrinho(carrinho) {
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    }
+
+    // ============ Alterações no carrinho ============
+    function removerDoCarrinho(id) {
+      let carrinho = getCarrinho().filter(p => p.id !== id);
+      setCarrinho(carrinho);
+      renderCarrinho();
+    }
+
+    function alterarQuantidade(id, delta) {
+      let carrinho = getCarrinho().map(p => {
+        if (p.id === id) {
+          p.quantidade = Math.max(1, p.quantidade + delta);
+        }
+        return p;
+      });
+      setCarrinho(carrinho);
+      renderCarrinho();
+    }
+
+    // ============ Renderização ============
+    function renderCarrinho() {
+      let total = 0
+
+      const carrinho = getCarrinho();
+
+      const container = document.querySelector(".items-add");
+      const vazio = document.querySelector(".cart-vazio");
+      const totalEl = document.querySelector(".cart-total .total-info span");
+
+      if (!container) return;
+      container.innerHTML = "";
+
+      if (carrinho.length === 0) {
+        if (vazio) vazio.style.display = "block";
+        if (totalEl) totalEl.textContent = "Total: R$ 0,00";
+        return;
+      } else {
+        if (vazio) vazio.style.display = "none";
+      }
+
+
+
+      carrinho.forEach(produto => {
+
+        total += produto.preco * produto.quantidade;
+
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+      <div class="item-cont">
+        <div class="item-img">
+          <img src="${produto.img}" alt="${produto.nome}">
+        </div>
+        <div class="item-desc">
+          <p>${produto.nome}</p>
+          <span>R$ ${produto.preco.toFixed(2)}</span>
+        </div>
+      </div>
+      <div class="item-add-or-delete">
+        <div class="quantidade-container">
+          <button class="quantidade-btn diminuir">-</button>
+          <input type="text" class="item-quantidade" value="${produto.quantidade}" min="1">
+          <button class="quantidade-btn aumentar">+</button>
+        </div>
+        <button class="remover-item"><i class="fa fa-trash"></i> Remover</button>
+      </div>
+    `;
+
+        // Eventos
+        div.querySelector(".diminuir").addEventListener("click", () => alterarQuantidade(produto.id, -1));
+        div.querySelector(".aumentar").addEventListener("click", () => alterarQuantidade(produto.id, 1));
+        div.querySelector(".remover-item").addEventListener("click", () => removerDoCarrinho(produto.id));
+
+        container.appendChild(div);
+      });
+
+      if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+    // ============ Inicialização ============
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCarrinho();
+    });
+
+    function finalizarCompra() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+
+
+      let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
+      let total = 0
+
+      mensagem += "📦 *Itens do carrinho:*\n";
+      carrinho.forEach(item => {
+        total += parseFloat(item.preco) * item.quantidade
+        mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
+      });
+
+
+
+      mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
+
+
+      mensagem += "👤 *Dados do cliente:*\n";
+      mensagem += `- Nome: [Insira seu nome]\n`;
+      mensagem += `- Telefone: [Insira seu telefone]\n`;
+      mensagem += `- Endereço: [Insira seu endereço]\n`;
+      mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
+
+      mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
+
+
+      navigator.clipboard.writeText(mensagem).then(() => {
+        alert("O carrinho foi copiado. Cole no WhatsApp e preencha seu dados!");
+
+
+        let numero = "5534992088233";
+        let link = `https://wa.me/${numero}`;
+        window.open(link, "_blank");
+      });
+
+
+
+
+    }
+
+    function adicionarAoCarrinho(produto) {
+
+
+      const prod = {
+        id: produto.idProd,
+        nome: produto.nomeProd,
+        preco: produto.precoProd,
+        img: produto.urlImgProd1
+      }
+      let carrinho = getCarrinho();
+
+      const existente = carrinho.find(p => p.id === prod.id);
+      if (existente) {
+        existente.quantidade += 1;
+      } else {
+
+        carrinho.push({
+          ...prod,
+          quantidade: 1
+        });
+
+      }
+      setCarrinho(carrinho);
+      renderCarrinho()
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      fetch('http://localhost:5090/get-divflex/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter informações')
+          return response.json()
+        })
+        .then(data => {
+          document.getElementById('divFlexNome').innerText = data.div.nomeSecaoFlex
+        })
+        .catch(error => console.error('Erro ao obter informações', error))
+
+
+
+
+      fetch('http://localhost:5090/get-prods-divflex/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter informações')
+          return response.json()
+        })
+        .then(data => {
+
+          const divEnglob = document.getElementById('prodSecaoFlex')
+
+          data.produtos.map((prod) => {
+            if (prod) {
+              const div = document.createElement('div')
+              div.className = 'produto-card'
+
+              const divProdImg = document.createElement('div')
+              divProdImg.className = 'produto-imagem'
+
+              const img = document.createElement("img")
+              img.src = prod.urlImgProd1
+              img.alt = prod.nomeProd
+
+              divProdImg.appendChild(img)
+
+              const divProdInfo = document.createElement('div')
+              divProdInfo.className = 'produto-info'
+
+              const h3 = document.createElement('h3')
+              h3.innerText = prod.nomeProd
+
+              const divPreco = document.createElement('div')
+              divPreco.className = 'produto-preco'
+
+              const span = document.createElement('span')
+              span.className = 'preco-novo'
+              span.innerText = `R$ ${prod.precoProd}`
+
+              const botaoAddCar = document.createElement('button')
+              botaoAddCar.className = 'add-to-cart'
+              botaoAddCar.innerText = "+"
+              botaoAddCar.addEventListener('click', () => adicionarAoCarrinho(prod))
+
+              divProdInfo.appendChild(h3)
+              divPreco.appendChild(span)
+              divProdInfo.appendChild(divPreco)
+              divProdInfo.appendChild(botaoAddCar)
+
+              div.appendChild(divProdImg)
+              div.appendChild(divProdInfo)
+
+              divEnglob.appendChild(div)
+            }
+
+
+          })
+
+
+        })
+        .catch(error => console.error('Erro ao obter informações', error))
+
+      fetch('http://localhost:5090/promocoes/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter informações')
+          return response.json()
+        })
+        .then(data => {
+          let tops = 0;
+          const secaoPromos = document.getElementById("secaoPromos")
+          const englobTopPromos = document.getElementById('englobTopPromos')
+
+          if (data.length === 0) {
+            secaoPromos.style.display = "none"
+          } else {
+            data.forEach(promo => {
+              if (tops < 2) {
+
+                const promoTop = document.createElement('div')
+                promoTop.className = 'div-promocao-1'
+
+                const imgPromoTop = document.createElement('img')
+                imgPromoTop.src = promo.urlImgPromo
+
+
+                promoTop.appendChild(imgPromoTop)
+
+                englobTopPromos.appendChild(promoTop)
+
+
+              }
+
+              const divPromocoes = document.getElementById('divPromocao')
+
+              const divPromo = document.createElement('div')
+              divPromo.className = 'promocao'
+
+              const img = document.createElement('img')
+              img.src = promo.urlImgPromo
+              img.alt = promo.nomePromocao
+              img.setAttribute('id', 'imgPromocaoIndex')
+
+              const h3 = document.createElement('h3')
+              h3.innerText = promo.nomePromocao
+              h3.setAttribute('id', 'tituloPromocao')
+
+              divPromo.append(img)
+              divPromo.append(h3)
+              divPromocoes.append(divPromo)
+              tops++;
+            });
+          }
+
+
+        })
+        .catch(error => console.error('Erro ao obter informações', error))
+
+    })
+
+
+    const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
+    const carrinhoIcons = document.querySelectorAll('.nav-cart a');
+    const carrinho = document.getElementById('carrinho-overlay');
+    const fecharCarrinho = document.getElementById('fechar-carrinho');
+    const navElement = document.querySelector('nav');
+
+
+    if (carrinhoButtons && carrinho) {
+      carrinhoButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+    // Adiciona evento de clique aos ícones do carrinho no menu
+    if (carrinhoIcons && carrinho) {
+      carrinhoIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+
+    if (navElement && carrinho) {
+      navElement.addEventListener('click', (e) => {
+
+        const navRect = navElement.getBoundingClientRect();
+        const clickX = e.clientX - navRect.left;
+
+
+        if (clickX > navRect.width - 60) {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+
+    if (fecharCarrinho && carrinho) {
+      fecharCarrinho.addEventListener('click', () => {
+        carrinho.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    }
+
+    // Fecha carrinho ao clicar fora dele
+    if (carrinho) {
+      carrinho.addEventListener('click', (e) => {
+        if (e.target === carrinho) {
+          carrinho.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+
+    function MostraMais() {
+      document.getElementById("modal-pagamento").style.display = "block";
+    }
+
+    function MostraMenos() {
+      document.getElementById("modal-pagamento").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("modal-pagamento");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+    let currentIndex = 0;
+
+    function startCarousel() {
+      const container = document.querySelector('.pagamento-card-content');
+      const items = document.querySelectorAll('.pague-item');
+      const total = items.length;
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % total;
+        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }, 2000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth <= 768) {
+        startCarousel();
+      }
+    });
+  </script>
+
+  <!-- JavaScrnoteboooooo.jpg-->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/chatbot.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carousel-pagamentos.js"></script>
+
+  <!-- accessibility.js para melhorias de acessibilidade -->
+  <script src="js/accessibility.js"></script>
+
+</body>
+
+</html>

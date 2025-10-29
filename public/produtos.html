@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>FM Notebooks - LOJA</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
+  <meta name="description" content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
+  <meta name="author" content="Caio Gabriel, Iago Borges">
+
+  <!-- Favicons -->
+  <link href="img/Captura_de_tela_2025-04-10_181325-removebg-preview.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Base CSS -->
+  <link href="css/base-responsive.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  
+  <!-- CSS específico da página -->
+  <link href="css/produtos.css" rel="stylesheet">
+  <link href="css/chatbot.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Overlay para fechar menus -->
+  <div class="overlay"></div>
+
+  <!-- WhatsApp Fixo -->
+  <a href="https://wa.me/553492088233" class="whats-fixed" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco via WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp" width="32" height="32">
+  </a>
+  <button class="chatbot-fixed" aria-label="Abrir chat de suporte" aria-expanded="false" aria-controls="chatbot-window">
+    <i class="fas fa-comments" aria-hidden="true"></i>
+  </button>
+  <div class="chatbot-window" id="chatbot-window" role="dialog" aria-labelledby="chatbot-title" aria-hidden="true">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-title-area">
+          <h3 id="chatbot-title">Assistente FM</h3>
+          <span class="chatbot-status">Online</span>
+        </div>
+      </div>
+      <button class="chatbot-close" aria-label="Fechar chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Olá! 👋 Sou o assistente virtual da FM Notebooks. Como posso ajudá-lo hoje?</p>
+          <span class="message-time">Agora</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+        <button class="chatbot-send" aria-label="Enviar mensagem">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="chatbot-overlay" id="chatbot-overlay"></div>
+
+  <!-- Header corrigido baseado no index.html -->
+  <header role="banner">
+    
+    <nav role="navigation" aria-label="Navegação principal">
+      <button class="mobile-menu" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-list">
+        <div class="line1" aria-hidden="true"></div>
+        <div class="line2" aria-hidden="true"></div>
+        <div class="line3" aria-hidden="true"></div>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="FM Notebooks - Página inicial">
+        <img src="img/logoFM.png" alt="FM Notebooks" class="logo-img" width="40" height="40">
+        <span class="logo-text">Notebooks</span>
+      </a>
+
+      <!-- Barra de pesquisa desktop -->
+      <div class="search-container d-none d-lg-block">
+        <div class="search-wrap" role="search" aria-label="Pesquisar produtos">
+          <input id="input-busca" type="text" placeholder="Pesquisar produtos..." aria-label="Pesquisar produtos" autocomplete="off">
+          <button class="search-btn" type="button" aria-label="Buscar">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Botão de pesquisa mobile -->
+      <button class="mobile-search-trigger d-lg-none" aria-label="Abrir pesquisa">
+        <i class="fas fa-search"></i>
+      </button>
+
+      <ul class="nav-list" id="nav-list" role="menubar">
+        <li role="none"><a href="/" role="menuitem" aria-current="page">Home</a></li>
+        <li role="none"><a href="/loja" role="menuitem">Loja</a></li>
+        <li role="none"><a href="/servicos" role="menuitem">Serviços</a></li>
+        <li role="none"><a href="/contatos" role="menuitem">Contatos</a></li>
+        <li role="none" class="nav-cart d-none d-lg-block">
+          <a href="#" class="cart-link" role="menuitem" aria-label="Carrinho de compras">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              <span class="cart-count">0</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Carrinho mobile -->
+      <div class="mobile-cart d-lg-none">
+        <a href="#" class="cart-link" aria-label="Carrinho de compras">
+          <div class="cart-icon">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <span class="cart-count">0</span>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Barra de pesquisa mobile overlay -->
+    <div class="mobile-search-overlay">
+      <div class="mobile-search-content-wrapper">
+        <div class="mobile-search-header">
+          <h3>Pesquisar Produtos</h3>
+          <button class="close-mobile-search" aria-label="Fechar pesquisa">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mobile-search-content">
+          <div class="search-wrap-mobile">
+            <input id="input-busca-mobile" type="text" placeholder="Digite o que você procura..." aria-label="Pesquisar produtos">
+            <button class="search-btn-mobile" type="button" aria-label="Buscar">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo -->
+  <main id="main-content" role="main">
+    <div class="produtos-page-container">
+      <div id="resultado" aria-live="polite" aria-label="Resultados da pesquisa"></div>
+
+      <div class="produtos-header">
+        <div class="produtos-header-content">
+          <h1 class="produtos-title">Todos os Produtos</h1>
+          <div class="produtos-header-actions">
+            <!-- Contador de produtos -->
+            <div class="produtos-count">
+              <span id="contador-produtos">0 produtos encontrados</span>
+            </div>
+            <!-- Botão para mobile (mostrar/ocultar filtro) -->
+            <button id="toggle-filtro" class="toggle-filtro-btn d-lg-none" aria-label="Mostrar filtros de produtos" aria-expanded="false" aria-controls="filtro-fi">
+              <i class="fas fa-filter" aria-hidden="true"></i> 
+              <span class="filter-text">Filtros</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produtos-container">
+        <!-- Filtro lateral melhorado -->
+        <aside class="filtro-fi" id="filtro-fi" aria-label="Filtros de produtos">
+          <div class="filtro-header">
+            <h3>Filtrar Produtos</h3>
+            <button class="close-filtro" aria-label="Fechar filtros">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="filtro-content">
+            <div class="filtro-section">
+              <p class="filtro-fi-p">Categoria</p>
+              
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="todas" checked>
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Todos</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="mochilas">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Mochilas</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="notebooks">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Notebooks</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="mousepads">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Mouse Pads</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="mouses">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Mouses</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="combos">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Combos</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="fones-headset">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Fones e Headsets</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="carregadores">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Carregadores</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="pendrives">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Pendrives</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="roteador-repetidores">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Roteador e Repetidores</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="monitores">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Monitores</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-categoria" data-categoria="diversos">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Diversos</span>
+              </label>
+            </div>
+
+            <div class="filtro-section">
+              <p class="filtro-fi-p">Marca</p>
+              
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="acer">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Acer</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="apple">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Apple</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="avell">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Avell</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="bright">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Bright</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="dell">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Dell</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="jbl">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">JBL</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="kross">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Kross Elegance</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="logitech">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Logitech</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="samsung">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Samsung</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="redragon">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Redragon</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="alltek">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Alltek</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="havit">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Havit</span>
+              </label>
+              <label class="label-filtro">
+                <input type="checkbox" class="input-checkbox-marca" data-marca="kingston">
+                <span class="custom-checkbox"></span>
+                <span class="texto-label">Kingston</span>
+              </label>
+            </div>
+
+            <div class="filtro-section">
+              <p class="filtro-fi-p">Promoções</p>
+              <div id="listaPromos"></div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Lista de Produtos com grid responsivo -->
+        <section id="resultado-div" class="produtos-section" aria-label="Lista de produtos">
+          <!-- Loading spinner -->
+          <div class="loading-container" id="loading-produtos" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Carregando produtos...</p>
+          </div>
+          
+          <!-- Grid de produtos -->
+          <div class="produtos-grid" id="lista-produtos" role="grid" aria-label="Produtos disponíveis"></div>
+          
+          <!-- Mensagem quando não há produtos -->
+          <div class="no-products-message" id="no-products" style="display: none;">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <h3>Nenhum produto encontrado</h3>
+            <p>Tente ajustar os filtros ou buscar por outros termos.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-content-brand">
+          <div class="footer-brand">
+            <h4>FM Notebooks</h4>
+            <p>Sua loja de notebooks, acessórios e assistência técnica especializada.</p>
+          </div>
+
+          <div class="footer-content-call">
+            <a href="https://wa.me/553492088233" target="_blank">
+              <i class="fa fa-headset"></i>
+              Fale Conosco
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contato</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Av. Oscar Gomes Moreira Júnior - Tubalina, Uberlândia</li>
+            <li><i class="fas fa-phone-alt"></i> (34) 99208-8233</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:fmnotebooks@hotmail.com">fmnotebooks@hotmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>Redes Sociais</h4>
+          <div class="footer-social-icons">
+            <a href="https://wa.me/553492088233" target="_blank" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/fmnotebooks.ofc/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-extra-area">
+        <div class="footer-extra-area-titulo">
+          <h3>Formas de Pagamento</h3>
+        </div>
+
+        <div class="footer-extra-area-content">
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/visa-color.svg" alt="Visa">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/mastercard-color.svg" alt="Mastercard">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/elo-color.svg" alt="Elo">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/itau-color.svg" alt="Itaú">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/mercadopago-color.svg" alt="Mercado Pago">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/picpay-color.svg" alt="PicPay">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/bancointer-color.svg" alt="Banco Inter">
+          </div>
+          <div class="payment-icon-placeholder">
+            <img src="img/Formas de Pagamento/pix-color.svg" alt="PIX">
+          </div>
+        </div>
+        <p class="footer-copyright">© 2025 FM Notebooks. Todos os direitos reservados.</p>
+        <div class="footer-developers">
+          <h4>Desenvolvido por</h4>
+          <ul>
+            <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
+              <a href="https://wa.me/5534991667329" target="_blank">WhatsApp</a></li>
+            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a
+                href="https://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <section class="carrinho" id="carrinho-overlay">
+    <div class="content-carrinho">
+      <button id="fechar-carrinho">×</button>
+
+      <h2>Seu Carrinho</h2>
+
+      <div id="cart-items">
+        <div class="items-add">
+
+          <div class="cart-vazio" style="display: none;">
+            <p>Seu carrinho está vazio.</p>
+          </div>
+
+      
+
+        </div>
+
+        <div class="cart-total">
+          <div class="total-info">
+            <span>Total: R$ 0,00</span>
+          </div>
+          <button class="btn-finalizar" onclick="finalizarCompra()">
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+
+  </script>
+
+  <!-- SCRIPTS -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+
+  <!-- main.js para menu hambúrguer -->
+  <script src="js/main.js"></script>
+
+  <!-- filtro.js -->
+  <script src="js/filtro.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <!-- main-produtos.js -->
+  <script src="js/main-produtos.js"></script>
+  
+  <!-- accessibility.js para melhorias de acessibilidade -->
+  <script src="js/accessibility.js"></script>
+</body>
+
+</html>

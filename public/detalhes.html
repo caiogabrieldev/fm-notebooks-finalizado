@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>FM Notebooks - OFICIAL</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
+  <meta name="description"
+    content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
+  <meta name="author" content="Caio Gabriel, Iago Borges">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicons -->
+  <link href="img/Captura_de_tela_2025-04-10_181325-removebg-preview.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/detalhes.css" rel="stylesheet">
+  <link href="css/carrinho.css" rel="stylesheet">
+  <link href="css/chatbot.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- WhatsApp Fixo -->
+  <a href="https://wa.me/553492088233" class="whats-fixed" target="_blank" rel="noopener noreferrer"
+    aria-label="Fale conosco via WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp" width="32" height="32">
+  </a>
+  <button class="chatbot-fixed" aria-label="Abrir chat de suporte" aria-expanded="false" aria-controls="chatbot-window">
+    <i class="fas fa-comments" aria-hidden="true"></i>
+  </button>
+  <div class="chatbot-window" id="chatbot-window" role="dialog" aria-labelledby="chatbot-title" aria-hidden="true">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-title-area">
+          <h3 id="chatbot-title">Assistente FM</h3>
+          <span class="chatbot-status">Online</span>
+        </div>
+      </div>
+      <button class="chatbot-close" aria-label="Fechar chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Olá! 👋 Sou o assistente virtual da FM Notebooks. Como posso ajudá-lo hoje?</p>
+          <span class="message-time">Agora</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem">
+        <button class="chatbot-send" aria-label="Enviar mensagem">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="chatbot-overlay" id="chatbot-overlay"></div>
+  <div class="click-closed overlay"></div>
+
+  <!-- ====================HEADER======================= -->
+  <!-- ====================HEADER======================= -->
+  <header role="banner">
+
+
+    <nav role="navigation" aria-label="Navegação principal">
+      <button class="mobile-menu" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-list">
+        <div class="line1" aria-hidden="true"></div>
+        <div class="line2" aria-hidden="true"></div>
+        <div class="line3" aria-hidden="true"></div>
+      </button>
+
+      <a href="index.html" class="logo" aria-label="FM Notebooks - Página inicial">
+        <img src="img/logoFM.png" alt="FM Notebooks" class="logo-img" width="40" height="40">
+        <span class="logo-text">Notebooks</span>
+      </a>
+
+      <ul class="nav-list" id="nav-list" role="menubar">
+        <li role="none"><a href="/" role="menuitem" aria-current="page">Home</a></li>
+        <li role="none"><a href="/loja" role="menuitem">Loja</a></li>
+        <li role="none"><a href="/servicos" role="menuitem">Serviços</a></li>
+        <li role="none"><a href="/contatos" role="menuitem">Contatos</a></li>
+        <li role="none" class="nav-cart"><a href="#" class="nav-cart" role="menuitem"
+            aria-label="Carrinho de compras"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========================PRODUTO================================ -->
+  <!-- ========================PRODUTO================================ -->
+
+  <section class="produto-detalhes container-detalhes" aria-label="Detalhes do produto">
+
+    <div class="galeria" id="galeria">
+
+      <div class="miniaturas" id="miniaturas">
+        <img src="img/mochilas/kross-elegance.png" alt="" class="miniatura" id="imgMini1">
+        <img src="img/mochilas/kross-elegance.png" alt="" class="miniatura" id="imgMini2">
+        <img src="img/mochilas/lenovo-casual-removebg-preview.png" alt="" class="miniatura" id="imgMini3">
+        <img src="img/mochilas/lenovo-casual.png" alt="" class="miniatura" id="imgMini4">
+      </div>
+
+      <div class="img-principal">
+        <img src="img/mochilas/kross-elegance.png" id="imgGrande" alt="">
+      </div>
+
+    </div>
+
+    <div class="info-produto">
+      <span class="marca" id="marcaD">Kross</span>
+      <h1 id="nomeP">Mochila Kross Elegance Clean Black</h1>
+      <p class="preco" id="precoP">R$ 105,00</p>
+      <p class="info-pagamento">Desconto do pix</p>
+
+      <div class="botoes-compra">
+        <a href="" id="comprarNow"  target="_blank" class="fancy">
+          <span class="top-key"></span>
+          <i class="fa fa-shopping-cart"></i>
+          <span class="text">Comprar Agora</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </a>
+        <a href="#" class="fancy" id="addCart">
+          <span class="top-key"></span>
+          <i class="fa fa-plus-circle"></i>
+          <span class="text">Adicionar ao Carrinho</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </a>
+      </div>
+
+
+    </div>
+
+    <section class="especificacoes">
+      <h2>Especificações Técnicas</h2>
+      <ul class="lista-especificacoes">
+        <!-- Lista de especificações aqui -->
+      </ul>
+    </section>
+
+  </section>
+
+
+
+
+  <!-- =======REDES SOCIAS=========== -->
+  <!-- =======REDES SOCIAS=========== -->
+
+  <section class="redes">
+
+    <div class="redes-texto">
+      <h2>Faça já o seu Orçamento.</h2>
+      <p>A FM Notebooks resolve com agilidade e confiança.</p>
+      <a href="https://wa.me/553492088233" class="botao-fm" target="_blank">
+        Solicitar Orçamento
+      </a>
+
+    </div>
+
+    <div class="redes-img">
+      <img src="img/fundo-img.png" alt="">
+    </div>
+
+  </section>
+
+  <!-- =======SIGA NOS=========== -->
+  <!-- =======SIGA NOS=========== -->
+
+  <section class="siga-nos-nos">
+    <a href="https://www.instagram.com/fmnotebooks.ofc/" target="_blank" class="siga-nos-link">
+      <i class="fab fa-instagram"></i>
+      <h3>SIGA-NOS NO INSTAGRAM</h3>
+    </a>
+    <p class="fmnotebooks">@fmnotebooks.ofc</p>
+  </section>
+
+  <!-- ========================FOOTER================================ -->
+  <!-- ========================FOOTER================================ -->
+
+  <footer>
+    <div class="footer-content">
+
+      <div class="footer-content-brand">
+
+        <div class="footer-brand">
+          <h4>FM Notebooks</h4>
+          <p>Sua loja de notebooks, acessórios e assistência técnica especializada.</p>
+        </div>
+
+        <div class="footer-content-call">
+          <a href="https://wa.me/553492088233" target="_blank">
+            <i class="fa fa-headset"></i>
+            Fale Conosco
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-nav">
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="contatos.html">Contato</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Av. Oscar Gomes Moreira Júnior - Tubalina, Uberlândia</li>
+          <li><i class="fas fa-phone-alt"></i> (34) 99208-8233</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:fmnotebooks@hotmail.com">fmnotebooks@hotmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Redes Sociais</h4>
+        <div class="footer-social-icons">
+            <a href="https://wa.me/553492088233" target="_blank" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/fmnotebooks.ofc/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="footer-extra-area">
+
+      <div class="footer-extra-area-titulo">
+        <h3>Formas de Pagamento</h3>
+      </div>
+
+      <div class="footer-extra-area-content">
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/visa-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/mastercard-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/elo-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/itau-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/mercadopago-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/picpay-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/bancointer-color.svg" alt="">
+        </div>
+        <div class="payment-icon-placeholder">
+          <img src="img/Formas de Pagamento/pix-color.svg" alt="">
+        </div>
+
+      </div>
+      <p class="footer-copyright">© 2025 FM Notebooks. Todos os direitos reservados.</p>
+      <div class="footer-developers">
+        <h4>Desenvolvido por</h4>
+        <ul>
+          <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
+              <a href="https://wa.me/5534991667329" target="_blank">WhatsApp</a></li>
+            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a
+                href="https://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+  </footer>
+  <section class="carrinho" id="carrinho-overlay">
+    <div class="content-carrinho">
+      <button id="fechar-carrinho">×</button>
+
+      <h2>Seu Carrinho</h2>
+
+      <div id="cart-items">
+        <div class="items-add">
+
+          <div class="cart-vazio" style="display: none;">
+            <p>Seu carrinho está vazio.</p>
+          </div>
+
+
+
+        </div>
+
+        <div class="cart-total">
+          <div class="total-info">
+            <span>Total: R$ 0,00</span>
+          </div>
+          <button class="btn-finalizar" onclick="finalizarCompra(0)">
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- JavaScrnoteboooooo.jpg-->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+  <script>
+    function adicionarAoCarrinho(produto) {
+      console.log('aoba');
+      const prod = {
+        id: produto.idProd,
+        nome: produto.nomeProd,
+        preco: produto.precoProd,
+        img: produto.urlImgProd1
+      }
+      let carrinho = getCarrinho();
+
+      const existente = carrinho.find(p => p.id === prod.id);
+      if (existente) {
+        existente.quantidade += 1;
+      } else {
+        carrinho.push({
+          ...prod,
+          quantidade: 1
+        });
+      }
+
+      setCarrinho(carrinho);
+      renderCarrinho();
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const chave = urlParams.get("id");
+
+    fetch("http://localhost:5090/get-prod?chave=" + chave)
+      .then(res => res.json())
+      .then(produto => {
+     
+        const imgPrincipal = document.getElementById('imgGrande')
+        imgPrincipal.src = produto.urlImgProd1
+
+
+        document.getElementById('imgMini1').src = produto.urlImgProd1
+        if (produto.urlImgProd2) {
+          document.getElementById('imgMini2').src = produto.urlImgProd2
+        } else {
+          document.getElementById('imgMini2').style.display = 'none'
+        }
+        if (produto.urlImgProd3) {
+          document.getElementById('imgMini3').src = produto.urlImgProd3
+        } else {
+          document.getElementById('imgMini3').style.display = 'none'
+        }
+        if (produto.urlImgProd4) {
+          document.getElementById('imgMini4').src = produto.urlImgProd4
+        } else {
+          document.getElementById('imgMini4').style.display = 'none'
+        }
+
+        const marca = document.getElementById('marcaD')
+        marca.innerText = produto.marcaProd
+
+        const nome = document.getElementById('nomeP')
+        nome.innerText = produto.nomeProd
+
+        const preco = document.getElementById("precoP")
+        preco.innerText = "R$ " + produto.precoProd
+
+        const lista = document.querySelector('.lista-especificacoes');
+        lista.innerHTML = '';
+
+        JSON.parse(produto.especicficacoesTecnicas).forEach(esp => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${esp.atributo}:</strong> ${esp.valor}`;
+          lista.appendChild(li);
+
+        });
+        document.getElementById('addCart').addEventListener('click', () => adicionarAoCarrinho(produto))
+        document.getElementById('comprarNow').addEventListener('click', () => adicionarAoCarrinho(produto))
+      })
+      .catch(err => console.error("Erro ao carregar produto:", err))
+
+     
+    const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
+    const carrinhoIcons = document.querySelectorAll('.nav-cart a');
+    const carrinho = document.getElementById('carrinho-overlay');
+    const fecharCarrinho = document.getElementById('fechar-carrinho');
+    const navElement = document.querySelector('nav');
+
+
+    if (carrinhoButtons && carrinho) {
+      carrinhoButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+    // Adiciona evento de clique aos ícones do carrinho no menu
+    if (carrinhoIcons && carrinho) {
+      carrinhoIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+    }
+
+
+    if (navElement && carrinho) {
+      navElement.addEventListener('click', (e) => {
+
+        const navRect = navElement.getBoundingClientRect();
+        const clickX = e.clientX - navRect.left;
+
+
+        if (clickX > navRect.width - 60) {
+          e.preventDefault();
+          carrinho.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+
+    if (fecharCarrinho && carrinho) {
+      fecharCarrinho.addEventListener('click', () => {
+        carrinho.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    }
+
+    // Fecha carrinho ao clicar fora dele
+    if (carrinho) {
+      carrinho.addEventListener('click', (e) => {
+        if (e.target === carrinho) {
+          carrinho.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+
+    function MostraMais() {
+      document.getElementById("modal-pagamento").style.display = "block";
+    }
+
+    function MostraMenos() {
+      document.getElementById("modal-pagamento").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("modal-pagamento");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+    let currentIndex = 0;
+
+    function startCarousel() {
+      const container = document.querySelector('.pagamento-card-content');
+      const items = document.querySelectorAll('.pague-item');
+      const total = items.length;
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % total;
+        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }, 2000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth <= 768) {
+        startCarousel();
+      }
+    });
+
+    function finalizarCompra() {
+      let total=0
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  if (carrinho.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
+
+ 
+  alert("O carrinho foi copiado. Cole no WhatsApp e preencha seus dados!");
+
+ 
+let numero = "5534992088233"; 
+let link = `https://wa.me/${numero}`;
+window.open(link, "_blank");
+
+
+  let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
+
+
+  mensagem += "📦 *Itens do carrinho:*\n";
+  carrinho.forEach(item => {
+    total+=parseFloat(item.preco)*item.quantidade
+    mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
+  });
+
+
+
+  mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
+
+
+  mensagem += "👤 *Dados do cliente:*\n";
+  mensagem += `- Nome: [Insira seu nome]\n`;
+  mensagem += `- Telefone: [Insira seu telefone]\n`;
+  mensagem += `- Endereço: [Insira seu endereço]\n`;
+  mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
+
+  mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
+
+ 
+  navigator.clipboard.writeText(mensagem).then(() => {
+  console.log('Sucesso ao copiar carrinho');
+});
+
+
+
+
+}
+
+
+    // ============ LocalStorage helpers ============
+    function getCarrinho() {
+      return JSON.parse(localStorage.getItem("carrinho")) || [];
+    }
+
+    function setCarrinho(carrinho) {
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    }
+
+    // ============ Alterações no carrinho ============
+    function removerDoCarrinho(id) {
+      let carrinho = getCarrinho().filter(p => p.id !== id);
+      setCarrinho(carrinho);
+      renderCarrinho();
+    }
+
+    function alterarQuantidade(id, delta) {
+      let carrinho = getCarrinho().map(p => {
+        if (p.id === id) {
+          p.quantidade = Math.max(1, p.quantidade + delta);
+        }
+        return p;
+      });
+      setCarrinho(carrinho);
+      renderCarrinho();
+    }
+
+    // ============ Renderização ============
+    function renderCarrinho() {
+      let total=0
+      const carrinho = getCarrinho();
+      const container = document.querySelector(".items-add");
+      const vazio = document.querySelector(".cart-vazio");
+      const totalEl = document.querySelector(".cart-total .total-info span");
+
+      if (!container) return;
+      container.innerHTML = "";
+
+      if (carrinho.length === 0) {
+        if (vazio) vazio.style.display = "block";
+        if (totalEl) totalEl.textContent = "Total: R$ 0,00";
+        return;
+      } else {
+        if (vazio) vazio.style.display = "none";
+      }
+
+      
+
+      carrinho.forEach(produto => {
+        total += produto.preco * produto.quantidade;
+
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+      <div class="item-cont">
+        <div class="item-img">
+          <img src="${produto.img}" alt="${produto.nome}">
+        </div>
+        <div class="item-desc">
+          <p>${produto.nome}</p>
+          <span>R$ ${produto.preco.toFixed(2)}</span>
+        </div>
+      </div>
+      <div class="item-add-or-delete">
+        <div class="quantidade-container">
+          <button class="quantidade-btn diminuir">-</button>
+          <input type="text" class="item-quantidade" value="${produto.quantidade}" min="1">
+          <button class="quantidade-btn aumentar">+</button>
+        </div>
+        <button class="remover-item"><i class="fa fa-trash"></i> Remover</button>
+      </div>
+    `;
+
+        // Eventos
+        div.querySelector(".diminuir").addEventListener("click", () => alterarQuantidade(produto.id, -1));
+        div.querySelector(".aumentar").addEventListener("click", () => alterarQuantidade(produto.id, 1));
+        div.querySelector(".remover-item").addEventListener("click", () => removerDoCarrinho(produto.id));
+
+        container.appendChild(div);
+      });
+
+      if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      renderCarrinho()
+      const imgGrande = document.getElementById('imgGrande');
+      const miniaturas = document.querySelectorAll(".miniatura");
+
+      miniaturas.forEach((miniatura) => {
+        miniatura.addEventListener('click', () => {
+          imgGrande.src = miniatura.src;
+        })
+      })
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Simula dados do produto vindos de um banco ou URL
+
+
+      const lista = document.querySelector('.lista-especificacoes');
+      lista.innerHTML = '';
+
+      produto.especificacoes.forEach(esp => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${esp.titulo}:</strong> ${esp.valor}`;
+        lista.appendChild(li);
+      });
+    });
+  </script>
+
+  <!-- Scripts de acessibilidade -->
+  <script src="js/accessibility.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+
+</html>
