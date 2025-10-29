@@ -24,5 +24,5 @@ O projeto inclui ainda um **footer completo**, com links de navegação, informa
 
 O projeto **FM Notebooks Completo** foi desenvolvido por:
 
-- **Caio Gabriel** – [GitHub](https://github.com/caiogabrieldev) | [WhatsApp](https://wa.me/5534998723042)
-- **Iago Borges** – [GitHub](https://github.com/iagodev10) | [WhatsApp](https://wa.me/5534991667329)
+- **Caio Gabriel** – [GitHub](http://github.com/caiogabrieldev) | [WhatsApp](http://wa.me/5534998723042)
+- **Iago Borges** – [GitHub](http://github.com/iagodev10) | [WhatsApp](http://wa.me/5534991667329)

@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap v4.1.3 (https://getbootstrap.com/)
-  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * Bootstrap v4.1.3 (http://getbootstrap.com/)
+  * Copyright 2011-2018 The Bootstrap Authors (http://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :
@@ -71,7 +71,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): util.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -83,7 +83,7 @@
      */
     var TRANSITION_END = 'transitionend';
     var MAX_UID = 1000000;
-    var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+    var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (http://goo.gl/pxwQGp)
 
     function toType(obj) {
       return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
@@ -203,7 +203,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): alert.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -378,7 +378,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): button.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -542,7 +542,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): carousel.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -1046,7 +1046,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): collapse.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -1414,7 +1414,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): dropdown.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -1547,10 +1547,10 @@
         if (!this._inNavbar) {
           /**
            * Check for Popper dependency
-           * Popper - https://popper.js.org
+           * Popper - http://popper.js.org
            */
           if (typeof Popper === 'undefined') {
-            throw new TypeError('Bootstrap dropdown require Popper.js (https://popper.js.org)');
+            throw new TypeError('Bootstrap dropdown require Popper.js (http://popper.js.org)');
           }
 
           var referenceElement = this._element;
@@ -1565,7 +1565,7 @@
             }
           } // If boundary is not `scrollParent`, then set position to `static`
           // to allow the menu to "escape" the scroll parent's boundaries
-          // https://github.com/twbs/bootstrap/issues/24251
+          // http://github.com/twbs/bootstrap/issues/24251
 
 
           if (this._config.boundary !== 'scrollParent') {
@@ -1576,7 +1576,7 @@
         } // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
-        // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+        // http://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
         if ('ontouchstart' in document.documentElement && $$$1(parent).closest(Selector.NAVBAR_NAV).length === 0) {
@@ -1902,7 +1902,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): modal.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -2473,7 +2473,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): tooltip.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -2569,10 +2569,10 @@
       function Tooltip(element, config) {
         /**
          * Check for Popper dependency
-         * Popper - https://popper.js.org
+         * Popper - http://popper.js.org
          */
         if (typeof Popper === 'undefined') {
-          throw new TypeError('Bootstrap tooltips require Popper.js (https://popper.js.org)');
+          throw new TypeError('Bootstrap tooltips require Popper.js (http://popper.js.org)');
         } // private
 
 
@@ -2730,7 +2730,7 @@
           $$$1(tip).addClass(ClassName.SHOW); // If this is a touch-enabled device we add extra
           // empty mouseover listeners to the body's immediate children;
           // only needed because of broken event delegation on iOS
-          // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+          // http://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
           if ('ontouchstart' in document.documentElement) {
             $$$1(document.body).children().on('mouseover', null, $$$1.noop);
@@ -3143,7 +3143,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): popover.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -3340,7 +3340,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): scrollspy.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -3656,7 +3656,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): tab.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
@@ -3905,7 +3905,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v4.1.3): index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (http://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 

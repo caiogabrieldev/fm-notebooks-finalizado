@@ -210,7 +210,7 @@ function finalizarCompra() {
 
  
   let numero = "5534992088233"; 
-  let link = `https://wa.me/${numero}`;
+  let link = `http://wa.me/${numero}`;
   window.open(link, "_blank");
 });
 
@@ -228,7 +228,7 @@ function finalizarCompra() {
 window.addEventListener("DOMContentLoaded", () => {
 
   renderCarrinho();
-  fetch("https://72.61.35.121:5090/produtos", {
+  fetch("http://72.61.35.121:5090/produtos", {
     method: "GET",
   })
     .then((response) => {
@@ -247,7 +247,7 @@ window.addEventListener("DOMContentLoaded", () => {
       exibirProdutos()
     })
 
-  fetch("https://72.61.35.121:5090/promocoes", {
+  fetch("http://72.61.35.121:5090/promocoes", {
     method: "GET",
   })
     .then((response) => {
