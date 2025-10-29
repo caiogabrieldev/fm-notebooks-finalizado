@@ -228,7 +228,7 @@ function finalizarCompra() {
 window.addEventListener("DOMContentLoaded", () => {
 
   renderCarrinho();
-  fetch("http://localhost:5090/produtos", {
+  fetch("https://72.61.35.121:5090/produtos", {
     method: "GET",
   })
     .then((response) => {
@@ -247,7 +247,7 @@ window.addEventListener("DOMContentLoaded", () => {
       exibirProdutos()
     })
 
-  fetch("http://localhost:5090/promocoes", {
+  fetch("https://72.61.35.121:5090/promocoes", {
     method: "GET",
   })
     .then((response) => {

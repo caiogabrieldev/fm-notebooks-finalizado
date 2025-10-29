@@ -1,3 +1,4 @@
+const helmet=require('helmet')
 const express = require('express')
 const dotenv = require('dotenv')
 const bcrypt = require('bcryptjs')
@@ -8,12 +9,17 @@ const path = require('path')
 const OpenAI = require('openai')
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const { fileURLToPath } = require("url");
 
+const app = express()
+
+app.use(express.static(path.join(__dirname, "public")));
 
 
 dotenv.config()
-const app = express()
+
 app.use(cookieParser());
+app.use(helmet())
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -334,7 +340,7 @@ app.post('/add-prod', upload.fields([
             Object.entries(req.files).forEach(([campo, arquivos]) => {
                 if (arquivos && arquivos.length > 0) {
 
-                    produto[`urlImgProd${campo.replace('imagem', '')}`] = `http://localhost:5090/uploads/${arquivos[0].filename}`;
+                    produto[`urlImgProd${campo.replace('imagem', '')}`] = `https://72.61.35.121:5090/uploads/${arquivos[0].filename}`;
 
                 }
             });
@@ -354,7 +360,7 @@ app.post('/add-promo', upload.single('imagem'), async (req, res) => {
         const promocao = req.body
         const imagemPromo = req.file.path
 
-        promocao.urlImgPromo = 'http://localhost:5090/' + imagemPromo
+        promocao.urlImgPromo = 'https://72.61.35.121:5090/' + imagemPromo
         await TabelaPromocoes.create(promocao)
         res.status(200).json({ message: 'Promocao adicionada com sucesso' })
     } catch (err) {
@@ -581,7 +587,7 @@ app.put('/atualizar-promo/:chaveAcesso', upload.single('imagem'), async (req, re
 
         const imagemPromo = req.file.path
         if (!imagemPromo) return res.status(404).json({ message: "imagem não enviada" })
-        const novaImg = 'http://localhost:5090/' + imagemPromo
+        const novaImg = 'https://72.61.35.121:5090/' + imagemPromo
         const objimg = {
             urlImgPromo: novaImg
         }
@@ -833,7 +839,8 @@ app.get("/logout", (req, res) => {
     res.redirect("/login");
   });
 
-app.listen(PORT, () => {
-    console.log(`Servidor em execução em http://localhost:${5090}`);
-})
+  app.listen(5090, "0.0.0.0", () => {
+    console.log("Servidor rodando em https://72.61.35.121:5090");
+  });
+  
 

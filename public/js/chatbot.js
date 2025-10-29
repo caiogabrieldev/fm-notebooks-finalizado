@@ -67,7 +67,7 @@ function sendMessage() {
     addMessage(message.message, false);
     chatbotInput.value = '';
 
-    fetch('http://localhost:5090/perguntar-assistente', {
+    fetch('https://72.61.35.121:5090/perguntar-assistente', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

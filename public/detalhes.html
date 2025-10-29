@@ -386,7 +386,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const chave = urlParams.get("id");
 
-    fetch("http://localhost:5090/get-prod?chave=" + chave)
+    fetch("https://72.61.35.121:5090/get-prod?chave=" + chave)
       .then(res => res.json())
       .then(produto => {
      
