@@ -11,7 +11,7 @@
   <link href="http://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" />
 
-  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="./css/login.css" />
   <title>FM-Notebooks ADM</title>
 </head>
 
@@ -50,7 +50,7 @@
 
   const msg = { email, senha };
 
-  fetch('http://72.61.35.121:80/login', {
+  fetch('http://72.61.35.121:8080/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

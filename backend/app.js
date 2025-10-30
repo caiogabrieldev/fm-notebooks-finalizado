@@ -13,7 +13,10 @@ const { fileURLToPath } = require("url");
 
 const app = express()
 
-
+app.use(helmet({
+    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false
+  }));
 
 dotenv.config()
 
