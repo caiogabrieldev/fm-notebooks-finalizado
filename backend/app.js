@@ -1,4 +1,4 @@
-const helmet=require('helmet')
+const helmet = require('helmet')
 const express = require('express')
 const dotenv = require('dotenv')
 const bcrypt = require('bcryptjs')
@@ -23,7 +23,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const PORT = 8080
+const PORT = 80
 
 
 
@@ -189,15 +189,15 @@ async function criarTabela() {
     })
 
 }
- async function criarAdm(){
-     await TabelaAdms.create({
-         idAdm:1,
-         nomeAdm:"FM Notebooks",
-        emailAdm:process.env.EMAIL,
-       senhaAdm:process.env.SENHA
-     })
+async function criarAdm() {
+    await TabelaAdms.create({
+        idAdm: 1,
+        nomeAdm: "FM Notebooks",
+        emailAdm: process.env.EMAIL,
+        senhaAdm: process.env.SENHA
+    })
 
- }
+}
 
 
 
@@ -212,7 +212,7 @@ async function checarExistenciaAdmInicial() {
 
     const div = await TabelaAdms.findByPk(1)
     if (!div) {
-         criarAdm()
+        criarAdm()
     }
 }
 
@@ -292,29 +292,29 @@ app.get("/detalhes", (req, res) => {
 });
 
 
-app.post("/login", async(req, res) => {
-   
-    const { email, senha } = req.body;
-    const adms=await TabelaAdms.findAll()
+app.post("/login", async (req, res) => {
 
-    for(adm of adms){
+    const { email, senha } = req.body;
+    const adms = await TabelaAdms.findAll()
+
+    for (adm of adms) {
         if (adm.emailAdm === email && senha === adm.senhaAdm) {
             const token = jwt.sign({ email }, process.env.JWT_TOKEN, { expiresIn: "1h" });
-    
+
             res.cookie("token", token, {
                 httpOnly: true,
                 sameSite: "lax"
                 // secure: true   // só em produção com http
             });
-    
-    
+
+
             return res.json({ success: true, redirect: "/administracao-fm-notebooks" });
         }
     }
 
-    
 
-   
+
+
     return res.status(401).json({ success: false, message: "Credenciais inválidas" });
 });
 
@@ -339,7 +339,7 @@ app.post('/add-prod', upload.fields([
             Object.entries(req.files).forEach(([campo, arquivos]) => {
                 if (arquivos && arquivos.length > 0) {
 
-                    produto[`urlImgProd${campo.replace('imagem', '')}`] = `http://72.61.35.121:8080/uploads/${arquivos[0].filename}`;
+                    produto[`urlImgProd${campo.replace('imagem', '')}`] = `http://72.61.35.121:80/uploads/${arquivos[0].filename}`;
 
                 }
             });
@@ -359,7 +359,7 @@ app.post('/add-promo', upload.single('imagem'), async (req, res) => {
         const promocao = req.body
         const imagemPromo = req.file.path
 
-        promocao.urlImgPromo = 'http://72.61.35.121:8080/' + imagemPromo
+        promocao.urlImgPromo = 'http://72.61.35.121:80/' + imagemPromo
         await TabelaPromocoes.create(promocao)
         res.status(200).json({ message: 'Promocao adicionada com sucesso' })
     } catch (err) {
@@ -522,7 +522,7 @@ app.get('/get-infos-promo/:codAcesso', async (req, res) => {
 app.delete('/delete-prod/:codAcesso', async (req, res) => {
     try {
         const chave = req.params.codAcesso
- if (!chave) return res.status(404).json({ message: "chave não enviada" })
+        if (!chave) return res.status(404).json({ message: "chave não enviada" })
         const produto = await TabelaProdutos.findOne({ where: { chaveAcessProd: chave } })
 
         const nomeArquivo = path.basename(produto.urlImgProd1);
@@ -532,12 +532,12 @@ app.delete('/delete-prod/:codAcesso', async (req, res) => {
         if (fs.existsSync(imgPath)) {
             fs.unlinkSync(imgPath);
             console.log("Imagem removida:", imgPath);
-          } else {
+        } else {
             console.warn("Imagem não encontrada:", imgPath);
-          }
+        }
 
 
-       
+
         await TabelaProdutos.destroy({ where: { chaveAcessProd: chave } })
 
 
@@ -586,7 +586,7 @@ app.put('/atualizar-promo/:chaveAcesso', upload.single('imagem'), async (req, re
 
         const imagemPromo = req.file.path
         if (!imagemPromo) return res.status(404).json({ message: "imagem não enviada" })
-        const novaImg = 'http://72.61.35.121:8080/' + imagemPromo
+        const novaImg = 'http://72.61.35.121:80/' + imagemPromo
         const objimg = {
             urlImgPromo: novaImg
         }
@@ -608,7 +608,7 @@ app.put('/atualizar-promo/:chaveAcesso', upload.single('imagem'), async (req, re
 app.put('/vinc-promo/', async (req, res) => {
     try {
         const { idPromo, array } = req.body;
-    
+
 
         for (const prod of array) {
             if (prod.status == false) {
@@ -673,7 +673,7 @@ app.get('/get-prods-divflex', async (req, res) => {
             listaIds = JSON.parse(secao.codProdsSecaoFlex)
             if (!Array.isArray(listaIds)) listaIds = []
         }
-    
+
         const produtos = await Promise.all(
             listaIds.map(id => TabelaProdutos.findByPk(id))
         )
@@ -691,7 +691,7 @@ app.put('/vincular-divflex/:id', async (req, res) => {
         const id = req.params.id
         await TabelaProdutos.update({ statusVincSecaoFlex: true }, { where: { idProd: id } })
         const secao = await TabelaSecaoFlexivel.findByPk(1)
-  
+
 
         let listaIds
         if (!secao.codProdsSecaoFlex) {
@@ -702,7 +702,7 @@ app.put('/vincular-divflex/:id', async (req, res) => {
         }
 
         listaIds.push(id);
-       
+
         await TabelaSecaoFlexivel.update(
             { codProdsSecaoFlex: JSON.stringify(listaIds) },
             { where: { idSecaoFlex: 1 } }
@@ -719,7 +719,7 @@ app.put('/desvincular-divflex/:id', async (req, res) => {
         const id = req.params.id
         await TabelaProdutos.update({ statusVincSecaoFlex: false }, { where: { idProd: id } })
         const secao = await TabelaSecaoFlexivel.findByPk(1)
-  
+
 
         let listaIds
         if (!secao.codProdsSecaoFlex) {
@@ -734,7 +734,7 @@ app.put('/desvincular-divflex/:id', async (req, res) => {
                 listaIds.splice(i, 1)
             }
         }
-    
+
         await TabelaSecaoFlexivel.update(
             { codProdsSecaoFlex: JSON.stringify(listaIds) },
             { where: { idSecaoFlex: 1 } }
@@ -834,12 +834,12 @@ app.delete('/delete-adm/:id', async (req, res) => {
     }
 })
 app.get("/logout", (req, res) => {
-    res.clearCookie("token"); 
+    res.clearCookie("token");
     res.redirect("/login");
-  });
+});
 
-  app.listen(8080, "0.0.0.0", () => {
-    console.log("Servidor rodando em http://72.61.35.121:8080");
-  });
-  
+app.listen(80, "0.0.0.0", () => {
+    console.log("Servidor rodando em http://72.61.35.121:80");
+});
+
 
