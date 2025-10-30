@@ -741,7 +741,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch('http://72.61.35.121:5090/get-infos-promo/' + chave, {
+      fetch('http://72.61.35.121:8080/get-infos-promo/' + chave, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -781,7 +781,7 @@
       document.getElementById('produto-janela').style.display = 'block';
 
 
-      fetch('http://72.61.35.121:5090/get-infos/' + chave, {
+      fetch('http://72.61.35.121:8080/get-infos/' + chave, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -877,7 +877,7 @@
       })
     }
     function excluirAdministrador(id){
-      fetch('http://72.61.35.121:5090/delete-adm/' + id, {
+      fetch('http://72.61.35.121:8080/delete-adm/' + id, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
@@ -904,7 +904,7 @@
       const inputBusca = document.getElementById('inputS')
       const divVinculoEnglob = document.getElementById('divVinculo')
 
-      fetch('http://72.61.35.121:5090/adms', {
+      fetch('http://72.61.35.121:8080/adms', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -966,7 +966,7 @@
         })
     .catch(error => console.error('Erro ao obter informações', error))
 
-    fetch('http://72.61.35.121:5090/get-divflex', {
+    fetch('http://72.61.35.121:8080/get-divflex', {
       method: 'GET'
     })
     .then(response => {
@@ -979,7 +979,7 @@
     })
     .catch(error => console.error('Fetch error (produtos):', error))
 
-    fetch('http://72.61.35.121:5090/produtos', {
+    fetch('http://72.61.35.121:8080/produtos', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -1004,7 +1004,7 @@
 
 
 
-    fetch('http://72.61.35.121:5090/promocoes', {
+    fetch('http://72.61.35.121:8080/promocoes', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -1274,7 +1274,7 @@
         idPromo: idPromo,
         array: produtosAlteradosModal
       }
-      fetch('http://72.61.35.121:5090/vinc-promo/', {
+      fetch('http://72.61.35.121:8080/vinc-promo/', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -1384,7 +1384,7 @@
       formData.append('chaveAcessProd', chaveAcessProd)
       formData.append('especicficacoesTecnicas', JSON.stringify(especificacoesTecnicas))
 
-      fetch('http://72.61.35.121:5090/add-prod', {
+      fetch('http://72.61.35.121:8080/add-prod', {
           method: 'POST',
           body: formData
         })
@@ -1422,7 +1422,7 @@
       }
 
 
-      fetch('http://72.61.35.121:5090/atualizar-prod/' + chave, {
+      fetch('http://72.61.35.121:8080/atualizar-prod/' + chave, {
           method: 'PUT',
           body: JSON.stringify(infosAtualizadas),
           headers: {
@@ -1462,7 +1462,7 @@
       formData.append('nomePromocao', nomePromo)
 
 
-      fetch('http://72.61.35.121:5090/add-promo', {
+      fetch('http://72.61.35.121:8080/add-promo', {
           method: 'POST',
           body: formData
         })
@@ -1483,7 +1483,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch('http://72.61.35.121:5090/delete-prod/' + chave, {
+      fetch('http://72.61.35.121:8080/delete-prod/' + chave, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
@@ -1511,7 +1511,7 @@
 
       formData.append('imagem', img)
 
-      fetch('http://72.61.35.121:5090/atualizar-promo/' + chave, {
+      fetch('http://72.61.35.121:8080/atualizar-promo/' + chave, {
           method: 'PUT',
           body: formData
         })
@@ -1555,7 +1555,7 @@
       }
 
 
-      fetch('http://72.61.35.121:5090/atualizar-prod/' + chave, {
+      fetch('http://72.61.35.121:8080/atualizar-prod/' + chave, {
           method: 'PUT',
           body: JSON.stringify(infosAtualizadas),
           headers: {
@@ -1581,7 +1581,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch('http://72.61.35.121:5090/delete-promo/' + chave, {
+      fetch('http://72.61.35.121:8080/delete-promo/' + chave, {
           method: 'DELETE',
         })
         .then(response => {
@@ -1775,7 +1775,7 @@
       // Aqui você faria a requisição para o backend
 
 
-      fetch('http://72.61.35.121:5090/atualizar-divflex/' + novoNome, {
+      fetch('http://72.61.35.121:8080/atualizar-divflex/' + novoNome, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -1879,7 +1879,7 @@
 
         // Aqui você faria a requisição para o backend
         // fetch('/api/produtos/vincular', { method: 'POST', body: JSON.stringify({id}) })
-        fetch('http://72.61.35.121:5090/vincular-divflex/' + id, {
+        fetch('http://72.61.35.121:8080/vincular-divflex/' + id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -1915,7 +1915,7 @@
         // Re-renderizar
         renderizarProdutosFlexivel(produtosFiltradosFlex)
 
-        fetch('http://72.61.35.121:5090/desvincular-divflex/' + id, {
+        fetch('http://72.61.35.121:8080/desvincular-divflex/' + id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -1950,7 +1950,7 @@
         telefoneAdm: telefone
       }
 
-      fetch('http://72.61.35.121:5090/add-adm', {
+      fetch('http://72.61.35.121:8080/add-adm', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

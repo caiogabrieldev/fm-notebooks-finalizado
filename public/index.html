@@ -1069,7 +1069,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
 
-      fetch('http://72.61.35.121:5090/get-divflex/', {
+      fetch('http://72.61.35.121:8080/get-divflex/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -1087,7 +1087,7 @@
 
 
 
-      fetch('http://72.61.35.121:5090/get-prods-divflex/', {
+      fetch('http://72.61.35.121:8080/get-prods-divflex/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -1151,7 +1151,7 @@
         })
         .catch(error => console.error('Erro ao obter informações', error))
 
-      fetch('http://72.61.35.121:5090/promocoes/', {
+      fetch('http://72.61.35.121:8080/promocoes/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
