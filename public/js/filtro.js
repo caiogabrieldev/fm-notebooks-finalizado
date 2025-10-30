@@ -236,7 +236,7 @@ window.addEventListener("DOMContentLoaded", () => {
       return response.json()
     })
     .then((data) => {
-  
+      console.log(data);
       produtos = data
 
       exibirProdutos()
