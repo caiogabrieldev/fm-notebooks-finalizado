@@ -851,5 +851,7 @@ app.get("/logout", (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://${HOST}:${PORT}`);
+    console.log("PORTA: "+PORT);
+    console.log("HOST: "+HOST);
 });
 
