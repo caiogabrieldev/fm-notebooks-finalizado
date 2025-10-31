@@ -354,8 +354,13 @@
   <script src="js/main.js"></script>
 
   <script>
-    const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
-    const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+    let API_URL;
+
+    if (location.hostname == "localhost") {
+      API_URL = "http://localhost:80"
+    } else {
+      API_URL = "http://72.61.35.121:80"
+    }
 
     function adicionarAoCarrinho(produto) {
       console.log('aoba');
@@ -384,7 +389,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const chave = urlParams.get("id");
 
-    fetch(API_URL+"/get-prod?chave=" + chave)
+    fetch(API_URL + "/get-prod?chave=" + chave)
       .then(res => res.json())
       .then(produto => {
 

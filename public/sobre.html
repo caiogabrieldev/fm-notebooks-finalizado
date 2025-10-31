@@ -310,9 +310,14 @@
 
 
     <script>
-      const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
-      const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+      let API_URL;
 
+      if (location.hostname == "localhost") {
+        API_URL = "http://localhost:80"
+      } else {
+        API_URL = "http://72.61.35.121:80"
+      }
+      
       let totalEl = document.querySelector(".cart-total .total-info span");
       const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
       const carrinhoIcons = document.querySelectorAll('.nav-cart a');

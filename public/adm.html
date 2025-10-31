@@ -592,8 +592,13 @@
 
 
   <script>
-    const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
-    const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+    let API_URL;
+
+    if (location.hostname == "localhost") {
+      API_URL = "http://localhost:80"
+    } else {
+      API_URL = "http://72.61.35.121:80"
+    }
 
     function togglePassword(inputId) {
       const input = document.getElementById(inputId);
@@ -775,7 +780,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch(API_URL+'/get-infos-promo/' + chave, {
+      fetch(API_URL + '/get-infos-promo/' + chave, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -815,7 +820,7 @@
       document.getElementById('produto-janela').style.display = 'block';
 
 
-      fetch(API_URL+'/get-infos/' + chave, {
+      fetch(API_URL + '/get-infos/' + chave, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -912,7 +917,7 @@
     }
 
     function excluirAdministrador(id) {
-      fetch(API_URL+'/delete-adm/' + id, {
+      fetch(API_URL + '/delete-adm/' + id, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
@@ -939,7 +944,7 @@
       const inputBusca = document.getElementById('inputS')
       const divVinculoEnglob = document.getElementById('divVinculo')
 
-      fetch(API_URL+'/adms', {
+      fetch(API_URL + '/adms', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -1001,7 +1006,7 @@
         })
         .catch(error => console.error('Erro ao obter informações', error))
 
-      fetch(API_URL+'/get-divflex', {
+      fetch(API_URL + '/get-divflex', {
           method: 'GET'
         })
         .then(response => {
@@ -1014,7 +1019,7 @@
         })
         .catch(error => console.error('Fetch error (produtos):', error))
 
-      fetch(API_URL+'/produtos', {
+      fetch(API_URL + '/produtos', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -1039,7 +1044,7 @@
 
 
 
-      fetch(API_URL+'/promocoes', {
+      fetch(API_URL + '/promocoes', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -1309,7 +1314,7 @@
         idPromo: idPromo,
         array: produtosAlteradosModal
       }
-      fetch(API_URL+'/vinc-promo/', {
+      fetch(API_URL + '/vinc-promo/', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -1419,7 +1424,7 @@
       formData.append('chaveAcessProd', chaveAcessProd)
       formData.append('especicficacoesTecnicas', JSON.stringify(especificacoesTecnicas))
 
-      fetch(API_URL+'/add-prod', {
+      fetch(API_URL + '/add-prod', {
           method: 'POST',
           body: formData
         })
@@ -1457,7 +1462,7 @@
       }
 
 
-      fetch(API_URL+'/atualizar-prod/' + chave, {
+      fetch(API_URL + '/atualizar-prod/' + chave, {
           method: 'PUT',
           body: JSON.stringify(infosAtualizadas),
           headers: {
@@ -1497,7 +1502,7 @@
       formData.append('nomePromocao', nomePromo)
 
 
-      fetch(API_URL+'/add-promo', {
+      fetch(API_URL + '/add-promo', {
           method: 'POST',
           body: formData
         })
@@ -1518,7 +1523,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch(API_URL+'/delete-prod/' + chave, {
+      fetch(API_URL + '/delete-prod/' + chave, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
@@ -1546,7 +1551,7 @@
 
       formData.append('imagem', img)
 
-      fetch(API_URL+'/atualizar-promo/' + chave, {
+      fetch(API_URL + '/atualizar-promo/' + chave, {
           method: 'PUT',
           body: formData
         })
@@ -1590,7 +1595,7 @@
       }
 
 
-      fetch(API_URL+'/atualizar-prod/' + chave, {
+      fetch(API_URL + '/atualizar-prod/' + chave, {
           method: 'PUT',
           body: JSON.stringify(infosAtualizadas),
           headers: {
@@ -1616,7 +1621,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch(API_URL+'/delete-promo/' + chave, {
+      fetch(API_URL + '/delete-promo/' + chave, {
           method: 'DELETE',
         })
         .then(response => {
@@ -1810,7 +1815,7 @@
       // Aqui você faria a requisição para o backend
 
 
-      fetch(API_URL+'/atualizar-divflex/' + novoNome, {
+      fetch(API_URL + '/atualizar-divflex/' + novoNome, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -1914,7 +1919,7 @@
 
         // Aqui você faria a requisição para o backend
         // fetch('/api/produtos/vincular', { method: 'POST', body: JSON.stringify({id}) })
-        fetch(API_URL+'/vincular-divflex/' + id, {
+        fetch(API_URL + '/vincular-divflex/' + id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -1950,7 +1955,7 @@
         // Re-renderizar
         renderizarProdutosFlexivel(produtosFiltradosFlex)
 
-        fetch(API_URL+'/desvincular-divflex/' + id, {
+        fetch(API_URL + '/desvincular-divflex/' + id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -1985,7 +1990,7 @@
         telefoneAdm: telefone
       }
 
-      fetch(API_URL+'/add-adm', {
+      fetch(API_URL + '/add-adm', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
