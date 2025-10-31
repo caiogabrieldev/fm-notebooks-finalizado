@@ -233,8 +233,6 @@ async function checarExistenciaAdmInicial() {
         console.log("ADM NAO EXISTE");
         await criarAdm()
         console.log("SUCESSO AO CRIAR ADM");
-    }else{
-        console.log(div);
     }
 }
 
@@ -323,7 +321,9 @@ app.post("/login", async (req, res) => {
     const adms = await TabelaAdms.findAll()
 
     for (adm of adms) {
-        
+        console.log("infos adm no banco:");
+        console.log(adm.emailAdm);
+        console.log(adm.senhaAdm);
         if (adm.emailAdm === email && senha === adm.senhaAdm) {
             const token = jwt.sign({ email }, process.env.JWT_TOKEN, { expiresIn: "1h" });
 
