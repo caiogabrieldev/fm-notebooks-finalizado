@@ -321,6 +321,9 @@ app.post("/login", async (req, res) => {
     const adms = await TabelaAdms.findAll()
 
     for (adm of adms) {
+        console.log("infos login");
+        console.log(email);
+        console.log(senha);
         console.log("infos adm no banco:");
         console.log(adm.emailAdm);
         console.log(adm.senhaAdm);
