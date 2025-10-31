@@ -220,14 +220,14 @@ async function checarExistenciaFlex() {
 
     const div = await TabelaSecaoFlexivel.findByPk(1)
     if (!div) {
-        criarTabela()
+        await criarTabela()
     }
 }
 async function checarExistenciaAdmInicial() {
 
     const div = await TabelaAdms.findByPk(1)
     if (!div) {
-        criarAdm()
+        await criarAdm()
     }
 }
 
