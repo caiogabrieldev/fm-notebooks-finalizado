@@ -1,4 +1,3 @@
-const helmet = require('helmet')
 const express = require('express')
 const dotenv = require('dotenv')
 const bcrypt = require('bcryptjs')
@@ -13,10 +12,7 @@ const { fileURLToPath } = require("url");
 
 const app = express()
 
-app.use(helmet({
-    contentSecurityPolicy: false,
-    crossOriginEmbedderPolicy: false
-  }));
+
 
 dotenv.config()
 
@@ -243,7 +239,7 @@ async function sincronizarDB() {
         console.log("Erro ao sincronizar")
     }
 }
-await sincronizarDB()
+sincronizarDB()
 
 
 
