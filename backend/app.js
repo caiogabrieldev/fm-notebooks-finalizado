@@ -328,7 +328,9 @@ app.post("/login", async (req, res) => {
         console.log(adm.emailAdm);
         console.log(adm.senhaAdm);
         if (adm.emailAdm == email && senha == adm.senhaAdm) {
+            console.log("ACHOU");
             const token = jwt.sign({ email }, process.env.JWT_TOKEN, { expiresIn: "1h" });
+
 
             res.cookie("token", token, {
                 httpOnly: true,
