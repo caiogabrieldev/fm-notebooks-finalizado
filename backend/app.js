@@ -26,8 +26,15 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const PORT = 80
+const PORT = process.env.PORT || 80;
+const HOST = process.env.HOST || "0.0.0.0";
+let API_SAVE;
 
+if(process.env.NODE_ENV=="development"){
+    API_SAVE="localhost"
+}else{
+    API_SAVE="72.61.35.121"
+}
 
 
 const { Sequelize, DataTypes, where, STRING } = require('sequelize')
@@ -342,7 +349,7 @@ app.post('/add-prod', upload.fields([
             Object.entries(req.files).forEach(([campo, arquivos]) => {
                 if (arquivos && arquivos.length > 0) {
 
-                    produto[`urlImgProd${campo.replace('imagem', '')}`] = `http://72.61.35.121:80/uploads/${arquivos[0].filename}`;
+                    produto[`urlImgProd${campo.replace('imagem', '')}`] = `http://${API_SAVE}:80/uploads/${arquivos[0].filename}`;
 
                 }
             });
@@ -362,7 +369,7 @@ app.post('/add-promo', upload.single('imagem'), async (req, res) => {
         const promocao = req.body
         const imagemPromo = req.file.path
 
-        promocao.urlImgPromo = 'http://72.61.35.121:80/' + imagemPromo
+        promocao.urlImgPromo = 'http://'+API_SAVE+':80/' + imagemPromo
         await TabelaPromocoes.create(promocao)
         res.status(200).json({ message: 'Promocao adicionada com sucesso' })
     } catch (err) {
@@ -589,7 +596,7 @@ app.put('/atualizar-promo/:chaveAcesso', upload.single('imagem'), async (req, re
 
         const imagemPromo = req.file.path
         if (!imagemPromo) return res.status(404).json({ message: "imagem não enviada" })
-        const novaImg = 'http://72.61.35.121:80/' + imagemPromo
+        const novaImg = 'http://'+API_SAVE+':80/' + imagemPromo
         const objimg = {
             urlImgPromo: novaImg
         }
@@ -841,8 +848,7 @@ app.get("/logout", (req, res) => {
     res.redirect("/login");
 });
 
-app.listen(80, "0.0.0.0", () => {
-    console.log("Servidor rodando em http://72.61.35.121:80");
+app.listen(PORT, HOST, () => {
+    console.log(`Servidor rodando em http://${HOST}:${PORT}`);
 });
-
 

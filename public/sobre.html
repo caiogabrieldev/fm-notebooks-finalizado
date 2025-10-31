@@ -21,17 +21,14 @@
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Libraries CSS Files -->
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="./css/sobre.css" rel="stylesheet">
@@ -42,8 +39,7 @@
 <body>
 
   <!-- WhatsApp Fixo -->
-  <a href="http://wa.me/553492088233" class="whats-fixed" target="_blank" rel="noopener noreferrer"
-    aria-label="Fale conosco via WhatsApp">
+  <a href="http://wa.me/553492088233" class="whats-fixed" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco via WhatsApp">
     <img src="http://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp" width="32" height="32">
   </a>
 
@@ -71,8 +67,7 @@
         <li role="none"><a href="/loja" role="menuitem">Loja</a></li>
         <li role="none"><a href="/serviços" role="menuitem">Serviços</a></li>
         <li role="none"><a href="/contatos" role="menuitem">Contatos</a></li>
-        <li role="none" class="nav-cart"><a href="#" class="nav-cart" role="menuitem"
-            aria-label="Carrinho de compras"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a></li>
+        <li role="none" class="nav-cart"><a href="#" class="nav-cart" role="menuitem" aria-label="Carrinho de compras"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a></li>
       </ul>
     </nav>
   </header>
@@ -276,9 +271,9 @@
           <h4>Desenvolvido por</h4>
           <ul>
             <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
-              <a href="http://wa.me/5534991667329" target="_blank">WhatsApp</a></li>
-            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a
-                href="http://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
+              <a href="http://wa.me/5534991667329" target="_blank">WhatsApp</a>
+            </li>
+            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a href="http://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
           </ul>
         </div>
     </footer>
@@ -314,6 +309,9 @@
 
 
     <script>
+      const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
+      const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+
       let totalEl = document.querySelector(".cart-total .total-info span");
       const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
       const carrinhoIcons = document.querySelectorAll('.nav-cart a');
@@ -368,7 +366,7 @@
       }
 
       function renderCarrinho() {
-       
+
         const carrinho = getCarrinho();
         const container = document.querySelector(".items-add");
         const vazio = document.querySelector(".cart-vazio");
@@ -376,7 +374,7 @@
 
         if (!container) return;
         container.innerHTML = "";
-     
+
         if (carrinho.length === 0) {
           if (vazio) vazio.style.display = "block";
           if (totalEl) totalEl.textContent = "Total: R$ 0,00";
@@ -419,8 +417,8 @@
 
           container.appendChild(div);
         });
-  
-        
+
+
         if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
       }
 
@@ -453,7 +451,10 @@
         if (existente) {
           existente.quantidade += 1;
         } else {
-          carrinho.push({ ...produto, quantidade: 1 });
+          carrinho.push({
+            ...produto,
+            quantidade: 1
+          });
         }
 
         setCarrinho(carrinho);
@@ -484,50 +485,50 @@
 
 
       function finalizarCompra() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
-        return;
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        if (carrinho.length === 0) {
+          alert("Seu carrinho está vazio!");
+          return;
+        }
+
+
+
+        let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
+        let total = 0
+
+        mensagem += "📦 *Itens do carrinho:*\n";
+        carrinho.forEach(item => {
+          total += parseFloat(item.preco) * item.quantidade
+          mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
+        });
+
+
+
+        mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
+
+
+        mensagem += "👤 *Dados do cliente:*\n";
+        mensagem += `- Nome: [Insira seu nome]\n`;
+        mensagem += `- Telefone: [Insira seu telefone]\n`;
+        mensagem += `- Endereço: [Insira seu endereço]\n`;
+        mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
+
+        mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
+
+
+        navigator.clipboard.writeText(mensagem).then(() => {
+          alert("O carrinho foi copiado. Cole no WhatsApp e preencha seus dados!");
+
+
+          let numero = "5534992088233";
+          let link = `http://wa.me/${numero}`;
+          window.open(link, "_blank");
+        });
+
+
+
+
       }
-
-     
-    
-      let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
-      let total=0
-    
-      mensagem += "📦 *Itens do carrinho:*\n";
-      carrinho.forEach(item => {
-        total+=parseFloat(item.preco)*item.quantidade
-        mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
-      });
-
-
-    
-      mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
-
-   
-      mensagem += "👤 *Dados do cliente:*\n";
-      mensagem += `- Nome: [Insira seu nome]\n`;
-      mensagem += `- Telefone: [Insira seu telefone]\n`;
-      mensagem += `- Endereço: [Insira seu endereço]\n`;
-      mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
-
-      mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
-
-     
-      navigator.clipboard.writeText(mensagem).then(() => {
-        alert("O carrinho foi copiado. Cole no WhatsApp e preencha seus dados!");
-
-     
-      let numero = "5534992088233"; 
-      let link = `http://wa.me/${numero}`;
-      window.open(link, "_blank");
-    });
-
-
-    
- 
-    }
 
       document.addEventListener('DOMContentLoaded', () => {
         renderCarrinho()

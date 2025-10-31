@@ -6,6 +6,9 @@ const carrinho = document.getElementById('carrinho-overlay');
 const fecharCarrinho = document.getElementById('fechar-carrinho');
 const navElement = document.querySelector('nav');
 
+const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
+const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+
 // Remove só a chave "carrinho"
 
 
@@ -228,7 +231,7 @@ function finalizarCompra() {
 window.addEventListener("DOMContentLoaded", () => {
 
   renderCarrinho();
-  fetch("http://72.61.35.121:80/produtos", {
+  fetch(API_URL+"/produtos", {
     method: "GET",
   })
     .then((response) => {
@@ -247,7 +250,7 @@ window.addEventListener("DOMContentLoaded", () => {
       exibirProdutos()
     })
 
-  fetch("http://72.61.35.121:80/promocoes", {
+  fetch(API_URL+"/promocoes", {
     method: "GET",
   })
     .then((response) => {

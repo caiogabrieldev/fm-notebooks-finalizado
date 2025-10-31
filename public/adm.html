@@ -9,7 +9,7 @@
   <meta name="keywords" content="notebooks, acessórios, assistência técnica, Uberlândia, FM Notebooks">
   <meta name="description" content="FM Notebooks: loja de notebooks, acessórios e assistência técnica especializada em Uberlândia.">
   <meta name="author" content="Caio Gabriel, Iago Borges">
-  
+
   <link rel="stylesheet" href="/css/adm.css">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="http://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -254,7 +254,7 @@
 
         <div class="adm-grid" id="adm-grid">
 
-          
+
 
 
         </div>
@@ -589,11 +589,14 @@
 
 
   <script>
-     function togglePassword(inputId) {
+    const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
+    const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+
+    function togglePassword(inputId) {
       const input = document.getElementById(inputId);
       const button = input.nextElementSibling;
       const icon = button.querySelector('i');
-      
+
       if (input.type === 'password') {
         input.type = 'text';
         icon.classList.remove('fa-eye');
@@ -741,7 +744,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch('http://72.61.35.121:80/get-infos-promo/' + chave, {
+      fetch(API_URL+'/get-infos-promo/' + chave, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -781,7 +784,7 @@
       document.getElementById('produto-janela').style.display = 'block';
 
 
-      fetch('http://72.61.35.121:80/get-infos/' + chave, {
+      fetch(API_URL+'/get-infos/' + chave, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -837,13 +840,13 @@
     window.onload = adicionarTabela;
 
     function renderizarProdutos(produtosFiltrados) {
-     
+
       const englobprodutos = document.getElementById('englobprodutos')
       englobprodutos.innerHTML = ''
 
 
       produtosFiltrados.forEach(produto => {
-      
+
         const imgProd = document.createElement('img')
         imgProd.src = produto.urlImgProd1
         imgProd.alt = produto.nomeProd
@@ -876,8 +879,9 @@
         englobprodutos.appendChild(divProd)
       })
     }
-    function excluirAdministrador(id){
-      fetch('http://72.61.35.121:80/delete-adm/' + id, {
+
+    function excluirAdministrador(id) {
+      fetch(API_URL+'/delete-adm/' + id, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
@@ -904,7 +908,7 @@
       const inputBusca = document.getElementById('inputS')
       const divVinculoEnglob = document.getElementById('divVinculo')
 
-      fetch('http://72.61.35.121:80/adms', {
+      fetch(API_URL+'/adms', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -915,160 +919,160 @@
           return response.json()
         })
         .then(data => {
-         
-            admsVindos=data.adms
-            data.adms.forEach((adm) => {
-              document.getElementById('adm-count').innerText=data.adms.length+" administradores encontrados"
-              const divAdmCart = document.createElement('div')
-              divAdmCart.className = 'adm-card' 
 
-              const divInfo = document.createElement('div')
-              divInfo.className = 'adm-info'
+          admsVindos = data.adms
+          data.adms.forEach((adm) => {
+            document.getElementById('adm-count').innerText = data.adms.length + " administradores encontrados"
+            const divAdmCart = document.createElement('div')
+            divAdmCart.className = 'adm-card'
 
-              const h4 = document.createElement('h4')
-              h4.innerText = adm.nomeAdm
+            const divInfo = document.createElement('div')
+            divInfo.className = 'adm-info'
 
-              const p1 = document.createElement('p')
-              p1.className = 'adm-email'
-              p1.innerText = adm.emailAdm
+            const h4 = document.createElement('h4')
+            h4.innerText = adm.nomeAdm
 
-              const p2 = document.createElement('p')
-              p2.className = 'adm-data'
-         
-              const dataCriacao = new Date(adm.createdAt).toLocaleDateString('pt-BR')
-              p2.innerText = `Criado em: ${dataCriacao}`
+            const p1 = document.createElement('p')
+            p1.className = 'adm-email'
+            p1.innerText = adm.emailAdm
 
-              divInfo.appendChild(h4)
-              divInfo.appendChild(p1)
-              divInfo.appendChild(p2)
+            const p2 = document.createElement('p')
+            p2.className = 'adm-data'
 
-              const divAcoes = document.createElement('div')
-              divAcoes.className = 'adm-acoes'
+            const dataCriacao = new Date(adm.createdAt).toLocaleDateString('pt-BR')
+            p2.innerText = `Criado em: ${dataCriacao}`
 
-        
+            divInfo.appendChild(h4)
+            divInfo.appendChild(p1)
+            divInfo.appendChild(p2)
 
-              const btnExcluir = document.createElement('button')
-              btnExcluir.className = 'btn-excluir-adm'
-              btnExcluir.innerHTML = '<i class="fas fa-trash"></i>'
-              btnExcluir.onclick = () => excluirAdministrador(adm.idAdm)
+            const divAcoes = document.createElement('div')
+            divAcoes.className = 'adm-acoes'
 
-             
-              divAcoes.appendChild(btnExcluir)
 
-              divAdmCart.appendChild(divInfo)
-              divAdmCart.appendChild(divAcoes)
 
-              document.querySelector('.adm-grid').appendChild(divAdmCart)
-            })
-          
+            const btnExcluir = document.createElement('button')
+            btnExcluir.className = 'btn-excluir-adm'
+            btnExcluir.innerHTML = '<i class="fas fa-trash"></i>'
+            btnExcluir.onclick = () => excluirAdministrador(adm.idAdm)
+
+
+            divAcoes.appendChild(btnExcluir)
+
+            divAdmCart.appendChild(divInfo)
+            divAdmCart.appendChild(divAcoes)
+
+            document.querySelector('.adm-grid').appendChild(divAdmCart)
+          })
+
 
 
         })
-    .catch(error => console.error('Erro ao obter informações', error))
+        .catch(error => console.error('Erro ao obter informações', error))
 
-    fetch('http://72.61.35.121:80/get-divflex', {
-      method: 'GET'
-    })
-    .then(response => {
-      if (!response.ok) throw new Error('Erro ao obter produtos')
-      return response.json()
-    })
-    .then(data => {
-  
-      preecherNomeSecao(data.div.nomeSecaoFlex)
-    })
-    .catch(error => console.error('Fetch error (produtos):', error))
+      fetch(API_URL+'/get-divflex', {
+          method: 'GET'
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter produtos')
+          return response.json()
+        })
+        .then(data => {
 
-    fetch('http://72.61.35.121:80/produtos', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      if (!response.ok) throw new Error('Erro ao obter produtos')
-      return response.json()
-    })
-    .then(data => {
-      produtosData = data;
-      listaPraVinc = data;
-      produtosFiltradosFlex = data;
-  
-      carregarProdsVinc()
-  
-      renderizarProdutos(produtosData)
-      renderizarProdutosFlexivel(data)
-    })
-    .catch(error => console.error('Fetch error (produtos):', error))
+          preecherNomeSecao(data.div.nomeSecaoFlex)
+        })
+        .catch(error => console.error('Fetch error (produtos):', error))
 
+      fetch(API_URL+'/produtos', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter produtos')
+          return response.json()
+        })
+        .then(data => {
+          produtosData = data;
+          listaPraVinc = data;
+          produtosFiltradosFlex = data;
 
+          carregarProdsVinc()
+
+          renderizarProdutos(produtosData)
+          renderizarProdutosFlexivel(data)
+        })
+        .catch(error => console.error('Fetch error (produtos):', error))
 
 
-    fetch('http://72.61.35.121:80/promocoes', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      if (!response.ok) throw new Error('Erro ao obter promocoes')
-      return response.json()
-    })
-    .then(data => {
-      globalPromocoes = data
-      data.forEach(promo => {
-        const imgPromoBanner = document.createElement('img')
-        imgPromoBanner.src = promo.urlImgPromo
-
-        const imgPromoVinculo = document.createElement('img')
-        imgPromoVinculo.src = promo.urlImgPromo
-        imgPromoVinculo.className = "promocao-image"
-
-        const spanVinculo = document.createElement('span')
-        spanVinculo.className = 'promocao-title'
-        spanVinculo.innerText = promo.nomePromocao
 
 
-        const divPromo = document.createElement('div')
-        divPromo.className = 'div-promocao-1'
-        divPromo.setAttribute('name', promo.chaveAcessPromo)
-        divPromo.addEventListener('click', Promocao)
-        divPromo.appendChild(imgPromoBanner)
+      fetch(API_URL+'/promocoes', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao obter promocoes')
+          return response.json()
+        })
+        .then(data => {
+          globalPromocoes = data
+          data.forEach(promo => {
+            const imgPromoBanner = document.createElement('img')
+            imgPromoBanner.src = promo.urlImgPromo
 
-        englobpromos.appendChild(divPromo)
+            const imgPromoVinculo = document.createElement('img')
+            imgPromoVinculo.src = promo.urlImgPromo
+            imgPromoVinculo.className = "promocao-image"
 
-        const divPromoVinculo = document.createElement('div')
-        const divContentVinculo = document.createElement('div')
-
-        divContentVinculo.className = 'promocao-content'
-        divPromoVinculo.className = 'promocao-card'
+            const spanVinculo = document.createElement('span')
+            spanVinculo.className = 'promocao-title'
+            spanVinculo.innerText = promo.nomePromocao
 
 
-        divPromoVinculo.setAttribute('name', promo.idPromo)
+            const divPromo = document.createElement('div')
+            divPromo.className = 'div-promocao-1'
+            divPromo.setAttribute('name', promo.chaveAcessPromo)
+            divPromo.addEventListener('click', Promocao)
+            divPromo.appendChild(imgPromoBanner)
 
-        divContentVinculo.appendChild(imgPromoVinculo)
-        divContentVinculo.appendChild(spanVinculo)
-        divPromoVinculo.appendChild(divContentVinculo)
-        divPromoVinculo.addEventListener('click', abrirModalPromocao)
-        divVinculoEnglob.appendChild(divPromoVinculo)
+            englobpromos.appendChild(divPromo)
+
+            const divPromoVinculo = document.createElement('div')
+            const divContentVinculo = document.createElement('div')
+
+            divContentVinculo.className = 'promocao-content'
+            divPromoVinculo.className = 'promocao-card'
+
+
+            divPromoVinculo.setAttribute('name', promo.idPromo)
+
+            divContentVinculo.appendChild(imgPromoVinculo)
+            divContentVinculo.appendChild(spanVinculo)
+            divPromoVinculo.appendChild(divContentVinculo)
+            divPromoVinculo.addEventListener('click', abrirModalPromocao)
+            divVinculoEnglob.appendChild(divPromoVinculo)
+          })
+        })
+        .catch(error => console.error('Erro ao obter promocoes', error))
+
+
+
+
+      inputBusca.addEventListener('input', (event) => {
+        const termo = event.target.value.toLowerCase()
+
+
+        const produtosFiltrados = produtosData.filter(prod =>
+          prod.nomeProd.toLowerCase().includes(termo)
+        )
+
+
+        renderizarProdutos(produtosFiltrados)
       })
-    })
-    .catch(error => console.error('Erro ao obter promocoes', error))
-
-
-
-
-    inputBusca.addEventListener('input', (event) => {
-      const termo = event.target.value.toLowerCase()
-
-
-      const produtosFiltrados = produtosData.filter(prod =>
-        prod.nomeProd.toLowerCase().includes(termo)
-      )
-
-
-      renderizarProdutos(produtosFiltrados)
-    })
     })
 
 
@@ -1076,12 +1080,12 @@
       const termo = document.getElementById('buscar-adm').value.toLowerCase();
       const cards = document.querySelectorAll('.adm-card');
       let visibleCount = 0;
-      
+
       cards.forEach(card => {
         const nome = card.querySelector('h4').textContent.toLowerCase();
         const email = card.querySelector('.adm-email').textContent.toLowerCase();
-       
-        
+
+
         if (nome.includes(termo) || email.includes(termo)) {
           card.style.display = 'flex';
           visibleCount++;
@@ -1089,7 +1093,7 @@
           card.style.display = 'none';
         }
       });
-      
+
       // Update counter with filtered results
       const counter = document.getElementById('adm-count');
       if (termo === '') {
@@ -1144,7 +1148,7 @@
 
     function abrirModalPromocao(e) {
       promocaoAtualModal = e.currentTarget.getAttribute('name');
-  
+
       document.getElementById('btnSalvarVinculo').setAttribute('name', promocaoAtualModal)
       const modal = document.getElementById('modal-promocao-produtos');
       modal.style.display = 'flex';
@@ -1173,11 +1177,11 @@
       produtosDisponiveisModal.forEach(produto => {
         const produtoItem = document.createElement('div');
         produtoItem.className = 'produto-item';
-        produtoItem.setAttribute('id','produtoITEM')
+        produtoItem.setAttribute('id', 'produtoITEM')
         produtoItem.dataset.produtoId = produto.id;
 
         const button = document.createElement('button');
-      
+
         if (produto.idPromo == idPromo) {
           button.className = 'btn-adicionar adicionado'
           button.textContent = 'Remover da promoção'
@@ -1210,7 +1214,7 @@
     }
 
     function toggleProdutoPromocao(produtoId, promoId) {
-  
+
       let status;
       const produto = produtosDisponiveisModal.find(p => p.id === produtoId);
       if (!produto) return;
@@ -1274,7 +1278,7 @@
         idPromo: idPromo,
         array: produtosAlteradosModal
       }
-      fetch('http://72.61.35.121:80/vinc-promo/', {
+      fetch(API_URL+'/vinc-promo/', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -1339,7 +1343,7 @@
 
       trs.forEach((linha) => {
         const celulas = linha.querySelectorAll('td')
-  
+
         if (celulas[0].childNodes[0].value && celulas[1].childNodes[0].value) {
           especificacoesTecnicas.push({
             atributo: celulas[0].childNodes[0].value,
@@ -1384,7 +1388,7 @@
       formData.append('chaveAcessProd', chaveAcessProd)
       formData.append('especicficacoesTecnicas', JSON.stringify(especificacoesTecnicas))
 
-      fetch('http://72.61.35.121:80/add-prod', {
+      fetch(API_URL+'/add-prod', {
           method: 'POST',
           body: formData
         })
@@ -1422,7 +1426,7 @@
       }
 
 
-      fetch('http://72.61.35.121:80/atualizar-prod/' + chave, {
+      fetch(API_URL+'/atualizar-prod/' + chave, {
           method: 'PUT',
           body: JSON.stringify(infosAtualizadas),
           headers: {
@@ -1462,7 +1466,7 @@
       formData.append('nomePromocao', nomePromo)
 
 
-      fetch('http://72.61.35.121:80/add-promo', {
+      fetch(API_URL+'/add-promo', {
           method: 'POST',
           body: formData
         })
@@ -1483,7 +1487,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch('http://72.61.35.121:80/delete-prod/' + chave, {
+      fetch(API_URL+'/delete-prod/' + chave, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
@@ -1511,7 +1515,7 @@
 
       formData.append('imagem', img)
 
-      fetch('http://72.61.35.121:80/atualizar-promo/' + chave, {
+      fetch(API_URL+'/atualizar-promo/' + chave, {
           method: 'PUT',
           body: formData
         })
@@ -1555,7 +1559,7 @@
       }
 
 
-      fetch('http://72.61.35.121:80/atualizar-prod/' + chave, {
+      fetch(API_URL+'/atualizar-prod/' + chave, {
           method: 'PUT',
           body: JSON.stringify(infosAtualizadas),
           headers: {
@@ -1581,7 +1585,7 @@
       const chave = e.currentTarget.getAttribute('name')
 
 
-      fetch('http://72.61.35.121:80/delete-promo/' + chave, {
+      fetch(API_URL+'/delete-promo/' + chave, {
           method: 'DELETE',
         })
         .then(response => {
@@ -1645,7 +1649,7 @@
 
 
     function preecherNomeSecao(nome) {
-     
+
       document.getElementById('nome-secao').value = nome
     }
 
@@ -1690,7 +1694,7 @@
       const targetSection = document.getElementById(secao)
       if (targetSection) {
         targetSection.style.display = "block"
-   
+
 
         if (secao === "secao-flexivel") {
           document.getElementById('add-adm').style.display = 'none'
@@ -1698,13 +1702,13 @@
           renderizarProdutosFlexivel()
         } else if (secao == "produtos") {
           document.getElementById('englobprodutos').style.display = 'block'
-      
+
           document.getElementById('btn-prod-add').style.display = 'block'
         } else if (secao == "banners") {
-      
+
           document.getElementById('btn-banner-add').style.display = 'block'
         } else if (secao == "add-adm") {
-       
+
           document.getElementById('add-adm').style.display = 'block'
         }
       }
@@ -1716,7 +1720,7 @@
 
     function handleGlobalSearch(event) {
       const termo = event.target.value.toLowerCase().trim()
- 
+
 
 
       const currentSection = document.querySelector('section:not([style*="display: none"])')
@@ -1775,7 +1779,7 @@
       // Aqui você faria a requisição para o backend
 
 
-      fetch('http://72.61.35.121:80/atualizar-divflex/' + novoNome, {
+      fetch(API_URL+'/atualizar-divflex/' + novoNome, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -1786,7 +1790,7 @@
           return response.json()
         })
         .then(data => {
-  
+
           window.location.reload();
         })
         .catch(error => console.error('Erro ao atualizar nome', error))
@@ -1855,11 +1859,11 @@
         )
         .join("")
 
- 
+
     }
 
     function vincularProduto(id) {
-    
+
 
 
       // Encontrar produto e atualizar status
@@ -1879,7 +1883,7 @@
 
         // Aqui você faria a requisição para o backend
         // fetch('/api/produtos/vincular', { method: 'POST', body: JSON.stringify({id}) })
-        fetch('http://72.61.35.121:80/vincular-divflex/' + id, {
+        fetch(API_URL+'/vincular-divflex/' + id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -1894,12 +1898,12 @@
 
           })
           .catch(error => console.error('Erro ao vincular à div', error))
-     
+
       }
     }
 
     function desvincularProduto(id) {
- 
+
 
       // Encontrar produto e atualizar status
       const produto = produtosFiltradosFlex.find((p) => p.idProd === id)
@@ -1915,7 +1919,7 @@
         // Re-renderizar
         renderizarProdutosFlexivel(produtosFiltradosFlex)
 
-        fetch('http://72.61.35.121:80/desvincular-divflex/' + id, {
+        fetch(API_URL+'/desvincular-divflex/' + id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
@@ -1933,7 +1937,7 @@
         // Aqui você faria a requisição para o backend
         // fetch('/api/produtos/desvincular', { method: 'POST', body: JSON.stringify({id}) })
 
-       
+
       }
     }
 
@@ -1950,7 +1954,7 @@
         telefoneAdm: telefone
       }
 
-      fetch('http://72.61.35.121:80/add-adm', {
+      fetch(API_URL+'/add-adm', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

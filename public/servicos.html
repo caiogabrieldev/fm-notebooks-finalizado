@@ -97,7 +97,7 @@
 
   <!-- ====================HEADER======================= -->
   <header role="banner">
-    
+
     <nav role="navigation" aria-label="Navegação principal">
       <button class="mobile-menu" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-list">
         <div class="line1" aria-hidden="true"></div>
@@ -521,10 +521,10 @@
         <div class="footer-developers">
           <h4>Desenvolvido por</h4>
           <ul>
-           <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
-              <a href="http://wa.me/5534991667329" target="_blank">WhatsApp</a></li>
-            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a
-                href="http://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
+            <li>Iago Borges Barbosa - <a href="mailto:iagoborgesbarbosa7@gmail.com">iagoborgesbarbosa7@gmail.com</a> -
+              <a href="http://wa.me/5534991667329" target="_blank">WhatsApp</a>
+            </li>
+            <li>Caio Gabriel - <a href="mailto:caiogbriiel@gmail.com">caiogbriiel@gmail.com</a> - <a href="http://wa.me/5534998723042" target="_blank">WhatsApp</a></li>
           </ul>
         </div>
     </footer>
@@ -557,85 +557,88 @@
     </section>
 
     <script>
+      const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
+      const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+
       let totalEl = document.querySelector(".cart-total .total-info span");
-const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
-    const carrinhoIcons = document.querySelectorAll('.nav-cart a');
-    const carrinho = document.getElementById('carrinho-overlay');
-    let total = 0;
-    const fecharCarrinho = document.getElementById('fechar-carrinho');
-    const navElement = document.querySelector('nav');
+      const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
+      const carrinhoIcons = document.querySelectorAll('.nav-cart a');
+      const carrinho = document.getElementById('carrinho-overlay');
+      let total = 0;
+      const fecharCarrinho = document.getElementById('fechar-carrinho');
+      const navElement = document.querySelector('nav');
 
-  
-    if (carrinhoButtons && carrinho) {
-      carrinhoButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
-          carrinho.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
+
+      if (carrinhoButtons && carrinho) {
+        carrinhoButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            carrinho.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          });
         });
-      });
-    }
-
-  
-    if (carrinhoIcons && carrinho) {
-      carrinhoIcons.forEach(icon => {
-        icon.addEventListener('click', (e) => {
-          e.preventDefault();
-          carrinho.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-        });
-      });
-    }
-
-  
-    if (navElement && carrinho) {
-      navElement.addEventListener('click', (e) => {
-       
-        const navRect = navElement.getBoundingClientRect();
-        const clickX = e.clientX - navRect.left;
-
-       
-        if (clickX > navRect.width - 60) {
-          e.preventDefault();
-          carrinho.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    }
-
-    if (fecharCarrinho && carrinho) {
-      fecharCarrinho.addEventListener('click', () => {
-        carrinho.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      });
-    }
-
-    function renderCarrinho() {
-      let total=0
-      const carrinho = getCarrinho();
-      const container = document.querySelector(".items-add");
-      const vazio = document.querySelector(".cart-vazio");
-      const totalEl = document.querySelector(".cart-total .total-info span");
-    
-      if (!container) return; 
-      container.innerHTML = "";
-    
-      if (carrinho.length === 0) {
-        if (vazio) vazio.style.display = "block";
-        if (totalEl) totalEl.textContent = "Total: R$ 0,00";
-        return;
-      } else {
-        if (vazio) vazio.style.display = "none";
       }
-    
-      
-    
-      carrinho.forEach(produto => {
-        total += produto.preco * produto.quantidade;
-    
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerHTML = `
+
+
+      if (carrinhoIcons && carrinho) {
+        carrinhoIcons.forEach(icon => {
+          icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            carrinho.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          });
+        });
+      }
+
+
+      if (navElement && carrinho) {
+        navElement.addEventListener('click', (e) => {
+
+          const navRect = navElement.getBoundingClientRect();
+          const clickX = e.clientX - navRect.left;
+
+
+          if (clickX > navRect.width - 60) {
+            e.preventDefault();
+            carrinho.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      }
+
+      if (fecharCarrinho && carrinho) {
+        fecharCarrinho.addEventListener('click', () => {
+          carrinho.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      }
+
+      function renderCarrinho() {
+        let total = 0
+        const carrinho = getCarrinho();
+        const container = document.querySelector(".items-add");
+        const vazio = document.querySelector(".cart-vazio");
+        const totalEl = document.querySelector(".cart-total .total-info span");
+
+        if (!container) return;
+        container.innerHTML = "";
+
+        if (carrinho.length === 0) {
+          if (vazio) vazio.style.display = "block";
+          if (totalEl) totalEl.textContent = "Total: R$ 0,00";
+          return;
+        } else {
+          if (vazio) vazio.style.display = "none";
+        }
+
+
+
+        carrinho.forEach(produto => {
+          total += produto.preco * produto.quantidade;
+
+          const div = document.createElement("div");
+          div.className = "item";
+          div.innerHTML = `
           <div class="item-cont">
             <div class="item-img">
               <img src="${produto.img}" alt="${produto.nome}">
@@ -654,129 +657,132 @@ const carrinhoButtons = document.querySelectorAll('.abrir-carrinho');
             <button class="remover-item"><i class="fa fa-trash"></i> Remover</button>
           </div>
         `;
-    
-      
-        div.querySelector(".diminuir").addEventListener("click", () => alterarQuantidade(produto.id, -1));
-        div.querySelector(".aumentar").addEventListener("click", () => alterarQuantidade(produto.id, 1));
-        div.querySelector(".remover-item").addEventListener("click", () => removerDoCarrinho(produto.id));
-    
-        container.appendChild(div);
-      });
-   
-      
-      if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
-    }
 
 
-  
-    if (carrinho) {
-      carrinho.addEventListener('click', (e) => {
-        if (e.target === carrinho) {
-          carrinho.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      });
-    }
+          div.querySelector(".diminuir").addEventListener("click", () => alterarQuantidade(produto.id, -1));
+          div.querySelector(".aumentar").addEventListener("click", () => alterarQuantidade(produto.id, 1));
+          div.querySelector(".remover-item").addEventListener("click", () => removerDoCarrinho(produto.id));
 
- 
-function getCarrinho() {
-  return JSON.parse(localStorage.getItem("carrinho")) || [];
-}
-
-function setCarrinho(carrinho) {
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-}
+          container.appendChild(div);
+        });
 
 
-function adicionarAoCarrinho(produto) {
- 
-  let carrinho = getCarrinho();
-
-  const existente = carrinho.find(p => p.id === produto.id);
-  if (existente) {
-    existente.quantidade += 1;
-  } else {
-    carrinho.push({ ...produto, quantidade: 1 });
-  }
-
-  setCarrinho(carrinho);
-  renderCarrinho();
-}
-
-
-function removerDoCarrinho(id) {
-  let carrinho = getCarrinho().filter(p => p.id !== id);
-  const prod=getCarrinho().filter(p => p.id == id);
-  totalEl-=prod.precoProd
-  setCarrinho(carrinho);
-  renderCarrinho();
-}
-
-
-function alterarQuantidade(id, delta) {
-  let carrinho = getCarrinho();
-  carrinho = carrinho.map(p => {
-    if (p.id === id) {
-      p.quantidade = Math.max(1, p.quantidade + delta);
-    }
-    return p;
-  });
-  setCarrinho(carrinho);
-  renderCarrinho();
-}
-
-
-function finalizarCompra() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
-        return;
+        if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
       }
 
-      let total =0
-    
-      let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
-
-    
-      mensagem += "📦 *Itens do carrinho:*\n";
-      carrinho.forEach(item => {
-        total+=parseFloat(item.preco)*item.quantidade
-        mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
-      });
 
 
-    
-      mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
-
-   
-      mensagem += "👤 *Dados do cliente:*\n";
-      mensagem += `- Nome: [Insira seu nome]\n`;
-      mensagem += `- Telefone: [Insira seu telefone]\n`;
-      mensagem += `- Endereço: [Insira seu endereço]\n`;
-      mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
-
-      mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
-
-     
-      navigator.clipboard.writeText(mensagem).then(() => {
-        alert("O carrinho foi copiado. Cole no WhatsApp e preencha seus dados!");
-
-     
-      let numero = "5534992088233"; 
-      let link = `http://wa.me/${numero}`;
-      window.open(link, "_blank");
-    });
+      if (carrinho) {
+        carrinho.addEventListener('click', (e) => {
+          if (e.target === carrinho) {
+            carrinho.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
 
 
-    
- 
-    }
+      function getCarrinho() {
+        return JSON.parse(localStorage.getItem("carrinho")) || [];
+      }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  renderCarrinho()
-})
-      </script>
-      
+      function setCarrinho(carrinho) {
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      }
+
+
+      function adicionarAoCarrinho(produto) {
+
+        let carrinho = getCarrinho();
+
+        const existente = carrinho.find(p => p.id === produto.id);
+        if (existente) {
+          existente.quantidade += 1;
+        } else {
+          carrinho.push({
+            ...produto,
+            quantidade: 1
+          });
+        }
+
+        setCarrinho(carrinho);
+        renderCarrinho();
+      }
+
+
+      function removerDoCarrinho(id) {
+        let carrinho = getCarrinho().filter(p => p.id !== id);
+        const prod = getCarrinho().filter(p => p.id == id);
+        totalEl -= prod.precoProd
+        setCarrinho(carrinho);
+        renderCarrinho();
+      }
+
+
+      function alterarQuantidade(id, delta) {
+        let carrinho = getCarrinho();
+        carrinho = carrinho.map(p => {
+          if (p.id === id) {
+            p.quantidade = Math.max(1, p.quantidade + delta);
+          }
+          return p;
+        });
+        setCarrinho(carrinho);
+        renderCarrinho();
+      }
+
+
+      function finalizarCompra() {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        if (carrinho.length === 0) {
+          alert("Seu carrinho está vazio!");
+          return;
+        }
+
+        let total = 0
+
+        let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
+
+
+        mensagem += "📦 *Itens do carrinho:*\n";
+        carrinho.forEach(item => {
+          total += parseFloat(item.preco) * item.quantidade
+          mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
+        });
+
+
+
+        mensagem += `\n💰 *Total do pedido: R$ ${total}*\n\n`;
+
+
+        mensagem += "👤 *Dados do cliente:*\n";
+        mensagem += `- Nome: [Insira seu nome]\n`;
+        mensagem += `- Telefone: [Insira seu telefone]\n`;
+        mensagem += `- Endereço: [Insira seu endereço]\n`;
+        mensagem += ` Forma de pagamento: [Insira como deseja pagar]\n\n`;
+
+        mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
+
+
+        navigator.clipboard.writeText(mensagem).then(() => {
+          alert("O carrinho foi copiado. Cole no WhatsApp e preencha seus dados!");
+
+
+          let numero = "5534992088233";
+          let link = `http://wa.me/${numero}`;
+          window.open(link, "_blank");
+        });
+
+
+
+
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        renderCarrinho()
+      })
+    </script>
+
 
     <!-- JavaScript Files -->
     <script src="lib/jquery/jquery.min.js"></script>

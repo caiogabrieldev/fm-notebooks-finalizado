@@ -24,7 +24,7 @@
     </div>
     <h1>FM<span>Notebooks</span></h1>
 
-    <form  autocomplete="off" onsubmit="fazerLogin(event)">
+    <form autocomplete="off" onsubmit="fazerLogin(event)">
       <h2>Entrar</h2>
 
       <div class="input-box">
@@ -42,37 +42,42 @@
   </div>
 
   <script>
- function fazerLogin(event) {
-  event.preventDefault(); // impede reload do form
+    const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
+    const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
 
-  const email = document.getElementById('user').value;
-  const senha = document.getElementById('senha').value;
+    function fazerLogin(event) {
+      event.preventDefault(); // impede reload do form
 
-  const msg = { email, senha };
+      const email = document.getElementById('user').value;
+      const senha = document.getElementById('senha').value;
 
-  fetch('http://72.61.35.121:80/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(msg)
-  })
-    .then(res => res.json())
-    .then(data => {
-      if (!data.success) {
-        alert("Credenciais inválidas");
-        return;
-      }
-      
-      localStorage.setItem("token", data.token);
-        window.location.href = data.redirect;
-    })
-    .catch(err => {
-      console.error("Erro no login:", err);
-      alert("Erro ao conectar com o servidor.");
-    });
-}
+      const msg = {
+        email,
+        senha
+      };
 
+      fetch(API_URL+'/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(msg)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (!data.success) {
+            alert("Credenciais inválidas");
+            return;
+          }
+
+          localStorage.setItem("token", data.token);
+          window.location.href = data.redirect;
+        })
+        .catch(err => {
+          console.error("Erro no login:", err);
+          alert("Erro ao conectar com o servidor.");
+        });
+    }
   </script>
 
 </body>
