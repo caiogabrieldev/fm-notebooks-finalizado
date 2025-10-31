@@ -31,10 +31,10 @@ console.log("PORT (do .env):", process.env.PORT1);
 
 let API_SAVE;
 
-if(process.env.NODE_ENV=="development"){
-    API_SAVE="localhost"
-}else{
-    API_SAVE="72.61.35.121"
+if (process.env.NODE_ENV == "development") {
+    API_SAVE = "localhost"
+} else {
+    API_SAVE = "72.61.35.121"
 }
 
 
@@ -201,12 +201,19 @@ async function criarTabela() {
 
 }
 async function criarAdm() {
-    await TabelaAdms.create({
-        idAdm: 1,
-        nomeAdm: "FM Notebooks",
-        emailAdm: process.env.EMAIL,
-        senhaAdm: process.env.SENHA
-    })
+    console.log("CRIANDO ADM");
+    try {
+        await TabelaAdms.create({
+            idAdm: 1,
+            nomeAdm: "FM Notebooks",
+            emailAdm: process.env.EMAIL,
+            senhaAdm: process.env.SENHA
+        })
+        console.log("ADM CRIADO");
+    } catch (error) {
+        console.log(error);
+    }
+
 
 }
 
@@ -223,7 +230,9 @@ async function checarExistenciaAdmInicial() {
 
     const div = await TabelaAdms.findByPk(1)
     if (!div) {
+        console.log("ADM NAO EXISTE");
         await criarAdm()
+        console.log("SUCESSO AO CRIAR ADM");
     }
 }
 
@@ -232,8 +241,11 @@ async function checarExistenciaAdmInicial() {
 async function sincronizarDB() {
     try {
         await conexaoComDB.sync()
+        console.log("BANCO SINCRONIZADO");
         await checarExistenciaFlex()
+        console.log("SECAO CRIADA");
         await checarExistenciaAdmInicial()
+        console.log("ADM PADRAO CRIADO");
 
     } catch (error) {
         console.log("Erro ao sincronizar")
@@ -370,7 +382,7 @@ app.post('/add-promo', upload.single('imagem'), async (req, res) => {
         const promocao = req.body
         const imagemPromo = req.file.path
 
-        promocao.urlImgPromo = 'http://'+API_SAVE+':80/' + imagemPromo
+        promocao.urlImgPromo = 'http://' + API_SAVE + ':80/' + imagemPromo
         await TabelaPromocoes.create(promocao)
         res.status(200).json({ message: 'Promocao adicionada com sucesso' })
     } catch (err) {
@@ -597,7 +609,7 @@ app.put('/atualizar-promo/:chaveAcesso', upload.single('imagem'), async (req, re
 
         const imagemPromo = req.file.path
         if (!imagemPromo) return res.status(404).json({ message: "imagem não enviada" })
-        const novaImg = 'http://'+API_SAVE+':80/' + imagemPromo
+        const novaImg = 'http://' + API_SAVE + ':80/' + imagemPromo
         const objimg = {
             urlImgPromo: novaImg
         }
@@ -851,7 +863,7 @@ app.get("/logout", (req, res) => {
 
 app.listen(PORT1, () => {
     console.log(`Servidor rodando em http://${HOST1}:${PORT1}`);
-    console.log("PORTA: "+PORT1);
-    console.log("HOST: "+HOST1);
+    console.log("PORTA: " + PORT1);
+    console.log("HOST: " + HOST1);
 });
 
