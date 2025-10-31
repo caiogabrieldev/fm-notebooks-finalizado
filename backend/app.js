@@ -236,14 +236,14 @@ async function checarExistenciaAdmInicial() {
 async function sincronizarDB() {
     try {
         await conexaoComDB.sync()
-        checarExistenciaFlex()
-        checarExistenciaAdmInicial()
+        await checarExistenciaFlex()
+        await checarExistenciaAdmInicial()
 
     } catch (error) {
         console.log("Erro ao sincronizar")
     }
 }
-sincronizarDB()
+await sincronizarDB()
 
 
 
