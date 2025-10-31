@@ -327,6 +327,8 @@ app.post("/login", async (req, res) => {
         console.log("infos adm no banco:");
         console.log(adm.emailAdm);
         console.log(adm.senhaAdm);
+        console.log(adm.emailAdm == email);
+        console.log(senha == adm.senhaAdm);
         if (adm.emailAdm == email && senha == adm.senhaAdm) {
             console.log("ACHOU");
             const token = jwt.sign({ email }, process.env.JWT_TOKEN, { expiresIn: "1h" });
