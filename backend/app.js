@@ -227,12 +227,14 @@ async function checarExistenciaFlex() {
     }
 }
 async function checarExistenciaAdmInicial() {
-
+    console.log("CHECANDO ADM");
     const div = await TabelaAdms.findByPk(1)
     if (!div) {
         console.log("ADM NAO EXISTE");
         await criarAdm()
         console.log("SUCESSO AO CRIAR ADM");
+    }else{
+        console.log(div);
     }
 }
 
@@ -321,6 +323,7 @@ app.post("/login", async (req, res) => {
     const adms = await TabelaAdms.findAll()
 
     for (adm of adms) {
+        
         if (adm.emailAdm === email && senha === adm.senhaAdm) {
             const token = jwt.sign({ email }, process.env.JWT_TOKEN, { expiresIn: "1h" });
 
