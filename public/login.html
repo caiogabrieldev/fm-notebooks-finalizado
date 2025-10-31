@@ -42,8 +42,11 @@
   </div>
 
   <script>
-    const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
-    const API_URL = isLocal ? "http://localhost:80" : "http://72.61.35.121:80";
+    const isLocal = location.hostname == "72.61.35.121"||location.hostname === "localhost";
+    const API_URL = isLocal ? "http://72.61.35.121:80":"http://localhost:80";
+
+    console.log(isLocal);
+    console.log(API_URL);
 
     function fazerLogin(event) {
       event.preventDefault(); // impede reload do form
