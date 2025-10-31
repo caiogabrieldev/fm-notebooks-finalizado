@@ -26,8 +26,12 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const PORT = process.env.PORT || 80;
-const HOST = process.env.HOST || "0.0.0.0";
+const PORT1 = process.env.PORT1 || 80;
+const HOST1 = process.env.HOST1 || "0.0.0.0";
+
+console.log("HOST (do .env):", process.env.HOST1);
+console.log("PORT (do .env):", process.env.PORT1);
+
 
 let API_SAVE;
 
@@ -849,9 +853,9 @@ app.get("/logout", (req, res) => {
     res.redirect("/login");
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://${HOST}:${PORT}`);
-    console.log("PORTA: "+PORT);
-    console.log("HOST: "+HOST);
+app.listen(PORT1, () => {
+    console.log(`Servidor rodando em http://${HOST1}:${PORT1}`);
+    console.log("PORTA: "+PORT1);
+    console.log("HOST: "+HOST1);
 });
 
