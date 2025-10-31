@@ -28,6 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const PORT = process.env.PORT || 80;
 const HOST = process.env.HOST || "0.0.0.0";
+
 let API_SAVE;
 
 if(process.env.NODE_ENV=="development"){
@@ -848,7 +849,7 @@ app.get("/logout", (req, res) => {
     res.redirect("/login");
 });
 
-app.listen(PORT, HOST, () => {
+app.listen(PORT, () => {
     console.log(`Servidor rodando em http://${HOST}:${PORT}`);
 });
 
