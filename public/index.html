@@ -888,9 +888,13 @@
 
 
   <script>
-    const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
-    const API_URL = isLocal ? "http://72.61.35.121:80":"http://localhost:80";
+    let API_URL;
 
+    if (location.hostname == "localhost") {
+      API_URL = "http://localhost:80"
+    } else {
+      API_URL = "http://72.61.35.121:80"
+    }
     // ============ LocalStorage helpers ============
     function getCarrinho() {
       return JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -1057,7 +1061,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
 
-      fetch(API_URL+'/get-divflex/', {
+      fetch(API_URL + '/get-divflex/', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -1075,7 +1079,7 @@
 
 
 
-      fetch(API_URL+'/get-prods-divflex/', {
+      fetch(API_URL + '/get-prods-divflex/', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -1139,7 +1143,7 @@
         })
         .catch(error => console.error('Erro ao obter informações', error))
 
-      fetch(API_URL+'/promocoes/', {
+      fetch(API_URL + '/promocoes/', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

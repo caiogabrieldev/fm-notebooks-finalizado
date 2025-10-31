@@ -1,7 +1,10 @@
-const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
+let API_URL;
 
-const API_URL = isLocal ? "http://72.61.35.121:80":"http://localhost:80";
-  
+if (location.hostname == "localhost") {
+  API_URL = "http://localhost:80"
+} else {
+  API_URL = "http://72.61.35.121:80"
+}
 const chatbotBtn = document.querySelector('.chatbot-fixed');
 const chatbotWindow = document.querySelector('.chatbot-window');
 const chatbotOverlay = document.querySelector('.chatbot-overlay');
@@ -70,13 +73,13 @@ function sendMessage() {
     addMessage(message.message, false);
     chatbotInput.value = '';
 
-    fetch(API_URL+'/perguntar-assistente', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(message)
-      })
+    fetch(API_URL + '/perguntar-assistente', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(message)
+    })
       .then(res => res.json())
       .then(data =>
         (addMessage(data.msg, true))

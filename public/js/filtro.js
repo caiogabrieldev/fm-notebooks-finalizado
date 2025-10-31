@@ -6,8 +6,13 @@ const carrinho = document.getElementById('carrinho-overlay');
 const fecharCarrinho = document.getElementById('fechar-carrinho');
 const navElement = document.querySelector('nav');
 
-const isLocal = location.hostname === "localhost" || location.hostname == "72.61.35.121";
-const API_URL = isLocal ? "http://72.61.35.121:80":"http://localhost:80";
+let API_URL;
+
+if (location.hostname == "localhost") {
+  API_URL = "http://localhost:80"
+} else {
+  API_URL = "http://72.61.35.121:80"
+}
 
 // Remove só a chave "carrinho"
 
@@ -57,9 +62,9 @@ if (fecharCarrinho && carrinho) {
 }
 
 function renderCarrinho() {
-  let total=0
+  let total = 0
   const carrinho = getCarrinho();
- 
+
   const container = document.querySelector(".items-add");
   const vazio = document.querySelector(".cart-vazio");
   const totalEl = document.querySelector(".cart-total .total-info span");
@@ -78,9 +83,9 @@ function renderCarrinho() {
 
 
 
-  
+
   carrinho.forEach(produto => {
-  
+
     total += produto.preco * produto.quantidade;
 
     const div = document.createElement("div");
@@ -176,21 +181,21 @@ function alterarQuantidade(id, delta) {
 
 
 function finalizarCompra() {
-  let total=0;
+  let total = 0;
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   if (carrinho.length === 0) {
     alert("Seu carrinho está vazio!");
     return;
   }
 
- 
+
 
   let mensagem = `🛒 *Novo pedido - FM Notebooks*\n\n`;
 
 
   mensagem += "📦 *Itens do carrinho:*\n";
   carrinho.forEach(item => {
-    total+=parseFloat(item.preco)*item.quantidade
+    total += parseFloat(item.preco) * item.quantidade
     mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${item.preco}\n`;
   });
 
@@ -207,15 +212,15 @@ function finalizarCompra() {
 
   mensagem += "✅ Por favor, confirme o recebimento deste pedido.";
 
- 
+
   navigator.clipboard.writeText(mensagem).then(() => {
     alert("O carrinho foi copiado. Cole no WhatsApp!");
 
- 
-  let numero = "5534992088233"; 
-  let link = `http://wa.me/${numero}`;
-  window.open(link, "_blank");
-});
+
+    let numero = "5534992088233";
+    let link = `http://wa.me/${numero}`;
+    window.open(link, "_blank");
+  });
 
 
 
@@ -231,7 +236,7 @@ function finalizarCompra() {
 window.addEventListener("DOMContentLoaded", () => {
 
   renderCarrinho();
-  fetch(API_URL+"/produtos", {
+  fetch(API_URL + "/produtos", {
     method: "GET",
   })
     .then((response) => {
@@ -250,7 +255,7 @@ window.addEventListener("DOMContentLoaded", () => {
       exibirProdutos()
     })
 
-  fetch(API_URL+"/promocoes", {
+  fetch(API_URL + "/promocoes", {
     method: "GET",
   })
     .then((response) => {
@@ -330,7 +335,7 @@ window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       resultado.innerHTML = ""
       const filtrados = produtos.filter((p) => {
-       
+
 
         const textoCombina = p.nomeProd.toLowerCase().includes(filtroTexto.toLowerCase())
         const todasSelecionadas = categoriasAtivas.includes("todas")
@@ -390,7 +395,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
         btn.addEventListener("click", () => {
-         
+
           adicionarAoCarrinho({
             id: produto.idProd,
             nome: produto.nomeProd,
