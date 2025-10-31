@@ -2,8 +2,13 @@
 @import url('./base-responsive.css');
 
 :root{
-  --cor-blue: #0052cc;
-  --cor-blue-dark: #003399;
+  /* Variáveis de compatibilidade */
+  --cor-blue: var(--cor-blue);
+  --cor-blue-dark: var(--cor-primary-dark);
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ============TEXTO============= */
@@ -1608,6 +1613,8 @@ footer {
   font-weight: 600;
   margin-bottom: 18px;
   position: relative;
+  color: var(--cor-text-secondary);
+  transition: color 0.3s ease;
 }
 
 .footer-nav h4::after,
@@ -1694,7 +1701,12 @@ footer {
 
 .footer-contact li i {
   margin-right: 8px;
-  color: #0d6efd;
+  color: var(--cor-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.footer-contact li {
+  color: var(--cor-text-secondary);
 }
 
 /* Alinhando ícones de redes sociais usando imagens */
@@ -1708,18 +1720,23 @@ footer {
 .footer-social-icons a {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--cor-white-trans);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--cor-text-inverse) !important;
   font-size: 18px;
-  transition: transform .2s ease, background .2s ease;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.footer-social-icons a i {
+  color: var(--cor-text-inverse) !important;
+  filter: none;
 }
 
 .footer-social-icons a:hover {
-  background: #0d6efd;
+  background: var(--cor-primary);
   transform: translateY(-3px);
   text-decoration: none;
 }

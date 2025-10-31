@@ -1,13 +1,26 @@
+@import url('./base-responsive.css');
+
+:root {
+  /* Variáveis específicas do chatbot */
+  --chatbot-primary: var(--cor-primary);
+  --chatbot-secondary: var(--cor-bg-tertiary);
+  --chatbot-border: var(--cor-border);
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 .chatbot-fixed {
     position: fixed;
     bottom: 90px; /* Positioned above WhatsApp button */
     right: 20px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--chatbot-primary) 0%, #0066ff 100%);
+    background: linear-gradient(135deg, var(--chatbot-primary) 0%, var(--cor-primary-light) 100%);
     border: none;
     border-radius: var(--radius-full);
-    color: #717fe3;
+    color: var(--cor-text-inverse);
     font-size: 24px;
     cursor: pointer;
     z-index: var(--z-fixed);
@@ -22,7 +35,7 @@
   .chatbot-fixed:focus {
     transform: scale(1.1);
     box-shadow: 0 12px 35px rgba(0, 82, 204, 0.4);
-    background: linear-gradient(135deg, #0066ff 0%, var(--chatbot-primary) 100%);
+    background: linear-gradient(135deg, var(--cor-primary-light) 0%, var(--chatbot-primary) 100%);
   }
   
   .chatbot-fixed:focus {
@@ -37,7 +50,7 @@
     right: 20px;
     width: 380px;
     height: 500px;
-    background: var(--cor-white);
+    background: var(--cor-bg-primary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     z-index: var(--z-modal);
@@ -85,7 +98,7 @@
   }
   
   .chatbot-title-area h3 {
-    color: #000;
+    color: var(--cor-text-primary);
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0;
@@ -132,7 +145,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    background: var(--cor-white2);
+    background: var(--cor-bg-secondary);
   }
   
   .message {
@@ -171,7 +184,7 @@
   
   .message-content {
     max-width: 70%;
-    background: var(--cor-white);
+    background: var(--cor-bg-primary);
     padding: 12px 16px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
@@ -179,7 +192,7 @@
   
   .user-message .message-content {
     background: var(--chatbot-primary);
-    color: black;
+    color: var(--cor-text-inverse);
   }
   
   .message-content p {
@@ -198,7 +211,7 @@
   /* Quick Actions */
   .chatbot-quick-actions {
     padding: 16px 20px;
-    background: var(--cor-white);
+    background: var(--cor-bg-primary);
     border-top: 1px solid var(--chatbot-border);
     display: flex;
     gap: 8px;
@@ -234,7 +247,7 @@
   /* Input Area */
   .chatbot-input-area {
     padding: 20px;
-    background: var(--cor-white);
+    background: var(--cor-bg-primary);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     border-top: 1px solid var(--chatbot-border);
   }
@@ -264,7 +277,7 @@
     width: 44px;
     height: 44px;
     background: var(--chatbot-primary);
-    color: blue;
+    color: var(--cor-text-inverse);
     border: none;
     border-radius: var(--radius-full);
     cursor: pointer;
@@ -275,8 +288,8 @@
   }
   
   .chatbot-send:hover {
-    background: #0066ff;
-    color: white;
+    background: var(--cor-primary-light);
+    color: var(--cor-text-inverse);
     transform: scale(1.05);
   }
   
@@ -287,7 +300,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--shadow-overlay);
     backdrop-filter: blur(4px);
     z-index: calc(var(--z-modal) - 1);
     opacity: 0;
@@ -506,6 +519,6 @@
   }
   
   .chatbot-messages::-webkit-scrollbar-thumb:hover {
-    background: #0066ff;
+    background: var(--cor-primary-light);
   }
   

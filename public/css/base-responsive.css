@@ -2,17 +2,36 @@
 /* Arquivo base com melhorias de responsividade, acessibilidade e boas práticas */
 
 /* =================== VARIÁVEIS CSS GLOBAIS =================== */
+/* =================== MODO CLARO (Light Mode) =================== */
 :root {
-  /* Cores principais */
+  /* Cores principais - mantidas para preservar identidade visual */
   --cor-primary: #0052cc;
   --cor-primary-dark: #003d99;
   --cor-primary-light: #1c7ed6;
   --cor-secondary: #25d366;
   --cor-accent: #ff6b35;
   
-  /* Cores neutras */
+  /* Cores base do projeto */
+  --cor-blue: #0052cc;
+  --cor-whats: #25d366;
+  
+  /* Cores de fundo (Light Mode) */
   --cor-white: #ffffff;
+  --cor-white2: #f5f5f7;
+  --cor-bg-primary: #ffffff;
+  --cor-bg-secondary: #f5f5f7;
+  --cor-bg-tertiary: #f8f9fa;
+  --cor-bg-overlay: rgba(255, 255, 255, 0.95);
+  --cor-white-trans: rgba(255, 255, 255, 0.1);
+  
+  /* Cores de texto (Light Mode) */
   --cor-black: #000000;
+  --cor-text-primary: #212529;
+  --cor-text-secondary: #495057;
+  --cor-text-muted: #6c757d;
+  --cor-text-inverse: #ffffff;
+  
+  /* Cores neutras (Light Mode) */
   --cor-gray-50: #f8f9fa;
   --cor-gray-100: #e9ecef;
   --cor-gray-200: #dee2e6;
@@ -24,6 +43,12 @@
   --cor-gray-800: #212529;
   --cor-gray-900: #121416;
   
+  /* Cores de borda e linha */
+  --cor-linha-cinza: #dcdcdc;
+  --cor-border: #dee2e6;
+  --cor-border-light: #e9ecef;
+  --cor-border-dark: #adb5bd;
+  
   /* Cores de estado */
   --cor-success: #28a745;
   --cor-success-hover: #218838;
@@ -34,16 +59,14 @@
   /* Cores de acessibilidade */
   --cor-focus: #0052cc;
   --cor-focus-ring: rgba(0, 82, 204, 0.25);
-  --cor-text-primary: #212529;
-  --cor-text-secondary: #6c757d;
-  --cor-text-muted: #adb5bd;
   
-  /* Sombras */
+  /* Sombras (Light Mode - mais suaves) */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --shadow-overlay: rgba(0, 0, 0, 0.5);
   
   /* Bordas */
   --radius-sm: 4px;
@@ -133,11 +156,12 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--cor-text-primary);
-  background-color: var(--cor-gray-50);
+  background-color: var(--cor-bg-secondary);
   margin: 0;
   padding: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* =================== ACESSIBILIDADE =================== */
@@ -185,12 +209,12 @@ body {
   top: -40px;
   left: 6px;
   background: var(--cor-primary);
-  color: var(--cor-white);
+  color: var(--cor-text-inverse);
   padding: 8px;
   text-decoration: none;
   border-radius: var(--radius);
   z-index: var(--z-tooltip);
-  transition: top var(--transition-fast);
+  transition: top var(--transition-fast), background-color 0.3s ease, color 0.3s ease;
 }
 
 .skip-link:focus {
@@ -203,7 +227,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-md);
-  color: var(--cor-white);
+  color: var(--cor-text-primary);
+  transition: color 0.3s ease;
 }
 
 h1 { font-size: var(--font-size-4xl); }
@@ -235,6 +260,7 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 img[loading="lazy"] {
@@ -244,6 +270,31 @@ img[loading="lazy"] {
 
 img[loading="lazy"].loaded {
   opacity: 1;
+}
+
+/* Ajuste de logos e ícones para modo escuro */
+@media (prefers-color-scheme: dark) {
+  /* Logos escuros ficam mais claros no modo escuro */
+  .logo-img,
+  img[alt*="logo"],
+  img[alt*="Logo"] {
+    filter: brightness(1.2) contrast(1.1);
+  }
+  
+  /* Ícones que precisam de ajuste */
+  .logo-img,
+  .icon-light {
+    filter: brightness(1.3);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* Logos claros no modo claro */
+  .logo-img,
+  img[alt*="logo"],
+  img[alt*="Logo"] {
+    filter: brightness(1);
+  }
 }
 
 /* =================== BOTÕES E INTERAÇÕES =================== */
@@ -278,15 +329,16 @@ button,
 
 .btn-primary {
   background-color: var(--cor-primary);
-  color: var(--cor-white);
+  color: var(--cor-text-inverse);
   border-color: var(--cor-primary);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: var(--cor-primary-dark);
   border-color: var(--cor-primary-dark);
-  color: var(--cor-white);
+  color: var(--cor-text-inverse);
   text-decoration: none;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
@@ -316,10 +368,10 @@ select {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--cor-text-primary);
-  background-color: var(--cor-white);
-  border: 1px solid var(--cor-gray-300);
+  background-color: var(--cor-bg-primary);
+  border: 1px solid var(--cor-border);
   border-radius: var(--radius);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   min-height: var(--touch-target-min);
 }
 
@@ -545,25 +597,77 @@ label {
   }
 }
 
-/* =================== DARK MODE SUPPORT =================== */
+/* =================== MODO ESCURO (Dark Mode) =================== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --cor-white: #121416;
-    --cor-black: #ffffff;
-    --cor-gray-50: #1a1d21;
-    --cor-gray-100: #212529;
-    --cor-gray-200: #343a40;
-    --cor-gray-300: #495057;
-    --cor-gray-400: #6c757d;
-    --cor-gray-500: #adb5bd;
-    --cor-gray-600: #ced4da;
-    --cor-gray-700: #dee2e6;
-    --cor-gray-800: #e9ecef;
-    --cor-gray-900: #f8f9fa;
+    /* Cores principais - mantidas (azul mais claro para melhor visibilidade) */
+    --cor-primary: #4a9eff;
+    --cor-primary-dark: #0052cc;
+    --cor-primary-light: #6bb3ff;
+    --cor-secondary: #2dd475;
+    --cor-accent: #ff8a5c;
     
-    --cor-text-primary: #ffffff;
+    /* Cores base do projeto (ajustadas para modo escuro) */
+    --cor-blue: #4a9eff;
+    --cor-whats: #2dd475;
+    
+    /* Cores de fundo (Dark Mode) */
+    --cor-white: #1a1d21;
+    --cor-white2: #121416;
+    --cor-bg-primary: #1a1d21;
+    --cor-bg-secondary: #121416;
+    --cor-bg-tertiary: #212529;
+    --cor-bg-overlay: rgba(26, 29, 33, 0.95);
+    --cor-white-trans: rgba(255, 255, 255, 0.15);
+    
+    /* Cores de texto (Dark Mode) */
+    --cor-black: #ffffff;
+    --cor-text-primary: #e9ecef;
     --cor-text-secondary: #adb5bd;
     --cor-text-muted: #6c757d;
+    --cor-text-inverse: #121416;
+    
+    /* Cores neutras (Dark Mode - invertidas) */
+    --cor-gray-50: #1a1d21;
+    --cor-gray-100: #212529;
+    --cor-gray-200: #2d3238;
+    --cor-gray-300: #343a40;
+    --cor-gray-400: #495057;
+    --cor-gray-500: #6c757d;
+    --cor-gray-600: #adb5bd;
+    --cor-gray-700: #ced4da;
+    --cor-gray-800: #dee2e6;
+    --cor-gray-900: #e9ecef;
+    
+    /* Cores de borda e linha (Dark Mode) */
+    --cor-linha-cinza: #343a40;
+    --cor-border: #2d3238;
+    --cor-border-light: #212529;
+    --cor-border-dark: #495057;
+    
+    /* Cores de estado (ajustadas para melhor contraste) */
+    --cor-success: #2dd475;
+    --cor-success-hover: #25d366;
+    --cor-warning: #ffd54f;
+    --cor-danger: #ff6b6b;
+    --cor-info: #4dd0e1;
+    
+    /* Cores de acessibilidade (Dark Mode) */
+    --cor-focus: #4a9eff;
+    --cor-focus-ring: rgba(74, 158, 255, 0.3);
+    
+    /* Sombras (Dark Mode - mais fortes e com brilho) */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.8);
+    --shadow-overlay: rgba(0, 0, 0, 0.75);
+  }
+  
+  /* Ajustes de transição suave */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 }
 

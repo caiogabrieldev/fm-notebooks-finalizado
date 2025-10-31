@@ -1,3 +1,4 @@
+@import url("./base-responsive.css");
 
 * {
     margin: 0;
@@ -7,20 +8,57 @@
 }
 
 :root {
-    --cor-black: #000;
-    --cor-blue: #0052cc;
-    --cor-white: #fff;
+    /* Variáveis específicas do login.css */
+    --cor-black: var(--cor-text-primary);
+    --cor-blue: var(--cor-blue);
+    --cor-white: var(--cor-text-inverse);
     --cor-white-trans: rgba(255, 255, 255, 0.1);
     --cor-white-light: rgba(255, 255, 255, 0.3);
-    --cor-shadow: rgba(0, 0, 0, 0.25);
+    --cor-shadow: var(--shadow-overlay);
     --cor-accent: #00c4ff;
+    --bg-login: #000;
+    --box-login-bg: rgba(0, 0, 0, 0.55);
+    --titulo-bg: rgba(0, 0, 0, 0.5);
 }
 
 html, body {
     height: 100%;
     overflow: hidden;
-    background: #000;
-    color: var(--cor-white);
+    background: var(--bg-login);
+    color: var(--cor-text-inverse);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-login: #121416;
+        --box-login-bg: rgba(26, 29, 33, 0.75);
+        --titulo-bg: rgba(26, 29, 33, 0.7);
+        --cor-white-trans: rgba(255, 255, 255, 0.15);
+        --cor-white-light: rgba(255, 255, 255, 0.4);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-login: #f5f5f7;
+        --box-login-bg: rgba(255, 255, 255, 0.85);
+        --titulo-bg: rgba(255, 255, 255, 0.8);
+        --cor-white-trans: rgba(0, 0, 0, 0.1);
+        --cor-white-light: rgba(0, 0, 0, 0.3);
+    }
+    
+    html, body {
+        color: var(--cor-text-primary);
+    }
+    
+    .bg-image {
+        filter: brightness(0.8);
+    }
 }
 
 .bg-image {
@@ -84,7 +122,7 @@ html, body {
     border-radius: 16px;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    background: rgba(0, 0, 0, 0.5);  
+    background: var(--titulo-bg);  
 }
 
 .logo-box {

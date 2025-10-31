@@ -17,6 +17,9 @@
 
 <body>
 
+  <!-- SIDEBAR OVERLAY (para mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menu de administração">
     <div class="sidebar-header">
@@ -613,23 +616,51 @@
       const toggleSidebar = document.getElementById('toggle-sidebar');
       const closeSidebar = document.getElementById('close-sidebar');
       const sidebar = document.getElementById('sidebar');
+      const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+      function openSidebar() {
+        sidebar.classList.add('active');
+        if (sidebarOverlay) {
+          sidebarOverlay.style.display = 'block';
+        }
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSidebarFunc() {
+        sidebar.classList.remove('active');
+        if (sidebarOverlay) {
+          sidebarOverlay.style.display = 'none';
+        }
+        document.body.style.overflow = '';
+      }
 
       // Abrir sidebar
-      toggleSidebar.addEventListener('click', function() {
-        sidebar.classList.add('active');
-      });
+      if (toggleSidebar) {
+        toggleSidebar.addEventListener('click', function() {
+          openSidebar();
+        });
+      }
 
       // Fechar sidebar
-      closeSidebar.addEventListener('click', function() {
-        sidebar.classList.remove('active');
-      });
+      if (closeSidebar) {
+        closeSidebar.addEventListener('click', function() {
+          closeSidebarFunc();
+        });
+      }
+
+      // Fechar sidebar ao clicar no overlay
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', function() {
+          closeSidebarFunc();
+        });
+      }
 
       // Fechar sidebar ao clicar em um item do menu em telas pequenas
-      const sidebarButtons = sidebar.querySelectorAll('button');
+      const sidebarButtons = sidebar.querySelectorAll('button:not(.close-sidebar)');
       sidebarButtons.forEach(button => {
         button.addEventListener('click', function() {
           if (window.innerWidth <= 992) {
-            sidebar.classList.remove('active');
+            closeSidebarFunc();
           }
         });
       });
@@ -637,7 +668,7 @@
       // Ajustar sidebar ao redimensionar a tela
       window.addEventListener('resize', function() {
         if (window.innerWidth > 992) {
-          sidebar.classList.remove('active');
+          closeSidebarFunc();
         }
       });
     });
